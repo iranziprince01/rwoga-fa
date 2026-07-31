@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Calibri", "Carlito", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+
+  /* Dark green primary scale */
+  --color-navy-950: #061a12;
+  --color-navy-900: #0b2e1f;
+  --color-navy-800: #123d2a;
+  --color-navy-700: #1a4f37;
+  --color-navy-600: #246347;
+
+  /* Green labels & links */
+  --color-blue-500: #1f7a52;
+  --color-blue-400: #2f9a6a;
+  --color-blue-300: #7bc4a0;
+
+  /* Light coral accent scale */
+  --color-amber-500: #f0947d;
+  --color-amber-400: #f5ab98;
+  --color-amber-300: #f8c4b6;
+  --color-amber-100: #fcede8;
+
+  /* Warm stone surfaces */
+  --color-cream-50: #fffaf5;
+  --color-cream-100: #faf3eb;
+  --color-cream-200: #f0e4d6;
+
+  /* Supporting sage */
+  --color-sage-600: #1f7a52;
+  --color-sage-500: #3d9b6e;
+  --color-sage-100: #e3f5ec;
+
+  --color-slate-soft: #6b7280;
+  --color-slate-muted: #9ca3af;
+
+  --shadow-soft: 0 4px 24px -4px rgb(11 46 31 / 0.1);
+  --shadow-lift: 0 12px 40px -12px rgb(11 46 31 / 0.18);
+  --shadow-glow: 0 0 0 1px rgb(240 148 125 / 0.28), 0 8px 32px -8px rgb(11 46 31 / 0.14);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-50 font-sans text-navy-900 antialiased;
+    font-feature-settings: "ss01" on;
+  }
+
+  ::selection {
+    @apply bg-amber-100 text-navy-900;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-500;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass {
+    @apply border border-white/40 bg-white/70 backdrop-blur-xl;
+  }
+
+  .glass-dark {
+    @apply border border-white/10 bg-navy-900/60 backdrop-blur-xl;
+  }
+
+  .gradient-mesh {
+    background:
+      radial-gradient(ellipse 80% 60% at 18% 18%, rgb(31 122 82 / 0.28), transparent 52%),
+      radial-gradient(ellipse 70% 50% at 82% 8%, rgb(240 148 125 / 0.24), transparent 48%),
+      radial-gradient(ellipse 60% 50% at 68% 82%, rgb(47 154 106 / 0.16), transparent 50%),
+      linear-gradient(165deg, #061a12 0%, #0b2e1f 48%, #123d2a 100%);
+  }
+
+  .gradient-cream {
+    background:
+      radial-gradient(ellipse 90% 70% at 8% 0%, rgb(240 148 125 / 0.18), transparent 50%),
+      radial-gradient(ellipse 70% 60% at 92% 18%, rgb(31 122 82 / 0.1), transparent 45%),
+      #faf3eb;
+  }
+
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .prose-rwoga {
+    @apply text-base leading-relaxed text-navy-800/80 sm:text-lg;
+  }
+}
