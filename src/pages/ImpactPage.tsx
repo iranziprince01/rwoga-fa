@@ -20,7 +20,7 @@ export function ImpactPage() {
       />
       <PageHero eyebrow="Impact" title="Progress that creates opportunity" />
 
-      <section className="py-20 sm:py-28">
+      <section className="bg-amber-100 py-20 sm:py-28">
         <div className="container-page">
           <SectionHeader
             eyebrow="At a glance"
@@ -31,21 +31,29 @@ export function ImpactPage() {
         </div>
       </section>
 
-      <section className="bg-cream-100 py-20 sm:py-28">
-        <div className="container-page grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <SectionHeader
-            eyebrow="Our Story"
-            title="How impact has grown"
-          />
-          <Timeline events={timeline} />
+      <section className="bg-white py-20 sm:py-28">
+        <div className="container-page">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-x-20">
+            <div>
+              <SectionHeader
+                eyebrow="Our Story"
+                title="From five students to a growing community"
+              />
+              <Timeline events={timeline.slice(0, 3)} className="mt-10" />
+            </div>
+
+            <div className="lg:pt-2">
+              <Timeline events={timeline.slice(3)} startIndex={3} />
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="bg-cream-100 py-20 sm:py-28">
         <div className="container-page">
           <SectionHeader
             eyebrow="Stories"
-            title="Challenge. Action. Impact. Next Steps."
+            title="Stories that show the work"
             className="mb-10"
           />
           <div className="grid gap-6 lg:grid-cols-2">
@@ -58,7 +66,7 @@ export function ImpactPage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="bg-white py-20 sm:py-28">
         <div className="container-page">
           <CTA
             eyebrow="Support the mission"
@@ -66,8 +74,8 @@ export function ImpactPage() {
             description="Partner, volunteer, sponsor, or donate to help refugee communities build brighter futures."
             primaryLabel="Support Our Mission"
             primaryTo="/donate"
-            secondaryLabel="Become a Partner"
-            secondaryTo="/partners"
+            secondaryLabel="Get Involved"
+            secondaryTo="/get-involved"
             variant="amber"
           />
         </div>

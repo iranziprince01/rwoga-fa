@@ -13,6 +13,8 @@ export type Program = {
   futureGoals: string[]
   icon: string
   image: string
+  /** Tailwind object-position class for cropped card/detail images */
+  imagePosition?: string
 }
 
 export type ProjectStatus = 'active' | 'completed' | 'planned'
@@ -36,6 +38,7 @@ export type Leader = {
   department?: string
   bio: string
   image: string
+  group: 'board' | 'current'
 }
 
 export type Department = {

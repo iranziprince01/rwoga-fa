@@ -14,7 +14,7 @@ export function GetInvolvedPage() {
     <>
       <SEO
         title="Get Involved"
-        description="Volunteer, mentor, partner, or donate. Join Rwoga Family Association in supporting refugee youth leadership."
+        description="Become a member, mentor, partner, or donate. Join Rwoga Family Association in supporting refugee youth leadership."
         path="/get-involved"
       />
       <PageHero
@@ -31,7 +31,13 @@ export function GetInvolvedPage() {
                   <h2 className="font-display text-2xl font-bold text-navy-900">{path.title}</h2>
                   <p className="mt-3 flex-1 text-navy-800/70 leading-relaxed">{path.description}</p>
                   <div className="mt-6">
-                    <ButtonLink to={path.to} variant="secondary">
+                    <ButtonLink
+                      to={path.to}
+                      variant="primary"
+                      size="lg"
+                      external={path.external}
+                      className="w-full font-semibold"
+                    >
                       {path.label}
                     </ButtonLink>
                   </div>

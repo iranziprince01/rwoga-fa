@@ -33,11 +33,11 @@ export function ProgramsPage() {
       <section className="py-20 sm:py-28">
         <div className="container-page">
           <CTA
-            eyebrow="Projects"
-            title="See how programs become action"
-            description="Explore active and planned projects that turn our pillars into lived experience."
-            primaryLabel="View projects"
-            primaryTo="/projects"
+            eyebrow="Impact"
+            title="See how programs create change"
+            description="Explore our impact stories and the communities we serve across Rwanda."
+            primaryLabel="View impact"
+            primaryTo="/impact"
             secondaryLabel="Support programs"
             secondaryTo="/donate"
           />

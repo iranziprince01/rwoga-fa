@@ -179,8 +179,8 @@ export function DonatePage() {
             description="We are preparing governance documents, policies, and reports so every supporter can see how Rwoga stewards resources."
             primaryLabel="View transparency"
             primaryTo="/transparency"
-            secondaryLabel="Become a partner"
-            secondaryTo="/partners"
+            secondaryLabel="Get Involved"
+            secondaryTo="/get-involved"
             variant="light"
           />
         </div>

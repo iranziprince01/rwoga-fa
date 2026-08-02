@@ -25,7 +25,10 @@ export function ProgramCard({ program, className }: Props) {
           alt=""
           width={800}
           height={500}
-          className="h-full w-full transition-transform duration-700 group-hover:scale-105"
+          className={cn(
+            'h-full w-full transition-transform duration-700 group-hover:scale-105',
+            program.imagePosition,
+          )}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 to-transparent" />
         <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-xl bg-white/90 text-navy-900 backdrop-blur">

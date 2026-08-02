@@ -19,7 +19,8 @@ import type {
 
 /** High-quality Unsplash placeholders, Cloudinary-ready via getImageUrl */
 export const IMAGES = {
-  hero: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=2000&q=80',
+  hero: '/hero.jpg',
+  whoWeAre: '/WeAre.jpg',
   community: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=80',
   learning: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80',
   mentorship: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80',
@@ -39,41 +40,47 @@ export const IMAGES = {
 
 export const aboutContent = {
   whoWeAre: [
-    'Rwoga Family Association is a refugee-led youth association founded by Congolese refugee students at African Leadership University. Established in 2019, the Association exists to foster unity among refugee students while creating meaningful opportunities for refugee communities through education, mentorship, community service, and sustainable development initiatives.',
-    'Today, Rwoga brings together over one hundred members who believe that lasting change begins when communities invest in one another.',
+    'Rwoga Family Association is a refugee-led youth association founded by Congolese refugee students at African Leadership University.',
+    'The Association exists to foster unity among refugee students while creating meaningful opportunities for refugee communities through education, mentorship, community service, and sustainable development initiatives.',
+    'Today, Rwoga brings together over 100 members who believe that lasting change begins when communities invest in one another.',
   ],
   whoWeAreHome: [
-    'Rwoga Family Association began in 2019 when 5 Congolese refugee students at The African Leadership University came together to support one another academically, socially, and emotionally. What started as a small family has grown into a vibrant association of more than 100 members united by a shared commitment to giving back to refugee communities.',
-    'Driven by compassion, accountability, and collective action, our members contribute their own stipends, time, and skills to support educational, economic, and community development initiatives across refugee camps in Rwanda.',
+    'Rwoga Family Association was founded in 2019 by five Congolese refugee students at The African Leadership University who came together to support one another academically, socially, and emotionally. What began as a small support group has grown into a community of more than 100 members united by a shared commitment to giving back to refugee communities.',
+    'Driven by compassion, accountability, and collective action, our members contribute their time, skills, and resources to create lasting opportunities for refugee communities across Rwanda.',
   ],
   meaning: [
-    'Rwoga is a Kinyarwanda word meaning "the leading star" - a bright star that shines ahead and guides others.',
-    'This name reflects our belief that every refugee has the potential to become a source of hope, leadership, and positive change within their community.',
-    'Just as a leading star illuminates the path for others, Rwoga seeks to empower individuals who will inspire and uplift future generations.',
+    'Rwoga is a Kinyarwanda word meaning "the leading star" - a star that lights the way and guides others.',
+    'This name reflects our belief that every refugee has the potential to bring hope, lead others, and create positive change in their community.',
+    'Just as a leading star lights the way for others, Rwoga seeks to empower individuals who will inspire, support, and guide future generations.',
   ],
   mission:
-    'To unite refugee students and alumni in creating opportunities, supporting vulnerable communities, and inspiring future generations through collective action, mentorship, and impactful community initiatives.',
+    'We bring together refugee students and alumni to create opportunities for refugee communities through education, mentorship, and community-led initiatives.',
   vision:
-    'To become a trusted refugee-led association empowering communities through education, leadership, innovation, and sustainable development.',
+    'A future where every refugee has the opportunity to learn, lead, and thrive in resilient and self-reliant communities.',
   philosophy:
-    'We lead as peers and siblings. Our leadership model is rooted in service, accountability, and the belief that those closest to the challenge are closest to the solution.',
+    'We believe that those closest to a community’s challenges are also closest to its solutions. Our work is rooted in service, accountability, and shared responsibility.',
 }
 
 export const values: ValueItem[] = [
   {
-    title: 'Time Management and Commitment',
-    description: 'We honor our responsibilities with discipline, reliability, and steady dedication to the communities we serve.',
-    icon: 'Clock',
-  },
-  {
-    title: 'Constructive Support and Solidarity',
-    description: 'We stand with one another and with refugee communities through practical care, encouragement, and unity.',
+    title: 'Community and Solidarity',
+    description: 'We stand with one another and with refugee communities through care, unity, and mutual support.',
     icon: 'Users',
   },
   {
-    title: 'Accountability and Responsibility',
-    description: 'We act with integrity, transparency, and ownership in every initiative we undertake.',
+    title: 'Service and Compassion',
+    description: 'We serve with kindness and respect, placing the dignity of every person at the center of our work.',
+    icon: 'Heart',
+  },
+  {
+    title: 'Accountability',
+    description: 'We act with integrity and transparency, taking responsibility for the trust placed in us.',
     icon: 'Shield',
+  },
+  {
+    title: 'Leadership',
+    description: 'We nurture ethical leaders who guide with courage, humility, and a commitment to lasting change.',
+    icon: 'Compass',
   },
 ]
 
@@ -125,15 +132,15 @@ export const pillars: Pillar[] = [
 
 export const stats: StatItem[] = [
   {
+    id: 'founded',
+    value: 2019,
+    label: 'Founded In',
+  },
+  {
     id: 'members',
     value: 100,
     suffix: '+',
     label: 'Members',
-  },
-  {
-    id: 'founded',
-    value: 2019,
-    label: 'Founded',
   },
   {
     id: 'communities',
@@ -145,7 +152,7 @@ export const stats: StatItem[] = [
     id: 'projects',
     value: 10,
     suffix: '+',
-    label: 'Community Projects',
+    label: 'Community Support Initiatives Delivered',
   },
   {
     id: 'lives',
@@ -158,131 +165,132 @@ export const stats: StatItem[] = [
 export const timeline: TimelineEvent[] = [
   {
     year: '2019',
-    title: 'A support network begins',
+    title: 'A support group begins',
     description:
-      '5 Congolese refugee students at The African Leadership University formed Rwoga as a support network where members could share meals, experiences, academic guidance, and encouragement.',
+      'Five Congolese refugee students at The African Leadership University formed Rwoga as a support group where they could share experiences, academic guidance, and encouragement.',
   },
   {
     year: '2020',
     title: 'The family grows',
     description:
-      'Rwoga welcomed approximately 20 new refugee students from refugee camps across Rwanda, strengthening the family and expanding its vision.',
+      'Rwoga welcomed about 20 new refugee students from refugee camps across Rwanda, growing the family and expanding its vision.',
   },
   {
     year: '2021',
     title: 'First community outreach',
     description:
-      'The Association organized its first community outreach at Gakoni High School, inspiring refugee secondary school students to pursue academic excellence and higher education opportunities.',
+      'Rwoga held its first community outreach at Gakoni High School, encouraging refugee secondary school students to pursue academic excellence and higher education.',
   },
   {
     year: '2022',
-    title: 'Expanding support',
+    title: 'Supporting student learning',
     description:
-      "Rwoga expanded significantly with the introduction of ALU's new intake model and launched initiatives supporting fellow refugee university students from other universities through laptop donations.",
+      'Rwoga continued to grow and started supporting refugee university students from other universities by donating laptops to support their studies.',
   },
   {
     year: '2024',
-    title: 'Food assistance in transition',
+    title: 'Food support in transition',
     description:
-      'Community outreach expanded through food assistance for vulnerable families transitioning into Nyabiheke Refugee Camp from Nkamira transit.',
+      'Rwoga expanded its outreach by providing food to vulnerable families moving from Nkamira Transit Centre to Nyabiheke Refugee Camp.',
   },
   {
     year: '2025',
     title: 'Women empowerment and excellence',
     description:
-      'Women empowerment and educational excellence became key priorities through 5 sewing machine donations in Kiziba refugee camp and academic awards to top-performing students in Kigeme refugee camp.',
+      'Rwoga promoted women’s empowerment by donating five sewing machines in Mugombwa and Kiziba Refugee Camps and recognized top-performing students in Kigeme Refugee Camp with academic awards.',
   },
   {
     year: 'Today',
     title: 'Growing with purpose',
     description:
-      'Rwoga continues to grow as a trusted refugee-led association committed to empowering communities through sustainable and impactful initiatives.',
+      'Rwoga continues to grow as a trusted refugee-led association, empowering communities through education, mentorship, and community-led initiatives.',
   },
 ]
 
 export const programs: Program[] = [
   {
-    id: 'student-leadership',
-    title: 'Student Leadership',
-    summary: 'Preparing refugee students to lead with integrity, confidence, and service.',
-    description:
-      'Through peer leadership practice, workshops, and collective decision-making, members develop the skills to guide teams and serve their communities with accountability.',
-    outcomes: [
-      'Stronger leadership confidence among members',
-      'Practical experience coordinating initiatives',
-      'A growing pipeline of ethical youth leaders',
-    ],
-    futureGoals: [
-      'Expand leadership fellowships across cohorts',
-      'Document member-led case studies',
-      'Strengthen alumni leadership pathways',
-    ],
-    icon: 'Compass',
-    image: IMAGES.leadership,
-  },
-  {
-    id: 'educational-support',
-    title: 'Educational Support',
+    id: 'education-support',
+    title: 'Education Support',
     summary: 'Mentorship, learning resources, scholarships, and academic encouragement for refugee learners.',
     description:
-      'We support refugee learners with peer guidance, learning materials, academic encouragement, and pathways that help them pursue excellence in school and higher education.',
+      'We support refugee learners with guidance, learning materials, and encouragement so they can pursue excellence in school and higher education.',
     outcomes: [
-      'Improved academic confidence and study habits',
-      'Access to learning materials and guidance',
+      'Greater academic confidence and stronger study habits',
+      'Better access to learning materials and guidance',
       'Recognition of academic excellence in refugee communities',
     ],
     futureGoals: [
       'Grow scholarship and award pathways',
       'Build a shared learning resource library',
-      'Expand tutoring networks across camps and campuses',
+      'Expand tutoring across camps and campuses',
     ],
     icon: 'GraduationCap',
-    image: IMAGES.learning,
+    image: '/Education Support.jpeg',
+  },
+  {
+    id: 'student-leadership',
+    title: 'Student Leadership',
+    summary: 'Preparing refugee students to lead with integrity, confidence, and service.',
+    description:
+      'Through workshops, peer practice, and shared decision-making, members learn to guide teams and serve their communities with care and accountability.',
+    outcomes: [
+      'Stronger leadership confidence among members',
+      'Practical experience coordinating initiatives',
+      'A growing community of ethical youth leaders',
+    ],
+    futureGoals: [
+      'Expand leadership opportunities across cohorts',
+      'Document member-led case studies',
+      'Strengthen alumni leadership pathways',
+    ],
+    icon: 'Compass',
+    image: '/EdSupport.jpg',
+    imagePosition: 'object-[center_20%]',
   },
   {
     id: 'women-empowerment',
     title: 'Women Empowerment',
     summary: 'Practical tools, vocational opportunities, and sustainable livelihood initiatives for women.',
     description:
-      'Rwoga supports refugee women with vocational equipment and livelihood pathways that restore dignity and economic agency, including sewing machine donations and skills-centered outreach.',
+      'Rwoga supports refugee women with vocational equipment and livelihood pathways that uphold dignity and economic independence, including sewing machine donations and skills-centered outreach.',
     outcomes: [
-      'Women equipped with tools for income generation',
+      'Women equipped with tools to earn an income',
       'Stronger livelihood pathways for single mothers',
       'Community-led models for women’s empowerment',
     ],
     futureGoals: [
-      'Scale vocational equipment support across camps',
+      'Extend vocational equipment support across camps',
       'Pair tools with training and market linkages',
-      'Document livelihood outcomes with community partners',
+      'Share livelihood outcomes with community partners',
     ],
     icon: 'Heart',
-    image: IMAGES.workshop,
+    image: '/Empowerment.jpg',
   },
   {
     id: 'community-outreach',
     title: 'Community Outreach',
     summary: 'Meaningful projects that improve the well-being of refugee families and communities.',
     description:
-      'From school visits to food assistance for families in transition, our outreach initiatives respond to real needs across refugee communities in Rwanda.',
+      'From school visits to food support for families in transition, our outreach responds to real needs across refugee communities in Rwanda.',
     outcomes: [
       'Direct support for vulnerable families',
-      'Inspiration for secondary school students',
+      'Encouragement for secondary school students',
       'Stronger ties between university members and camps',
     ],
     futureGoals: [
       'Deepen outreach across more refugee communities',
-      'Coordinate with camp partners for sustained impact',
-      'Publish outreach learning in annual reports',
+      'Work with camp partners for lasting impact',
+      'Share outreach learning in annual reports',
     ],
     icon: 'Home',
-    image: IMAGES.community,
+    image: '/Community Outreach.jpg',
   },
   {
     id: 'career-development',
     title: 'Career Development',
     summary: 'Pathways that prepare members for work, internships, and professional growth.',
     description:
-      'We help refugee students and alumni build career readiness through exposure, guidance, and practical professional development opportunities.',
+      'We help refugee students and alumni build career readiness through exposure, guidance, and practical professional development.',
     outcomes: [
       'Greater readiness for internships and employment',
       'Clearer professional direction for members',
@@ -294,52 +302,33 @@ export const programs: Program[] = [
       'Connect alumni mentors with current students',
     ],
     icon: 'Briefcase',
-    image: IMAGES.campus,
+    image: '/Career development.jpg',
   },
   {
     id: 'mentorship',
     title: 'Mentorship',
     summary: 'Connecting refugee youth with mentors, role models, and peer guides.',
     description:
-      'Mentorship pairs members with peers and professionals who offer guidance on education, careers, wellbeing, and navigating life as refugee leaders.',
+      'Mentorship pairs members with peers and professionals who offer guidance on education, careers, wellbeing, and life as young refugee leaders.',
     outcomes: [
       'Trusted relationships that support growth',
       'Practical advice for education and careers',
-      'Stronger sense of belonging and direction',
+      'A stronger sense of belonging and direction',
     ],
     futureGoals: [
       'Grow a vetted mentor network across sectors',
-      'Introduce structured mentorship pathways',
-      'Track mentorship quality through member feedback',
+      'Introduce clear mentorship pathways',
+      'Improve mentorship quality through member feedback',
     ],
     icon: 'Users',
-    image: IMAGES.mentorship,
-  },
-  {
-    id: 'youth-empowerment',
-    title: 'Youth Empowerment',
-    summary: 'Preparing refugee youth to become leaders, innovators, and changemakers.',
-    description:
-      'We invest in refugee youth as agents of change, equipping them with confidence, skills, and platforms to shape their communities.',
-    outcomes: [
-      'Youth leading initiatives in their communities',
-      'Increased confidence and civic engagement',
-      'Peer models of refugee-led change',
-    ],
-    futureGoals: [
-      'Expand youth-led project incubators',
-      'Celebrate youth excellence across camps',
-      'Strengthen peer advocacy networks',
-    ],
-    icon: 'Sparkles',
-    image: IMAGES.youth,
+    image: '/Mentorship.jpeg',
   },
   {
     id: 'digital-literacy',
     title: 'Digital Literacy',
     summary: 'Digital skills and device access that open doors to learning and opportunity.',
     description:
-      'Through device support, digital skills exposure, and peer learning, we help refugee students participate fully in modern education and work.',
+      'Through device support, digital skills learning, and peer guidance, we help refugee students take part fully in modern education and work.',
     outcomes: [
       'Improved access to digital learning tools',
       'Stronger digital confidence among students',
@@ -348,29 +337,11 @@ export const programs: Program[] = [
     futureGoals: [
       'Expand digital skills workshops',
       'Grow device donation pathways',
-      'Partner on sustainable tech access models',
+      'Partner on lasting technology access models',
     ],
     icon: 'Laptop',
-    image: IMAGES.books,
-  },
-  {
-    id: 'volunteerism',
-    title: 'Volunteerism',
-    summary: 'Members contributing time, stipends, and skills to serve refugee communities.',
-    description:
-      'Volunteerism is at the heart of Rwoga. Members give their own stipends, time, and skills to support educational, economic, and community development initiatives.',
-    outcomes: [
-      'A culture of service across the association',
-      'Member-led projects delivered with accountability',
-      'Collective action that multiplies individual effort',
-    ],
-    futureGoals: [
-      'Strengthen volunteer coordination systems',
-      'Recognize outstanding member service',
-      'Invite external allies into structured volunteer roles',
-    ],
-    icon: 'Clock',
-    image: IMAGES.gathering,
+    image: '/Digital literacy.jpg',
+    imagePosition: 'object-bottom',
   },
 ]
 
@@ -379,31 +350,31 @@ export const projects: Project[] = [
     id: 'sewing-hope',
     title: 'Sewing Hope',
     summary:
-      'Providing sewing machines so refugee women can generate income and provide for their families with dignity.',
+      'Three single mothers in Mugombwa Refugee Camp knew how to sew but did not have sewing machines to turn their skills into an income. Together, Rwoga members helped change that.',
     description:
-      'In Mugombwa Refugee Camp, 3 single mothers had tailoring skills but no sewing machines. Through contributions made by Congolese refugee university students, Rwoga provided 3 sewing machines, enabling these women to generate income and provide for their families with dignity. Similar women empowerment efforts continued with sewing machine donations in Kiziba refugee camp.',
+      'Three single mothers in Mugombwa Refugee Camp knew how to sew but did not have sewing machines to turn their skills into an income. Together, Rwoga members helped change that by providing sewing machines so these women could earn an income and provide for their families with dignity. Similar support continued with sewing machine donations in Kiziba Refugee Camp.',
     status: 'completed',
     category: 'Women Empowerment',
     impactHighlights: [
-      '3 sewing machines donated in Mugombwa Refugee Camp',
+      'Sewing machines provided in Mugombwa Refugee Camp',
       'Single mothers supported to earn income with dignity',
-      'Model expanded with further donations in Kiziba',
+      'Support extended to Kiziba Refugee Camp',
     ],
-    image: IMAGES.workshop,
-    gallery: [IMAGES.workshop, IMAGES.community, IMAGES.gathering],
+    image: '/sewing2.jpg',
+    gallery: ['/sewing2.jpg', IMAGES.community, IMAGES.gathering],
   },
   {
     id: 'learning-without-limits',
     title: 'Learning Without Limits',
-    summary: 'Laptop donations and academic support helping refugee university students continue learning.',
+    summary: 'Laptop donations helping refugee university students continue their studies.',
     description:
-      'Rwoga launched initiatives supporting fellow refugee university students from other universities through laptop donations, removing barriers to digital learning and academic progress.',
+      'Rwoga supported refugee university students from other universities by donating laptops to help them continue their studies and take part more fully in digital learning.',
     status: 'completed',
     category: 'Education',
     impactHighlights: [
       'Laptop support for refugee university students',
-      'Stronger digital access for learning',
-      'Peer solidarity across universities',
+      'Stronger access to digital learning tools',
+      'Mutual support across universities',
     ],
     image: IMAGES.learning,
     gallery: [IMAGES.learning, IMAGES.books, IMAGES.campus],
@@ -411,15 +382,15 @@ export const projects: Project[] = [
   {
     id: 'food-with-dignity',
     title: 'Food With Dignity',
-    summary: 'Food assistance for vulnerable families transitioning into Nyabiheke Refugee Camp.',
+    summary: 'Food support for vulnerable families moving to Nyabiheke Refugee Camp.',
     description:
-      'Community outreach expanded through food assistance for vulnerable families transitioning into Nyabiheke Refugee Camp from Nkamira transit, offering practical support during a critical period of resettlement.',
+      'Rwoga expanded its outreach by providing food to vulnerable families moving from Nkamira Transit Centre to Nyabiheke Refugee Camp, offering practical support during a difficult transition.',
     status: 'completed',
     category: 'Community Outreach',
     impactHighlights: [
-      'Food assistance for families in transition',
-      'Support during movement from Nkamira to Nyabiheke',
-      'Community care grounded in dignity',
+      'Food support for families in transition',
+      'Care during movement from Nkamira to Nyabiheke',
+      'Support delivered with respect and dignity',
     ],
     image: IMAGES.community,
     gallery: [IMAGES.community, IMAGES.gathering, IMAGES.youth],
@@ -427,15 +398,15 @@ export const projects: Project[] = [
   {
     id: 'recognizing-excellence',
     title: 'Recognizing Excellence',
-    summary: 'Academic awards celebrating top-performing students in Kigeme refugee camp.',
+    summary: 'Academic awards celebrating top-performing students in Kigeme Refugee Camp.',
     description:
-      'Educational excellence became a key priority through academic awards to top-performing students in Kigeme refugee camp, affirming achievement and inspiring continued pursuit of education.',
+      'Rwoga recognized top-performing students in Kigeme Refugee Camp with academic awards, affirming achievement and encouraging continued pursuit of education.',
     status: 'completed',
     category: 'Education',
     impactHighlights: [
       'Academic awards for top-performing students',
-      'Recognition that motivates educational excellence',
-      'Visible celebration of refugee learner achievement',
+      'Recognition that encourages educational excellence',
+      'Celebration of refugee learner achievement',
     ],
     image: IMAGES.campus,
     gallery: [IMAGES.campus, IMAGES.learning, IMAGES.youth],
@@ -443,13 +414,13 @@ export const projects: Project[] = [
   {
     id: 'gakoni-outreach',
     title: 'Gakoni High School Outreach',
-    summary: 'Inspiring refugee secondary school students to pursue academic excellence and higher education.',
+    summary: 'Encouraging refugee secondary school students to pursue academic excellence and higher education.',
     description:
-      'In 2021, the Association organized its first community outreach at Gakoni High School, inspiring refugee secondary school students to pursue academic excellence and higher education opportunities.',
+      'In 2021, Rwoga held its first community outreach at Gakoni High School, encouraging refugee secondary school students to pursue academic excellence and higher education.',
     status: 'completed',
     category: 'Community Outreach',
     impactHighlights: [
-      'First formal community outreach delivered',
+      'First community outreach delivered',
       'Secondary students encouraged toward higher education',
       'Foundation for ongoing school engagement',
     ],
@@ -463,65 +434,33 @@ export const stories: Story[] = [
     id: 'sewing-hope',
     title: 'Sewing Hope',
     excerpt:
-      'In Mugombwa Refugee Camp, sewing machines helped single mothers turn existing skills into dignified income.',
-    body: 'In Mugombwa Refugee Camp, 3 single mothers had tailoring skills but no sewing machines. Through contributions made by Congolese refugee university students, Rwoga provided 3 sewing machines, enabling these women to generate income and provide for their families with dignity.',
-    image: IMAGES.workshop,
-    challenge:
-      'Three single mothers in Mugombwa Refugee Camp had tailoring skills but lacked sewing machines to earn a living.',
-    action:
-      'Congolese refugee university students contributed their own resources so Rwoga could provide three sewing machines.',
-    impact:
-      'The women gained tools to generate income and provide for their families with dignity.',
-    nextSteps:
-      'Continue expanding vocational equipment support, including further sewing machine donations in camps such as Kiziba.',
+      'We gave sewing machines to three single mothers in Mugombwa Refugee Camp and five women in Kiziba Refugee Camp. They already knew how to sew — what they lacked was the machines to turn skill into income and dignity for their families.',
+    body: 'We gave sewing machines to three single mothers in Mugombwa Refugee Camp and five women in Kiziba Refugee Camp. They already knew how to sew — what they lacked was the machines to turn skill into income and dignity for their families.',
+    image: '/Women Empowerment.jpg',
   },
   {
     id: 'learning-without-limits',
     title: 'Learning Without Limits',
     excerpt:
-      'Laptop donations opened digital learning pathways for refugee university students beyond ALU.',
-    body: 'As Rwoga expanded, members launched initiatives supporting fellow refugee university students from other universities through laptop donations, helping remove barriers to digital learning and academic progress.',
-    image: IMAGES.learning,
-    challenge:
-      'Refugee university students faced barriers to digital access needed for modern academic work.',
-    action:
-      'Rwoga organized laptop donation support for fellow refugee students studying at other universities.',
-    impact:
-      'Students gained tools to continue learning, collaborate, and stay connected to academic opportunity.',
-    nextSteps:
-      'Grow device donation and digital literacy pathways so more learners can study without limits.',
+      'We provided two laptops to two university students studying outside ALU without scholarships — opening digital access that strengthens their academic work, professional growth, and personal confidence.',
+    body: 'We provided two laptops to two university students studying outside ALU without scholarships — opening digital access that strengthens their academic work, professional growth, and personal confidence.',
+    image: '/01.jpeg',
   },
   {
     id: 'food-with-dignity',
     title: 'Food With Dignity',
     excerpt:
-      'Food assistance supported vulnerable families transitioning into Nyabiheke Refugee Camp from Nkamira transit.',
-    body: 'Community outreach expanded through food assistance for vulnerable families transitioning into Nyabiheke Refugee Camp from Nkamira transit, offering practical care during a critical period of resettlement.',
-    image: IMAGES.community,
-    challenge:
-      'Vulnerable families needed immediate support while transitioning into Nyabiheke Refugee Camp from Nkamira transit.',
-    action:
-      'Rwoga mobilized community outreach to provide food assistance with care and respect.',
-    impact:
-      'Families received practical support during a difficult transition, grounded in dignity rather than charity alone.',
-    nextSteps:
-      'Continue responsive outreach that meets urgent community needs while building longer-term development initiatives.',
+      'We provided food support to vulnerable families as they moved from Nkamira Transit Centre to Nyabiheke Refugee Camp — meeting an urgent need with care at a moment of transition.',
+    body: 'We provided food support to vulnerable families as they moved from Nkamira Transit Centre to Nyabiheke Refugee Camp — meeting an urgent need with care at a moment of transition.',
+    image: '/02.jpg',
   },
   {
     id: 'recognizing-excellence',
     title: 'Recognizing Excellence',
     excerpt:
-      'Academic awards in Kigeme refugee camp celebrated top-performing students and inspired educational ambition.',
-    body: 'Educational excellence became a key priority through academic awards to top-performing students in Kigeme refugee camp, affirming achievement and inspiring continued pursuit of education.',
-    image: IMAGES.campus,
-    challenge:
-      'Outstanding refugee learners needed recognition that affirms effort and encourages continued excellence.',
-    action:
-      'Rwoga awarded academic recognition to top-performing students in Kigeme refugee camp.',
-    impact:
-      'Students were celebrated publicly, reinforcing education as a pathway to leadership and opportunity.',
-    nextSteps:
-      'Expand academic awards, mentorship, and learning resources across more refugee communities.',
+      'In Kigeme Refugee Camp, we awarded academic prizes that celebrated every top-performing student and encouraged continued excellence — affirming that achievement deserves to be seen.',
+    body: 'In Kigeme Refugee Camp, we awarded academic prizes that celebrated every top-performing student and encouraged continued excellence — affirming that achievement deserves to be seen.',
+    image: '/03.jpg',
   },
 ]
 
@@ -529,79 +468,106 @@ export const testimonials: Testimonial[] = [
   {
     id: 't1',
     quote:
-      'Rwoga feels like family: a place where refugee students can lead, learn, and belong without having to explain why they matter.',
+      'Rwoga feels like family: a place where refugee students can lead, learn, and belong.',
     name: 'Kevin Ishimwe',
     role: 'Member',
-    image: IMAGES.portrait2,
+    image: '/Kevine.png',
   },
   {
     id: 't2',
     quote:
-      'What stands out is the seriousness of the vision. This is youth leadership with structure, values, and a clear commitment to transparency.',
+      'What stands out is the seriousness of the vision. This is youth leadership with structure, clear values, and a commitment to transparency.',
     name: 'Jean Bosco',
     role: 'Community Leader at Nyabiheke Camp',
-    image: IMAGES.portrait3,
+    image: '/Bosco.png',
   },
   {
     id: 't3',
     quote:
       'The association’s strength is authenticity. It is built by refugee youth, for refugee youth, and you can feel that in every initiative.',
-    name: 'Eugene',
+    name: 'Eugene N.',
     role: 'Financial Aid Coordinator at ALU',
-    image: IMAGES.portrait4,
+    image: '/Eugene.jpeg',
   },
 ]
 
 export const leaders: Leader[] = [
   {
     id: 'l1',
-    name: 'Leadership Seat',
-    role: 'Chairperson',
-    department: 'Executive Committee',
-    bio: 'Guides the association’s strategic direction, external representation, and overall accountability to members.',
-    image: IMAGES.portrait1,
+    name: 'Eric Ndayisaba',
+    role: 'Board Member',
+    department: 'Board',
+    bio: '',
+    image: '/Eric1.jpg',
+    group: 'board',
   },
   {
     id: 'l2',
-    name: 'Leadership Seat',
-    role: 'Vice Chairperson',
-    department: 'Executive Committee',
-    bio: 'Supports executive coordination and ensures continuity across departments and member initiatives.',
-    image: IMAGES.portrait2,
+    name: 'Prince Iranzi',
+    role: 'Board Member',
+    department: 'Board',
+    bio: '',
+    image: '/Prince.jpg',
+    group: 'board',
   },
   {
     id: 'l3',
-    name: 'Leadership Seat',
-    role: 'Secretary General',
-    department: 'Governance',
-    bio: 'Oversees documentation, meetings, institutional memory, and internal communication.',
-    image: IMAGES.portrait3,
+    name: 'Patrick Kabahigi',
+    role: 'Board Member',
+    department: 'Board',
+    bio: '',
+    image: '/Patrick.jpg',
+    group: 'board',
   },
   {
     id: 'l4',
-    name: 'Leadership Seat',
-    role: 'Treasurer',
-    department: 'Finance & Transparency',
-    bio: 'Stewards financial integrity, budgeting discipline, and transparent reporting practices.',
-    image: IMAGES.portrait4,
+    name: 'Claudine Mutuyeyezu',
+    role: 'Board Member',
+    department: 'Board',
+    bio: '',
+    image: '/Claudine.jpg',
+    group: 'board',
   },
   {
     id: 'l5',
-    name: 'Leadership Seat',
-    role: 'Programs Lead',
-    department: 'Programs',
-    bio: 'Coordinates education, mentorship, and leadership initiatives with member input.',
+    name: 'Eric Karumuna',
+    role: 'Coordinator',
+    department: 'Current Leadership',
+    bio: '',
     image: IMAGES.portrait5,
+    group: 'current',
   },
   {
     id: 'l6',
-    name: 'Leadership Seat',
-    role: 'Partnerships Lead',
-    department: 'Partnerships',
-    bio: 'Builds ethical collaborations with institutions, mentors, and mission-aligned organizations.',
-    image: IMAGES.portrait6,
+    name: 'Providence Muziranenge',
+    role: 'Vice Coordinator',
+    department: 'Current Leadership',
+    bio: '',
+    image: '/Providence.jpg',
+    group: 'current',
+  },
+  {
+    id: 'l7',
+    name: 'Fidele Nshizirungu',
+    role: 'Finance Manager',
+    department: 'Current Leadership',
+    bio: '',
+    image: '/Fidele.jpg',
+    group: 'current',
+  },
+  {
+    id: 'l8',
+    name: 'Pacifique Muhumure',
+    role: 'Secretary',
+    department: 'Current Leadership',
+    bio: '',
+    image: '/Pacifique.jpg',
+    group: 'current',
   },
 ]
+
+export const boardMembers = leaders.filter((leader) => leader.group === 'board')
+export const currentLeadership = leaders.filter((leader) => leader.group === 'current')
 
 export const departments: Department[] = [
   {
@@ -747,22 +713,23 @@ export const contributions: ContributionType[] = [
 
 export const getInvolvedPaths = [
   {
-    title: 'Volunteer',
-    description: 'Offer your time to support outreach, tutoring, events, and community initiatives.',
-    to: '/contact',
-    label: 'Offer your time',
+    title: 'Become a Member',
+    description: 'Join Rwoga Family Association and take part in the work of supporting refugee communities.',
+    to: 'https://forms.gle/gg9nByErKkpV4c8BA',
+    label: 'Become a member',
+    external: true,
   },
   {
     title: 'Become a Partner',
-    description: 'Collaborate with Rwoga as an institution, organization, or mission-aligned ally.',
-    to: '/partners',
+    description: 'Work with Rwoga as an institution, organization, or community ally.',
+    to: '/contact',
     label: 'Explore partnerships',
   },
   {
-    title: 'Sponsor a Project',
-    description: 'Underwrite a specific community initiative with clear goals and accountability.',
+    title: 'Sponsor a Program',
+    description: 'Support a specific community initiative with clear goals and shared accountability.',
     to: '/contact',
-    label: 'Sponsor a project',
+    label: 'Sponsor a program',
   },
   {
     title: 'Donate Resources',
@@ -778,7 +745,7 @@ export const getInvolvedPaths = [
   },
   {
     title: 'Share Opportunities',
-    description: 'Open doors through internships, scholarships, trainings, and professional networks.',
+    description: 'Open doors through internships, scholarships, training, and professional networks.',
     to: '/contact',
     label: 'Share an opportunity',
   },
@@ -805,36 +772,8 @@ export const documents: DocumentItem[] = [
     id: 'financial-report',
     title: 'Financial Reports',
     category: 'Financial Reports',
-    description: 'Transparent reporting on stewardship, budgeting, and resource use.',
+    description: 'Clear reporting on stewardship, budgeting, and the use of resources.',
     year: 'Forthcoming',
-    status: 'coming-soon',
-  },
-  {
-    id: 'constitution',
-    title: 'Constitution',
-    category: 'Governance',
-    description: 'Foundational rules, member rights, and organizational structure.',
-    status: 'coming-soon',
-  },
-  {
-    id: 'governance',
-    title: 'Governance',
-    category: 'Governance',
-    description: 'How decisions are made, documented, and reviewed across the association.',
-    status: 'coming-soon',
-  },
-  {
-    id: 'leadership-structure',
-    title: 'Leadership Structure',
-    category: 'Governance',
-    description: 'Overview of the leadership committee, departments, sub-families, and volunteers.',
-    status: 'coming-soon',
-  },
-  {
-    id: 'policies',
-    title: 'Policies',
-    category: 'Policies',
-    description: 'Standards that guide ethical, safe, and accountable community participation.',
     status: 'coming-soon',
   },
 ]
@@ -842,11 +781,11 @@ export const documents: DocumentItem[] = [
 export const galleryImages: GalleryImage[] = [
   { id: 'g1', src: IMAGES.community, alt: 'Community outreach with refugee families', category: 'Community Outreach', caption: 'Community outreach' },
   { id: 'g2', src: IMAGES.learning, alt: 'Students learning together', category: 'Education', caption: 'Education in action' },
-  { id: 'g3', src: IMAGES.workshop, alt: 'Women empowerment vocational activity', category: "Women's Empowerment", caption: 'Women empowerment' },
+  { id: 'g3', src: IMAGES.workshop, alt: 'Women empowerment vocational activity', category: 'Women Empowerment', caption: 'Women empowerment' },
   { id: 'g4', src: IMAGES.leadership, alt: 'Leadership discussion among youth', category: 'Leadership', caption: 'Leadership' },
   { id: 'g5', src: IMAGES.gathering, alt: 'Association event gathering', category: 'Events', caption: 'Events' },
-  { id: 'g6', src: IMAGES.mentorship, alt: 'Volunteers supporting community members', category: 'Volunteers', caption: 'Volunteers' },
-  { id: 'g7', src: IMAGES.youth, alt: 'Youth engaged in conversation', category: 'Leadership', caption: 'Youth leadership' },
+  { id: 'g6', src: IMAGES.mentorship, alt: 'Mentorship conversation', category: 'Leadership', caption: 'Mentorship' },
+  { id: 'g7', src: IMAGES.youth, alt: 'Youth engaged in conversation', category: 'Community Outreach', caption: 'Youth engagement' },
   { id: 'g8', src: IMAGES.books, alt: 'Educational books and learning materials', category: 'Education', caption: 'Learning materials' },
   { id: 'g9', src: IMAGES.campus, alt: 'Campus pathway representing higher education', category: 'Events', caption: 'Higher education pathways' },
 ]
@@ -856,7 +795,7 @@ export const newsItems: NewsItem[] = [
     id: 'n1',
     title: 'Women empowerment continues through sewing machine support',
     excerpt:
-      'Rwoga’s women empowerment work includes sewing machine donations that help refugee women generate income with dignity.',
+      'Rwoga’s women empowerment work includes sewing machine donations that help refugee women earn an income with dignity.',
     date: '2025',
     category: 'Success Stories',
     image: IMAGES.workshop,
@@ -865,16 +804,16 @@ export const newsItems: NewsItem[] = [
     id: 'n2',
     title: 'Academic awards celebrate excellence in Kigeme',
     excerpt:
-      'Top-performing students in Kigeme refugee camp were recognized for academic excellence.',
+      'Top-performing students in Kigeme Refugee Camp were recognized for academic excellence.',
     date: '2025',
     category: 'Community Activities',
     image: IMAGES.campus,
   },
   {
     id: 'n3',
-    title: 'Food assistance for families transitioning into Nyabiheke',
+    title: 'Food support for families moving into Nyabiheke',
     excerpt:
-      'Community outreach supported vulnerable families moving from Nkamira transit into Nyabiheke Refugee Camp.',
+      'Community outreach supported vulnerable families moving from Nkamira Transit Centre into Nyabiheke Refugee Camp.',
     date: '2024',
     category: 'Announcements',
     image: IMAGES.community,
@@ -883,7 +822,7 @@ export const newsItems: NewsItem[] = [
     id: 'n4',
     title: 'Rwoga launches its official online presence',
     excerpt:
-      'Our website marks a new chapter in transparency, storytelling, and partnership-building for the association.',
+      'Our website marks a new chapter in open reporting, storytelling, and partnership-building for the association.',
     date: '2026',
     category: 'Latest News',
     image: IMAGES.leadership,
@@ -899,21 +838,21 @@ export const faqs: FaqItem[] = [
   {
     question: 'What does the name Rwoga mean?',
     answer:
-      'Rwoga is a Kinyarwanda word meaning "the leading star" — a bright star that shines ahead and guides others. It reflects our belief that every refugee can become a source of hope, leadership, and positive change.',
+      'Rwoga is a Kinyarwanda word meaning "the leading star" — a star that lights the way and guides others. It reflects our belief that every refugee has the potential to bring hope, lead others, and create positive change.',
   },
   {
     question: 'Who can get involved?',
     answer:
-      'You can volunteer, become a partner, sponsor a project, donate resources, mentor students, or share opportunities. Students, mentors, organizations, and community allies are welcome.',
+      'You are welcome to become a member, become a partner, sponsor a program, donate resources, mentor students, or share opportunities. Students, mentors, organizations, and community allies are all invited to take part.',
   },
   {
     question: 'How are donations used?',
     answer:
-      'Support helps refugee communities through learning materials, laptops, books, vocational equipment, scholarships, training, financial support, professional skills, and volunteer time. As we grow, we will publish financial and impact reports.',
+      'Your support helps refugee communities through learning materials, laptops, books, vocational equipment, scholarships, training, financial support, professional skills, and volunteer time. As we grow, we will publish financial and impact reports.',
   },
   {
     question: 'How can my organization partner with Rwoga?',
     answer:
-      'Our work is strengthened through collaboration with institutions, organizations, volunteers, and supporters. Contact our leadership team to explore meaningful collaboration opportunities.',
+      'We work with institutions, organizations, volunteers, and supporters who share our commitment to creating opportunities for refugee communities. Please get in touch with our leadership team to explore how we can work together.',
   },
 ]

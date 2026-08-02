@@ -1,9 +1,9 @@
 export const SITE = {
   name: 'Rwoga Family Association',
   shortName: 'Rwoga',
-  tagline: 'Lighting the way for refugee communities through education, leadership, and collective action.',
+  tagline: 'Lighting the way for refugee communities through education, leadership, and mentorship.',
   description:
-    'Rwoga Family Association is a refugee-led association founded by Congolese students at African Leadership University. Together, we empower communities through education, leadership, mentorship, and impactful initiatives that create lasting opportunities for refugees across Rwanda.',
+    'Rwoga Family Association is a refugee-led association founded by Congolese students at African Leadership University who believe that those closest to a community’s challenges are also closest to its solutions.',
   url: 'https://rwoga.org',
   email: 'rwogafamily@gmail.com',
   location: 'Kigali, Rwanda · African Leadership University',

@@ -22,7 +22,7 @@ export function GalleryPage() {
         <div className="container-page">
           <SectionHeader
             eyebrow="Visual stories"
-            title="Community outreach, education, women empowerment, leadership, events, and volunteers"
+            title="Community outreach, education, women empowerment, leadership, and events"
             className="mb-10"
           />
           <Gallery images={galleryImages} />

@@ -14,9 +14,6 @@ const ProgramsPage = lazy(() =>
 const ProgramDetailPage = lazy(() =>
   import('@/pages/ProgramDetailPage').then((m) => ({ default: m.ProgramDetailPage })),
 )
-const ProjectsPage = lazy(() =>
-  import('@/pages/ProjectsPage').then((m) => ({ default: m.ProjectsPage })),
-)
 const ImpactPage = lazy(() =>
   import('@/pages/ImpactPage').then((m) => ({ default: m.ImpactPage })),
 )
@@ -25,9 +22,6 @@ const LeadershipPage = lazy(() =>
 )
 const GetInvolvedPage = lazy(() =>
   import('@/pages/GetInvolvedPage').then((m) => ({ default: m.GetInvolvedPage })),
-)
-const PartnersPage = lazy(() =>
-  import('@/pages/PartnersPage').then((m) => ({ default: m.PartnersPage })),
 )
 const DonatePage = lazy(() =>
   import('@/pages/DonatePage').then((m) => ({ default: m.DonatePage })),
@@ -66,11 +60,9 @@ export function AppRoutes() {
           <Route path="about" element={<AboutPage />} />
           <Route path="programs" element={<ProgramsPage />} />
           <Route path="programs/:programId" element={<ProgramDetailPage />} />
-          <Route path="projects" element={<ProjectsPage />} />
           <Route path="impact" element={<ImpactPage />} />
           <Route path="leadership" element={<LeadershipPage />} />
           <Route path="get-involved" element={<GetInvolvedPage />} />
-          <Route path="partners" element={<PartnersPage />} />
           <Route path="donate" element={<DonatePage />} />
           <Route path="transparency" element={<TransparencyPage />} />
           <Route path="gallery" element={<GalleryPage />} />

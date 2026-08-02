@@ -51,7 +51,7 @@ export function ProgramDetailPage() {
                   alt=""
                   width={1000}
                   height={800}
-                  className="aspect-[5/4] w-full"
+                  className={['aspect-[5/4] w-full', program.imagePosition].filter(Boolean).join(' ')}
                 />
               </div>
             </Reveal>

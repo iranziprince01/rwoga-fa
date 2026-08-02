@@ -3,118 +3,134 @@ import { SEO } from '@/components/ui/SEO'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { CTA } from '@/components/cta/CTA'
 import { Reveal } from '@/components/motion/Reveal'
-import { CloudinaryImage } from '@/components/media/CloudinaryImage'
-import { departments, leaders } from '@/data/content'
+import { boardMembers, currentLeadership } from '@/data/content'
+import type { Leader } from '@/types'
+import { HandHeart, HeartHandshake, Leaf, Waypoints } from 'lucide-react'
+
+function LeaderGrid({ people }: { people: Leader[] }) {
+  return (
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {people.map((leader) => (
+        <article
+          key={leader.id}
+          className="overflow-hidden rounded-2xl border border-navy-900/8 bg-white shadow-soft"
+        >
+          <div className="aspect-[2/3] overflow-hidden bg-navy-950">
+            <img
+              src={leader.image}
+              alt={`Portrait of ${leader.name}`}
+              width={800}
+              height={1200}
+              loading="lazy"
+              decoding="async"
+              className="block h-full w-full object-cover object-center"
+            />
+          </div>
+          <div className="p-5">
+            <p className="text-xs font-semibold tracking-[0.1em] text-blue-500 uppercase sm:text-sm">
+              {leader.role}
+            </p>
+            <h3 className="mt-1 font-display text-xl font-bold text-navy-900">
+              {leader.name}
+            </h3>
+          </div>
+        </article>
+      ))}
+    </div>
+  )
+}
 
 export function LeadershipPage() {
   return (
     <>
       <SEO
         title="Leadership"
-        description="Meet Rwoga’s leadership structure: executive committee, departments, and sub-family care systems."
+        description="Meet Rwoga’s board members and current leadership team."
         path="/leadership"
       />
       <PageHero
         eyebrow="Leadership"
-        title="Leadership Committee"
+        title="People stewarding Rwoga"
       />
 
       <section className="py-20 sm:py-28">
         <div className="container-page">
           <SectionHeader
-            eyebrow="Leadership Committee"
-            title="People stewarding the association"
-            description="Role cards ready for confirmed names, bios, and photos."
+            title="Board Members"
             className="mb-10"
           />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {leaders.map((leader, index) => (
-              <Reveal key={leader.id} delay={index * 0.05}>
-                <article className="overflow-hidden rounded-2xl border border-navy-900/8 bg-white shadow-soft">
-                  <CloudinaryImage
-                    src={leader.image}
-                    alt={`Portrait placeholder for ${leader.role}`}
-                    width={600}
-                    height={700}
-                    className="aspect-[4/5] w-full"
-                  />
-                  <div className="p-5">
-                    <p className="text-sm font-semibold tracking-[0.1em] text-blue-500 uppercase">
-                      {leader.department}
-                    </p>
-                    <h3 className="mt-1 font-display text-xl font-bold text-navy-900">{leader.role}</h3>
-                    <p className="mt-1 text-sm text-slate-soft">{leader.name}</p>
-                    <p className="mt-3 text-sm leading-relaxed text-navy-800/70">{leader.bio}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+          <LeaderGrid people={boardMembers} />
         </div>
       </section>
 
       <section className="bg-cream-100 py-20 sm:py-28">
         <div className="container-page">
           <SectionHeader
-            eyebrow="Departments"
-            title="How the association works"
+            title="Current Leadership Committee"
             className="mb-10"
           />
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {departments.map((dept, index) => (
-              <Reveal key={dept.id} delay={index * 0.04}>
-                <article className="h-full rounded-2xl border border-navy-900/8 bg-white p-6 shadow-soft">
-                  <h3 className="font-display text-lg font-bold text-navy-900">{dept.name}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-navy-800/70">{dept.description}</p>
-                  <ul className="mt-4 flex flex-wrap gap-2">
-                    {dept.focus.map((item) => (
-                      <li
-                        key={item}
-                        className="rounded-full bg-cream-100 px-3 py-1 text-xs font-medium text-navy-800"
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              </Reveal>
-            ))}
-          </div>
+          <LeaderGrid people={currentLeadership} />
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
-        <div className="container-page grid gap-10 lg:grid-cols-2 lg:items-center">
+      <section className="relative overflow-hidden bg-navy-950 py-20 sm:py-28">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-90"
+          style={{
+            background:
+              'radial-gradient(ellipse 70% 55% at 12% 18%, rgb(31 122 82 / 0.28), transparent 55%), radial-gradient(ellipse 55% 45% at 88% 82%, rgb(240 148 125 / 0.16), transparent 50%)',
+          }}
+        />
+        <div className="container-page relative z-10">
           <Reveal>
             <SectionHeader
-              eyebrow="Sub-families"
               title="Care structures inside the association"
-              description="Sub-families are smaller peer groups that help members feel known, supported, and connected beyond large gatherings. They are the everyday expression of Rwoga’s family ethos."
+              description="Sub-families are smaller peer groups that help members feel known, supported, and connected beyond large gatherings."
+              light
+              className="mb-12 max-w-2xl"
             />
-            <ul className="mt-6 space-y-3 text-navy-800/75">
-              <li>· Peer check-ins and mutual encouragement</li>
-              <li>· Welcome support for new members</li>
-              <li>· Local coordination for study and wellbeing</li>
-              <li>· A bridge between members and departments</li>
-            </ul>
           </Reveal>
-          <Reveal delay={0.1}>
-            <div className="rounded-3xl border border-navy-900/8 bg-white p-8 shadow-lift">
-              <h3 className="font-display text-xl font-bold text-navy-900">Organizational structure</h3>
-              <ol className="mt-6 space-y-4">
-                {[
-                  'Leadership Committee',
-                  'Departments',
-                  'Sub-Families',
-                  'Volunteers',
-                ].map((layer, index) => (
-                  <li key={layer} className="flex items-center gap-4">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-navy-900 font-display text-sm font-bold text-amber-400">
-                      {index + 1}
-                    </span>
-                    <span className="font-medium text-navy-900">{layer}</span>
-                  </li>
-                ))}
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { title: 'Peer check-ins', Icon: HeartHandshake },
+              { title: 'Welcome support', Icon: HandHeart },
+              { title: 'Local coordination', Icon: Leaf },
+              { title: 'A living bridge', Icon: Waypoints },
+            ].map((point, index) => (
+              <Reveal key={point.title} delay={index * 0.05}>
+                <div className="flex h-full flex-col gap-5 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-amber-500 text-navy-950">
+                    <point.Icon className="h-5 w-5" aria-hidden />
+                  </span>
+                  <h3 className="font-display text-lg font-bold text-white sm:text-xl">
+                    {point.title}
+                  </h3>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.15}>
+            <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
+              <h3 className="font-display text-xl font-bold text-white sm:text-2xl">
+                We have 4 Sub-Families
+              </h3>
+              <ol className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {['Bright', 'Inganji', 'The Bunch', 'Urumuri'].map(
+                  (family, index) => (
+                    <li
+                      key={family}
+                      className="flex items-center gap-3 rounded-2xl border border-white/10 bg-navy-900/40 px-4 py-3"
+                    >
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy-900 font-display text-sm font-bold text-amber-400 ring-1 ring-white/10">
+                        {index + 1}
+                      </span>
+                      <span className="font-medium text-white">{family}</span>
+                    </li>
+                  ),
+                )}
               </ol>
             </div>
           </Reveal>

@@ -31,6 +31,9 @@ export function HomePage() {
         <div className="container-page">
           <Reveal>
             <div className="rounded-3xl border border-navy-900/8 bg-white/90 p-6 shadow-lift backdrop-blur sm:p-8">
+              <p className="mb-6 text-center text-sm font-semibold tracking-[0.14em] text-blue-500 uppercase">
+                Our Impact
+              </p>
               <Statistics stats={stats} />
             </div>
           </Reveal>
@@ -42,8 +45,8 @@ export function HomePage() {
           <Reveal>
             <div className="overflow-hidden rounded-[2rem] shadow-lift">
               <CloudinaryImage
-                src={IMAGES.community}
-                alt="Members of a youth community standing together outdoors"
+                src={IMAGES.whoWeAre}
+                alt="Members of Rwoga Family Association standing together"
                 width={900}
                 height={1100}
                 className="aspect-[4/5] w-full"
@@ -113,9 +116,9 @@ export function HomePage() {
           </Reveal>
           <Reveal delay={0.1}>
             <SectionHeader eyebrow="Featured Impact" title={featured.title} />
-            <p className="mt-6 prose-rwoga">{featured.description}</p>
+            <p className="mt-6 prose-rwoga">{featured.summary}</p>
             <div className="mt-8">
-              <ButtonLink to={`/projects#${featured.id}`} variant="amber" size="lg">
+              <ButtonLink to="/impact" variant="amber" size="lg">
                 Read More
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </ButtonLink>
@@ -146,7 +149,7 @@ export function HomePage() {
           />
           <PartnerLogoGrid />
           <div className="mt-8 text-center">
-            <ButtonLink to="/partners" variant="amber" size="lg">
+            <ButtonLink to="/contact" variant="amber" size="lg">
               Partner With Us
               <ArrowRight className="h-4 w-4" aria-hidden />
             </ButtonLink>
@@ -160,8 +163,8 @@ export function HomePage() {
             eyebrow="Get Involved"
             title="Every contribution creates opportunity."
             description="Whether you choose to partner, volunteer, sponsor, or donate, your support helps refugee communities build brighter futures."
-            primaryLabel="Become a Partner"
-            primaryTo="/partners"
+            primaryLabel="Get Involved"
+            primaryTo="/get-involved"
             secondaryLabel="Support Our Mission"
             secondaryTo="/donate"
           />

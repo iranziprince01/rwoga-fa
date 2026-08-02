@@ -71,7 +71,6 @@ Content and messaging live primarily in `src/data/content.ts` and `src/constants
 | `/about` | Who we are, meaning of Rwoga, mission, vision, values, story |
 | `/programs` | Program directory |
 | `/programs/:programId` | Individual program detail |
-| `/projects` | Community initiatives & stories |
 | `/impact` | Impact stats & success stories |
 | `/leadership` | Leadership committee & structure |
 | `/get-involved` | Ways to contribute |

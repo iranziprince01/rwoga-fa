@@ -11,33 +11,31 @@ const categories = [
   'Annual Reports',
   'Impact Reports',
   'Financial Reports',
-  'Governance',
-  'Policies',
 ] as const
 
 export function TransparencyPage() {
   return (
     <>
       <SEO
-        title="Transparency"
-        description="Rwoga’s transparency hub for annual reports, financial reports, governance documents, constitution, policies, and impact reports."
+        title="Resources"
+        description="Rwoga’s resource hub for annual reports, impact reports, and financial reports."
         path="/transparency"
       />
       <PageHero
         eyebrow="Resources"
-        title="Reports, governance, and policies"
+        title="Reports that build trust"
       />
 
       <section className="py-20 sm:py-28">
         <div className="container-page">
           <SectionHeader
             eyebrow="Our commitment"
-            title="Resources that build trust"
-            description="Annual reports, impact reports, financial reports, constitution, governance, leadership structure, and policies will be published here as they are finalized."
+            title="Open reporting for a growing association"
+            description="Annual reports, impact reports, and financial reports will be published here as they are finalized."
             className="mb-12 max-w-3xl"
           />
 
-          <div className="grid gap-4 md:grid-cols-5">
+          <div className="grid gap-4 md:grid-cols-3">
             {categories.map((category, index) => (
               <Reveal key={category} delay={index * 0.04}>
                 <div className="rounded-2xl border border-navy-900/8 bg-cream-100 px-4 py-5 text-center">
@@ -96,32 +94,6 @@ export function TransparencyPage() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="py-20 sm:py-28">
-        <div className="container-page grid gap-6 lg:grid-cols-3">
-          {[
-            {
-              title: 'Constitution',
-              body: 'Will outline member rights, leadership selection, and organizational purpose.',
-            },
-            {
-              title: 'Financial stewardship',
-              body: 'Policies for budgeting, approvals, and reporting will be published for public trust.',
-            },
-            {
-              title: 'Impact accountability',
-              body: 'We will share what worked, what we learned, and where we still need to grow.',
-            },
-          ].map((item, index) => (
-            <Reveal key={item.title} delay={index * 0.05}>
-              <div className="h-full rounded-2xl bg-navy-900 p-6 text-white">
-                <h3 className="font-display text-xl font-bold">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/70">{item.body}</p>
-              </div>
-            </Reveal>
-          ))}
         </div>
       </section>
 

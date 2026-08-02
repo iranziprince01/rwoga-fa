@@ -1,10 +1,7 @@
-import type { FormEvent } from 'react'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Mail, MapPin } from 'lucide-react'
 import { FOOTER_LINKS } from '@/constants/navigation'
 import { SITE } from '@/constants/site'
-import { Button } from '@/components/ui/Button'
 import { Logo } from '@/components/ui/Logo'
 
 function SocialIcon({ name }: { name: 'linkedin' | 'instagram' | 'facebook' }) {
@@ -25,16 +22,6 @@ function SocialIcon({ name }: { name: 'linkedin' | 'instagram' | 'facebook' }) {
 }
 
 export function Footer() {
-  const [email, setEmail] = useState('')
-  const [submitted, setSubmitted] = useState(false)
-
-  const onSubmit = (event: FormEvent) => {
-    event.preventDefault()
-    if (!email.trim()) return
-    setSubmitted(true)
-    setEmail('')
-  }
-
   return (
     <footer className="border-t border-navy-900/8 bg-navy-950 text-white">
       <div className="container-page py-16 lg:py-20">
@@ -101,37 +88,6 @@ export function Footer() {
               </ul>
             </div>
           ))}
-        </div>
-
-        <div className="mt-14 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur sm:p-8">
-          <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
-            <div>
-              <h2 className="font-display text-2xl font-bold">Stay close to the journey</h2>
-            </div>
-            {submitted ? (
-              <p className="rounded-xl bg-sage-100/10 px-4 py-3 text-sm text-sage-100" role="status">
-                Thank you. Newsletter signup will go live with our mailing system.
-              </p>
-            ) : (
-              <form onSubmit={onSubmit} className="flex w-full flex-col gap-2 sm:flex-row lg:min-w-[360px]">
-                <label htmlFor="newsletter-email" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  id="newsletter-email"
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  className="h-11 flex-1 rounded-xl border border-white/15 bg-white/5 px-4 text-sm text-white placeholder:text-white/40 focus:border-amber-400 focus:outline-none"
-                />
-                <Button type="submit" variant="amber">
-                  Subscribe
-                </Button>
-              </form>
-            )}
-          </div>
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-8 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">

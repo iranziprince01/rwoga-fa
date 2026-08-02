@@ -26,8 +26,8 @@ export function Hero() {
             className="h-full w-full"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950/55 via-navy-900/60 to-navy-950/90" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_45%,rgb(11_46_31_/0.15)_0%,rgb(6_26_18_/0.55)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950/65 via-navy-900/68 to-navy-950/82" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_45%,rgb(11_46_31_/0.25)_0%,rgb(6_26_18_/0.62)_100%)]" />
       </div>
 
       {!reduce && (
@@ -48,12 +48,12 @@ export function Hero() {
       )}
 
       <div className="container-page relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-5 pb-24 pt-28 text-center">
-        <div className="mx-auto flex w-full max-w-4xl flex-col items-center">
+        <div className="mx-auto flex w-full max-w-5xl flex-col items-center">
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-5 text-sm font-semibold tracking-[0.2em] text-amber-400 uppercase sm:text-[0.9375rem]"
+            className="mb-5 text-base font-semibold tracking-[0.2em] text-amber-400 uppercase sm:text-lg"
           >
             Rwoga Family Association
           </motion.p>
@@ -62,7 +62,7 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-4xl font-extrabold tracking-tight text-white text-balance sm:text-5xl md:text-6xl lg:text-[4.25rem] lg:leading-[1.08]"
+            className="font-display text-5xl font-extrabold tracking-tight text-white text-balance sm:text-6xl md:text-7xl lg:text-[5rem] lg:leading-[1.08]"
           >
             {toTitleCase('Lighting the Way for Refugee Communities')}
           </motion.h1>
@@ -79,12 +79,11 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-7 max-w-2xl text-base leading-relaxed text-white/78 sm:text-lg md:text-xl"
+            className="mt-7 max-w-3xl text-lg leading-relaxed text-white/78 sm:text-xl md:text-2xl"
           >
             Rwoga Family Association is a refugee-led association founded by Congolese students at
-            African Leadership University. Together, we empower communities through education,
-            leadership, mentorship, and impactful initiatives that create lasting opportunities for
-            refugees across Rwanda.
+            African Leadership University who believe that those closest to a community’s challenges
+            are also closest to its solutions.
           </motion.p>
 
           <motion.div
@@ -97,7 +96,7 @@ export function Hero() {
               Explore Our Impact
               <ArrowRight className="h-4 w-4" aria-hidden />
             </ButtonLink>
-            <ButtonLink to="/partners" variant="outline" size="lg">
+            <ButtonLink to="/contact" variant="outline" size="lg">
               Partner With Us
             </ButtonLink>
           </motion.div>
@@ -106,7 +105,7 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 text-sm font-semibold tracking-[0.2em] text-amber-400 uppercase sm:text-[0.9375rem]"
+            className="mt-10 text-base font-semibold tracking-[0.2em] text-amber-400 uppercase sm:text-lg"
           >
             From Challenges to Champions
           </motion.p>
