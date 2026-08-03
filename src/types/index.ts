@@ -9,8 +9,15 @@ export type Program = {
   title: string
   summary: string
   description: string
+  /** Longer narrative paragraphs for the detail page */
+  approach: string[]
+  whoItServes: string
+  focusAreas: string[]
+  activities: string[]
   outcomes: string[]
   futureGoals: string[]
+  /** Concrete ways sponsors and partners can help this program */
+  supportNeeds: string[]
   icon: string
   image: string
   /** Tailwind object-position class for cropped card/detail images */

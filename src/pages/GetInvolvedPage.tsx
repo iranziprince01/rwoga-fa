@@ -51,7 +51,6 @@ export function GetInvolvedPage() {
       <section className="bg-cream-100 py-20 sm:py-28">
         <div className="container-page">
           <SectionHeader
-            eyebrow="Contribution types"
             title="Give what you have: skills, tools, or presence"
             className="mb-10"
           />

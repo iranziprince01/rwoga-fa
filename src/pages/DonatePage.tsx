@@ -1,10 +1,9 @@
 import type { FormEvent } from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { PageHero } from '@/components/hero/PageHero'
 import { SEO } from '@/components/ui/SEO'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { Button } from '@/components/ui/Button'
-import { ButtonLink } from '@/components/ui/ButtonLink'
 import { CTA } from '@/components/cta/CTA'
 import { Reveal } from '@/components/motion/Reveal'
 import { contributions } from '@/data/content'
@@ -12,6 +11,8 @@ import { getIcon } from '@/utils'
 
 export function DonatePage() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -19,9 +20,48 @@ export function DonatePage() {
     message: '',
   })
 
-  const onSubmit = (event: FormEvent) => {
+  useEffect(() => {
+    if (!submitted) return
+
+    const timeout = window.setTimeout(() => {
+      setSubmitted(false)
+      setForm({
+        name: '',
+        email: '',
+        type: 'Financial Support',
+        message: '',
+      })
+    }, 10_000)
+
+    return () => window.clearTimeout(timeout)
+  }, [submitted])
+
+  const onSubmit = async (event: FormEvent) => {
     event.preventDefault()
-    setSubmitted(true)
+    setSubmitting(true)
+    setError('')
+
+    try {
+      const response = await fetch('/api/donate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+
+      const data = (await response.json().catch(() => ({}))) as { error?: string }
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send your interest. Please try again.')
+      }
+
+      setSubmitted(true)
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : 'Failed to send your interest. Please try again.',
+      )
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -33,37 +73,10 @@ export function DonatePage() {
       />
       <PageHero
         eyebrow="Donate"
-        title="Support refugee communities by contributing"
+        title={"Support refugee communities\nby contributing"}
       />
 
       <section className="py-20 sm:py-28">
-        <div className="container-page">
-          <SectionHeader
-            eyebrow="Ways to contribute"
-            title="Many forms of support create opportunity"
-            description="Contribute learning materials, laptops, books, vocational equipment, scholarships, training, financial support, professional skills, or volunteer time."
-            className="mb-10"
-          />
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {contributions.map((item, index) => {
-              const Icon = getIcon(item.icon)
-              return (
-                <Reveal key={item.id} delay={index * 0.04}>
-                  <article className="h-full rounded-2xl border border-navy-900/8 bg-white p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-navy-900">
-                      <Icon className="h-5 w-5" aria-hidden />
-                    </div>
-                    <h3 className="mt-4 font-display text-lg font-bold text-navy-900">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-navy-800/70">{item.description}</p>
-                  </article>
-                </Reveal>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-cream-100 py-20 sm:py-28">
         <div className="container-page grid gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <Reveal>
             <SectionHeader
@@ -96,8 +109,8 @@ export function DonatePage() {
               </p>
 
               {submitted ? (
-                <p className="mt-8 rounded-2xl bg-sage-100 px-4 py-4 text-sage-600" role="status">
-                  Thank you. Your interest has been noted in this demo form. Connect the backend or email workflow when ready.
+                <p className="mt-8 rounded-2xl bg-sage-100 px-4 py-5 text-sage-600" role="status">
+                  Thank you for your generous heart. Your interest has been received with deep appreciation, and we will be in touch soon.
                 </p>
               ) : (
                 <form onSubmit={onSubmit} className="mt-6 space-y-4">
@@ -154,20 +167,45 @@ export function DonatePage() {
                       placeholder="Tell us briefly how you’d like to help."
                     />
                   </div>
-                  <Button type="submit" variant="amber" className="w-full">
-                    Submit interest
+                  {error ? (
+                    <p className="rounded-xl bg-amber-100 px-4 py-3 text-sm text-navy-900" role="alert">
+                      {error}
+                    </p>
+                  ) : null}
+                  <Button type="submit" variant="amber" className="w-full" disabled={submitting}>
+                    {submitting ? 'Sending…' : 'Submit interest'}
                   </Button>
                 </form>
               )}
-
-              <p className="mt-4 text-center text-sm text-slate-soft">
-                Prefer email?{' '}
-                <ButtonLink to="/contact" variant="ghost" size="sm" className="inline h-auto p-0 text-blue-500">
-                  Contact us
-                </ButtonLink>
-              </p>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-cream-100 py-20 sm:py-28">
+        <div className="container-page">
+          <SectionHeader
+            eyebrow="Ways to contribute"
+            title="Many forms of support create opportunity"
+            description="Contribute learning materials, laptops, books, vocational equipment, scholarships, training, financial support, professional skills, or volunteer time."
+            className="mb-10"
+          />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {contributions.map((item, index) => {
+              const Icon = getIcon(item.icon)
+              return (
+                <Reveal key={item.id} delay={index * 0.04}>
+                  <article className="h-full rounded-2xl border border-navy-900/8 bg-white p-5 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-lift">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-navy-900">
+                      <Icon className="h-5 w-5" aria-hidden />
+                    </div>
+                    <h3 className="mt-4 font-display text-lg font-bold text-navy-900">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-navy-800/70">{item.description}</p>
+                  </article>
+                </Reveal>
+              )
+            })}
+          </div>
         </div>
       </section>
 
@@ -177,7 +215,7 @@ export function DonatePage() {
             eyebrow="Trust"
             title="Transparency is part of the gift"
             description="We are preparing governance documents, policies, and reports so every supporter can see how Rwoga stewards resources."
-            primaryLabel="View transparency"
+            primaryLabel="Visit Resources"
             primaryTo="/transparency"
             secondaryLabel="Get Involved"
             secondaryTo="/get-involved"

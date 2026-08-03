@@ -20,15 +20,18 @@ export function Logo({
   return (
     <Link
       to={to}
-      className={cn('inline-flex shrink-0 items-center', className)}
+      className={cn('inline-flex shrink-0 items-center leading-none', className)}
       aria-label={`${SITE.name} home`}
     >
       <img
         src={src}
         alt={SITE.name}
-        width={200}
-        height={60}
-        className={cn('h-12 w-auto object-contain sm:h-14', imgClassName)}
+        width={130}
+        height={90}
+        className={cn(
+          'block w-auto object-contain object-left',
+          imgClassName ?? 'h-12 sm:h-14',
+        )}
         decoding="async"
       />
     </Link>

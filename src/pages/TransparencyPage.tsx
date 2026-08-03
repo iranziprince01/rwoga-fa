@@ -10,7 +10,6 @@ import { cn } from '@/utils'
 const categories = [
   'Annual Reports',
   'Impact Reports',
-  'Financial Reports',
 ] as const
 
 export function TransparencyPage() {
@@ -18,7 +17,7 @@ export function TransparencyPage() {
     <>
       <SEO
         title="Resources"
-        description="Rwoga’s resource hub for annual reports, impact reports, and financial reports."
+        description="Rwoga’s resource hub for annual reports and impact reports."
         path="/transparency"
       />
       <PageHero
@@ -30,12 +29,12 @@ export function TransparencyPage() {
         <div className="container-page">
           <SectionHeader
             eyebrow="Our commitment"
-            title="Open reporting for a growing association"
-            description="Annual reports, impact reports, and financial reports will be published here as they are finalized."
+            title="Open resources for a growing association"
+            description="Annual reports and impact reports will be published here as they are finalized."
             className="mb-12 max-w-3xl"
           />
 
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2">
             {categories.map((category, index) => (
               <Reveal key={category} delay={index * 0.04}>
                 <div className="rounded-2xl border border-navy-900/8 bg-cream-100 px-4 py-5 text-center">
@@ -74,11 +73,7 @@ export function TransparencyPage() {
                       {doc.status === 'available' ? 'Available' : 'Coming soon'}
                     </span>
                   </div>
-                  <p className="mt-5 text-xs font-semibold tracking-[0.12em] text-blue-500 uppercase">
-                    {doc.category}
-                    {doc.year ? ` · ${doc.year}` : ''}
-                  </p>
-                  <h3 className="mt-2 font-display text-lg font-bold text-navy-900">{doc.title}</h3>
+                  <h3 className="mt-5 font-display text-lg font-bold text-navy-900">{doc.title}</h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-navy-800/70">
                     {doc.description}
                   </p>
@@ -101,7 +96,7 @@ export function TransparencyPage() {
         <div className="container-page">
           <CTA
             eyebrow="Questions"
-            title="Ask us about governance"
+            title="Ask Us About Partnerships"
             description="We welcome thoughtful questions from members, partners, and supporters about how Rwoga operates."
             primaryLabel="Contact us"
             primaryTo="/contact"

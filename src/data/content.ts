@@ -214,15 +214,41 @@ export const programs: Program[] = [
     summary: 'Mentorship, learning resources, scholarships, and academic encouragement for refugee learners.',
     description:
       'We support refugee learners with guidance, learning materials, and encouragement so they can pursue excellence in school and higher education.',
+    approach: [
+      'Education is one of the surest paths out of vulnerability. Many refugee learners have the talent and drive to excel, yet lack books, tutoring, recognition, and someone who believes in their potential.',
+      'Our Education Support program bridges that gap through academic awards, learning materials, peer guidance, and encouragement that keeps students focused on excellence from secondary school through university.',
+    ],
+    whoItServes:
+      'Refugee secondary and university students across camps and campuses in Rwanda who need learning tools, academic encouragement, and structured support.',
+    focusAreas: [
+      'Academic awards and recognition',
+      'Learning materials and study support',
+      'Scholarship pathway guidance',
+      'Peer tutoring and encouragement',
+    ],
+    activities: [
+      'Recognize top-performing students with academic awards, as delivered in Kigeme Refugee Camp',
+      'Provide textbooks, stationery, and study resources to learners who need them most',
+      'Connect students with peer tutors and academic mentors from the Rwoga membership',
+      'Guide learners toward scholarship applications and higher-education pathways',
+    ],
     outcomes: [
       'Greater academic confidence and stronger study habits',
       'Better access to learning materials and guidance',
       'Recognition of academic excellence in refugee communities',
+      'Clearer pathways from secondary school to higher education',
     ],
     futureGoals: [
-      'Grow scholarship and award pathways',
-      'Build a shared learning resource library',
-      'Expand tutoring across camps and campuses',
+      'Grow scholarship and award pathways across more camps',
+      'Build a shared learning resource library for members and camp learners',
+      'Expand tutoring across camps and university campuses',
+      'Publish education outcomes in our annual and impact reports',
+    ],
+    supportNeeds: [
+      'Sponsor academic awards and learning kits for camp schools',
+      'Donate textbooks, stationery, and exam preparation materials',
+      'Fund scholarship application support and tutoring stipends',
+      'Partner on education programs that reach more refugee learners',
     ],
     icon: 'GraduationCap',
     image: '/Education Support.jpeg',
@@ -233,15 +259,41 @@ export const programs: Program[] = [
     summary: 'Preparing refugee students to lead with integrity, confidence, and service.',
     description:
       'Through workshops, peer practice, and shared decision-making, members learn to guide teams and serve their communities with care and accountability.',
+    approach: [
+      'Rwoga was founded by refugee students who chose leadership over waiting. Student Leadership remains at the heart of who we are: young people learning to organize, decide, and serve with integrity.',
+      'Members practice leadership by running real initiatives—outreach visits, livelihood projects, and association governance—so skills grow through responsibility, not theory alone.',
+    ],
+    whoItServes:
+      'Refugee university students and emerging youth leaders who want to lead teams, shape initiatives, and serve their communities with accountability.',
+    focusAreas: [
+      'Ethical leadership practice',
+      'Team coordination and decision-making',
+      'Member-led initiatives',
+      'Alumni leadership pathways',
+    ],
+    activities: [
+      'Facilitate leadership workshops and peer practice sessions',
+      'Invite members into shared decision-making across association departments',
+      'Support students as they design and deliver community initiatives',
+      'Document member-led case studies that future cohorts can learn from',
+    ],
     outcomes: [
       'Stronger leadership confidence among members',
       'Practical experience coordinating initiatives',
       'A growing community of ethical youth leaders',
+      'Clearer ownership of association projects and culture',
     ],
     futureGoals: [
-      'Expand leadership opportunities across cohorts',
-      'Document member-led case studies',
-      'Strengthen alumni leadership pathways',
+      'Expand leadership opportunities across cohorts and sub-families',
+      'Document and share member-led case studies publicly',
+      'Strengthen alumni leadership pathways into mentorship and board service',
+      'Host partner-supported leadership intensives each year',
+    ],
+    supportNeeds: [
+      'Sponsor leadership workshops, retreats, and training materials',
+      'Offer facilitation expertise and professional speakers',
+      'Fund travel for members leading outreach in refugee camps',
+      'Partner on youth leadership programs with measurable outcomes',
     ],
     icon: 'Compass',
     image: '/EdSupport.jpg',
@@ -253,15 +305,41 @@ export const programs: Program[] = [
     summary: 'Practical tools, vocational opportunities, and sustainable livelihood initiatives for women.',
     description:
       'Rwoga supports refugee women with vocational equipment and livelihood pathways that uphold dignity and economic independence, including sewing machine donations and skills-centered outreach.',
+    approach: [
+      'Dignity grows when skill meets opportunity. Many refugee women already know how to sew or trade—what they often lack is equipment, training linkages, and market access.',
+      'Through Sewing Hope and related livelihood work, we provide sewing machines and vocational support so women—especially single mothers—can earn income and provide for their families with pride.',
+    ],
+    whoItServes:
+      'Refugee women and single mothers in camps such as Mugombwa and Kiziba who need tools, training pathways, and livelihood support.',
+    focusAreas: [
+      'Vocational equipment support',
+      'Livelihood and income pathways',
+      'Skills-centered outreach',
+      'Dignity-first economic independence',
+    ],
+    activities: [
+      'Donate sewing machines to women ready to turn skill into income',
+      'Identify livelihood needs with women and camp partners',
+      'Pair equipment with guidance toward sustainable work',
+      'Share livelihood stories that honor women’s agency and outcomes',
+    ],
     outcomes: [
       'Women equipped with tools to earn an income',
       'Stronger livelihood pathways for single mothers',
       'Community-led models for women’s empowerment',
+      'Practical support delivered with respect and dignity',
     ],
     futureGoals: [
-      'Extend vocational equipment support across camps',
+      'Extend vocational equipment support across more camps',
       'Pair tools with training and market linkages',
       'Share livelihood outcomes with community partners',
+      'Grow a revolving support model for women’s enterprises',
+    ],
+    supportNeeds: [
+      'Sponsor sewing machines and vocational toolkits',
+      'Fund skills training and small-business coaching',
+      'Donate materials and equipment for women’s enterprises',
+      'Partner on livelihood programs with camp communities',
     ],
     icon: 'Heart',
     image: '/Empowerment.jpg',
@@ -272,15 +350,41 @@ export const programs: Program[] = [
     summary: 'Meaningful projects that improve the well-being of refugee families and communities.',
     description:
       'From school visits to food support for families in transition, our outreach responds to real needs across refugee communities in Rwanda.',
+    approach: [
+      'Outreach is how we stay close to the communities we serve. Since our first visit to Gakoni High School in 2021, Rwoga members have returned to camps and transit centres with encouragement, food support, and practical care.',
+      'We listen first, then respond—whether that means inspiring secondary students toward higher education or supporting families moving between Nkamira and Nyabiheke with dignity.',
+    ],
+    whoItServes:
+      'Refugee families, secondary school students, and communities in camps and transit centres across Rwanda who need encouragement and practical support.',
+    focusAreas: [
+      'School visits and student encouragement',
+      'Food and transition support',
+      'Camp–campus relationships',
+      'Needs-responsive community care',
+    ],
+    activities: [
+      'Visit secondary schools to encourage academic excellence and higher education',
+      'Provide food support for vulnerable families in transition, as at Nyabiheke',
+      'Coordinate outreach with camp partners and association departments',
+      'Bring university members into direct, respectful contact with camp communities',
+    ],
     outcomes: [
       'Direct support for vulnerable families',
       'Encouragement for secondary school students',
       'Stronger ties between university members and camps',
+      'Outreach delivered with care, respect, and dignity',
     ],
     futureGoals: [
       'Deepen outreach across more refugee communities',
       'Work with camp partners for lasting impact',
       'Share outreach learning in annual reports',
+      'Build recurring school and family support calendars',
+    ],
+    supportNeeds: [
+      'Sponsor school outreach visits and encouragement kits',
+      'Fund food and essential support for families in transition',
+      'Provide transport and logistics for camp outreach',
+      'Partner on community wellbeing projects with measurable reach',
     ],
     icon: 'Home',
     image: '/Community Outreach.jpg',
@@ -291,15 +395,41 @@ export const programs: Program[] = [
     summary: 'Pathways that prepare members for work, internships, and professional growth.',
     description:
       'We help refugee students and alumni build career readiness through exposure, guidance, and practical professional development.',
+    approach: [
+      'Talent alone is not enough without networks, portfolios, and workplace exposure. Refugee students often navigate careers without the same professional bridges as their peers.',
+      'Career Development equips members with clinics, portfolio practice, and connections to mentors and employers so they can pursue internships and meaningful work with confidence.',
+    ],
+    whoItServes:
+      'Refugee university students and alumni preparing for internships, first jobs, and long-term professional growth.',
+    focusAreas: [
+      'Career readiness and soft skills',
+      'Internship and employment pathways',
+      'Portfolio and interview preparation',
+      'Employer and mentor networks',
+    ],
+    activities: [
+      'Host career clinics, CV workshops, and interview practice',
+      'Connect members with professionals for guidance and exposure',
+      'Build internship pathways with aligned organizations',
+      'Link alumni mentors with current students seeking direction',
+    ],
     outcomes: [
       'Greater readiness for internships and employment',
       'Clearer professional direction for members',
       'Stronger networks with mentors and employers',
+      'Practical tools for applications and interviews',
     ],
     futureGoals: [
-      'Host career clinics and portfolio workshops',
+      'Host regular career clinics and portfolio workshops',
       'Build internship pathways with aligned partners',
       'Connect alumni mentors with current students',
+      'Track placement outcomes for continuous improvement',
+    ],
+    supportNeeds: [
+      'Sponsor career clinics and professional development workshops',
+      'Offer internships, job shadowing, and hiring pathways',
+      'Provide coaches for CV, portfolio, and interview preparation',
+      'Partner on career programs that open doors for refugee talent',
     ],
     icon: 'Briefcase',
     image: '/Career development.jpg',
@@ -310,15 +440,41 @@ export const programs: Program[] = [
     summary: 'Connecting refugee youth with mentors, role models, and peer guides.',
     description:
       'Mentorship pairs members with peers and professionals who offer guidance on education, careers, wellbeing, and life as young refugee leaders.',
+    approach: [
+      'Belonging and wise counsel change trajectories. Many refugee youth need trusted adults and peers who understand both ambition and the realities of displacement.',
+      'Our Mentorship program cultivates relationships—peer to peer and professional to student—that offer guidance on education, careers, wellbeing, and leadership.',
+    ],
+    whoItServes:
+      'Refugee youth and Rwoga members seeking trusted guidance, alongside professionals and alumni ready to mentor the next generation.',
+    focusAreas: [
+      'Peer mentoring among members',
+      'Professional mentor matching',
+      'Education and career guidance',
+      'Wellbeing and belonging support',
+    ],
+    activities: [
+      'Pair members with peer guides and professional mentors',
+      'Facilitate structured check-ins on education, careers, and wellbeing',
+      'Invite role models to share lived experience and advice',
+      'Gather feedback to improve matching and mentorship quality',
+    ],
     outcomes: [
       'Trusted relationships that support growth',
       'Practical advice for education and careers',
       'A stronger sense of belonging and direction',
+      'Mentors who stay connected to refugee youth leadership',
     ],
     futureGoals: [
       'Grow a vetted mentor network across sectors',
-      'Introduce clear mentorship pathways',
+      'Introduce clear mentorship pathways and expectations',
       'Improve mentorship quality through member feedback',
+      'Recognize outstanding mentors and mentee progress',
+    ],
+    supportNeeds: [
+      'Volunteer as a mentor in education, careers, or leadership',
+      'Sponsor mentorship training and matching tools',
+      'Fund meetup spaces and communication support for pairs',
+      'Partner on mentorship programs with professional networks',
     ],
     icon: 'Users',
     image: '/Mentorship.jpeg',
@@ -329,15 +485,41 @@ export const programs: Program[] = [
     summary: 'Digital skills and device access that open doors to learning and opportunity.',
     description:
       'Through device support, digital skills learning, and peer guidance, we help refugee students take part fully in modern education and work.',
+    approach: [
+      'Modern education and work assume digital access. Without laptops and skills, refugee students fall behind—even when their ideas and effort are strong.',
+      'Through Learning Without Limits and ongoing device support, we help university learners gain tools and digital confidence so they can study, create, and compete fully.',
+    ],
+    whoItServes:
+      'Refugee university students and learners who need devices, digital skills, and peer guidance to succeed in school and work.',
+    focusAreas: [
+      'Laptop and device access',
+      'Digital skills workshops',
+      'Peer technology guidance',
+      'Sustainable access models',
+    ],
+    activities: [
+      'Donate laptops to refugee university students without scholarships',
+      'Facilitate digital skills workshops and peer learning sessions',
+      'Guide learners on tools for coursework, research, and portfolios',
+      'Explore lasting technology access models with partners',
+    ],
     outcomes: [
       'Improved access to digital learning tools',
       'Stronger digital confidence among students',
       'Laptop and device support for university learners',
+      'Greater readiness for digital coursework and workplaces',
     ],
     futureGoals: [
-      'Expand digital skills workshops',
-      'Grow device donation pathways',
+      'Expand digital skills workshops across cohorts',
+      'Grow device donation pathways with responsible stewardship',
       'Partner on lasting technology access models',
+      'Track academic and career gains linked to device support',
+    ],
+    supportNeeds: [
+      'Donate or sponsor laptops and digital learning tools',
+      'Fund digital literacy workshops and peer trainers',
+      'Provide refurbished devices with warranties and support',
+      'Partner on sustainable technology access for refugee learners',
     ],
     icon: 'Laptop',
     image: '/Digital literacy.jpg',
@@ -534,7 +716,7 @@ export const leaders: Leader[] = [
     role: 'Coordinator',
     department: 'Current Leadership',
     bio: '',
-    image: IMAGES.portrait5,
+    image: '/Eric2.jpg',
     group: 'current',
   },
   {
@@ -703,12 +885,6 @@ export const contributions: ContributionType[] = [
     description: 'Pro-bono expertise that strengthens programs, operations, and storytelling.',
     icon: 'Briefcase',
   },
-  {
-    id: 'time',
-    title: 'Volunteer Time',
-    description: 'Hands-on support for outreach, tutoring, events, and community care.',
-    icon: 'Clock',
-  },
 ]
 
 export const getInvolvedPaths = [
@@ -765,14 +941,6 @@ export const documents: DocumentItem[] = [
     title: 'Impact Reports',
     category: 'Impact Reports',
     description: 'Program outcomes, stories, and lessons shared with honesty and care.',
-    year: 'Forthcoming',
-    status: 'coming-soon',
-  },
-  {
-    id: 'financial-report',
-    title: 'Financial Reports',
-    category: 'Financial Reports',
-    description: 'Clear reporting on stewardship, budgeting, and the use of resources.',
     year: 'Forthcoming',
     status: 'coming-soon',
   },

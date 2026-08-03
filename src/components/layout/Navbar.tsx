@@ -42,10 +42,11 @@ export function Navbar() {
         solid ? 'border-b border-navy-900/8 bg-cream-50/90 shadow-soft backdrop-blur-xl' : 'bg-transparent',
       )}
     >
-      <nav className="container-page flex h-[4.25rem] items-center justify-between gap-4 sm:h-20 lg:h-24" aria-label="Primary">
+      <nav className="container-page flex h-[3.35rem] items-center justify-between gap-4 sm:h-14 lg:h-16" aria-label="Primary">
         <Logo
           variant={solid ? 'color' : 'white'}
-          imgClassName="h-11 sm:h-12 lg:h-14 transition-opacity duration-300"
+          className="h-full"
+          imgClassName="h-8 sm:h-9 lg:h-10"
         />
 
         <ul className="hidden items-center gap-1 lg:flex">

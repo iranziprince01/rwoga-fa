@@ -123,12 +123,14 @@ export function AboutPage() {
 
           <Reveal delay={0.1}>
             <div className="overflow-hidden rounded-[2rem] shadow-lift">
-              <CloudinaryImage
+              <img
                 src="/misvis.jpg"
                 alt="Members of Rwoga Family Association working toward a shared mission and vision"
-                width={1000}
-                height={1200}
-                className="aspect-[4/5] w-full lg:aspect-[3/4]"
+                width={1174}
+                height={1440}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[4/5] w-full object-cover object-[center_22%] lg:aspect-[3/4]"
               />
             </div>
           </Reveal>
@@ -136,10 +138,15 @@ export function AboutPage() {
       </section>
 
       <section className="relative overflow-hidden py-20 sm:py-28">
-        <div
+        <img
+          src="/RwogaValues.jpg"
+          alt=""
           aria-hidden
-          className="absolute inset-0 bg-cover bg-top bg-no-repeat"
-          style={{ backgroundImage: 'url(/RwogaValues.jpg)' }}
+          width={1800}
+          height={1200}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover object-[center_22%]"
         />
         <div aria-hidden className="absolute inset-0 bg-navy-950/80" />
         <div className="container-page relative z-10">

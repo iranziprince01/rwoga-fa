@@ -32,16 +32,15 @@ export const FOOTER_LINKS = {
     { label: 'Team', href: '/leadership' },
   ],
   engage: [
-    { label: 'Contact', href: '/contact' },
     { label: 'Get Involved', href: '/get-involved' },
-    { label: 'Resources', href: '/transparency' },
+    { label: 'Donate', href: '/donate' },
     { label: 'Gallery', href: '/gallery' },
     { label: 'News', href: '/news' },
+    { label: 'Contact', href: '/contact' },
   ],
   trust: [
-    { label: 'Annual Reports', href: '/transparency' },
-    { label: 'Privacy Policy', href: '/contact' },
-    { label: 'Donate', href: '/donate' },
+    { label: 'Resources', href: '/transparency' },
     { label: 'FAQ', href: '/contact#faq' },
+    { label: 'Privacy Policy', href: '/contact' },
   ],
 } as const

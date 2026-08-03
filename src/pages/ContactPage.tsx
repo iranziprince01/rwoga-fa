@@ -1,19 +1,19 @@
 import type { FormEvent } from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Mail, MapPin, MessageSquare } from 'lucide-react'
 import { PageHero } from '@/components/hero/PageHero'
 import { SEO } from '@/components/ui/SEO'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { FAQ } from '@/components/ui/Accordion'
 import { Button } from '@/components/ui/Button'
-import { ButtonLink } from '@/components/ui/ButtonLink'
-import { CTA } from '@/components/cta/CTA'
 import { Reveal } from '@/components/motion/Reveal'
 import { faqs } from '@/data/content'
 import { SITE } from '@/constants/site'
 
 export function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -21,9 +21,46 @@ export function ContactPage() {
     message: '',
   })
 
-  const onSubmit = (event: FormEvent) => {
+  useEffect(() => {
+    if (!submitted) return
+
+    const timeout = window.setTimeout(() => {
+      setSubmitted(false)
+      setForm({
+        name: '',
+        email: '',
+        subject: 'General Inquiries',
+        message: '',
+      })
+    }, 10_000)
+
+    return () => window.clearTimeout(timeout)
+  }, [submitted])
+
+  const onSubmit = async (event: FormEvent) => {
     event.preventDefault()
-    setSubmitted(true)
+    setSubmitting(true)
+    setError('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+
+      const data = (await response.json().catch(() => ({}))) as { error?: string }
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message. Please try again.')
+      }
+
+      setSubmitted(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to send message. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -44,7 +81,7 @@ export function ContactPage() {
             <SectionHeader
               eyebrow="Connect"
               title="Start a conversation"
-              description="This form is frontend-ready. Wire it to your email service or CRM when you deploy."
+              description="We read every note and respond with care."
             />
             <div className="mt-8 space-y-4">
               <a
@@ -69,13 +106,28 @@ export function ContactPage() {
                 <div>
                   <p className="font-semibold text-navy-900">Social</p>
                   <div className="mt-1 flex flex-wrap gap-3 text-sm">
-                    <a href={SITE.social.linkedin} className="text-blue-500 hover:underline">
+                    <a
+                      href={SITE.social.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
                       LinkedIn
                     </a>
-                    <a href={SITE.social.instagram} className="text-blue-500 hover:underline">
+                    <a
+                      href={SITE.social.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
                       Instagram
                     </a>
-                    <a href={SITE.social.facebook} className="text-blue-500 hover:underline">
+                    <a
+                      href={SITE.social.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
                       Facebook
                     </a>
                   </div>
@@ -88,7 +140,7 @@ export function ContactPage() {
             <div className="rounded-3xl border border-navy-900/8 bg-white p-6 shadow-lift sm:p-8">
               {submitted ? (
                 <p className="rounded-2xl bg-sage-100 px-4 py-5 text-sage-600" role="status">
-                  Thank you for reaching out. This demo form captured your message locally. Connect a backend to deliver it.
+                  Thank you for your message. It has been received, and we will get back to you as soon as possible.
                 </p>
               ) : (
                 <form onSubmit={onSubmit} className="space-y-4">
@@ -131,8 +183,9 @@ export function ContactPage() {
                     >
                       <option>General Inquiries</option>
                       <option>Partnerships</option>
-                      <option>Volunteer Opportunities</option>
-                      <option>Media</option>
+                      <option>Sponsorships</option>
+                      <option>Mentorship</option>
+                      <option>Membership</option>
                       <option>Donate</option>
                     </select>
                   </div>
@@ -149,8 +202,18 @@ export function ContactPage() {
                       className="w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 py-3 text-sm focus:border-blue-500 focus:outline-none"
                     />
                   </div>
-                  <Button type="submit" variant="primary" className="w-full sm:w-auto">
-                    Send message
+                  {error ? (
+                    <p className="rounded-xl bg-amber-100 px-4 py-3 text-sm text-navy-900" role="alert">
+                      {error}
+                    </p>
+                  ) : null}
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    className="w-full sm:w-auto"
+                    disabled={submitting}
+                  >
+                    {submitting ? 'Sending…' : 'Send message'}
                   </Button>
                 </form>
               )}
@@ -163,26 +226,6 @@ export function ContactPage() {
         <div className="container-page max-w-3xl">
           <SectionHeader eyebrow="FAQ" title="Common questions" className="mb-8" />
           <FAQ items={faqs} />
-        </div>
-      </section>
-
-      <section className="py-20 sm:py-28">
-        <div className="container-page">
-          <CTA
-            eyebrow="Take action"
-            title="Prefer a clearer next step?"
-            description="Explore volunteering, partnerships, or donations, then reach out when you’re ready."
-            primaryLabel="Get involved"
-            primaryTo="/get-involved"
-            secondaryLabel="Donate"
-            secondaryTo="/donate"
-            variant="amber"
-          />
-          <div className="mt-6 text-center">
-            <ButtonLink to="/transparency" variant="ghost">
-              Or review our transparency commitments
-            </ButtonLink>
-          </div>
         </div>
       </section>
     </>

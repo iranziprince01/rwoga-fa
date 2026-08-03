@@ -15,7 +15,7 @@ export const SITE = {
   },
   social: {
     linkedin: 'https://linkedin.com',
-    instagram: 'https://instagram.com',
+    instagram: 'https://www.instagram.com/rwo.ga/',
     facebook: 'https://facebook.com',
   },
 } as const

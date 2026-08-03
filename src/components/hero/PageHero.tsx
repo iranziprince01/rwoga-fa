@@ -27,8 +27,23 @@ export function PageHero({ eyebrow, title, description, className }: Props) {
               {eyebrow}
             </p>
           )}
-          <h1 className="max-w-3xl font-display text-4xl font-extrabold tracking-tight text-white text-balance sm:text-5xl lg:text-6xl">
-            {toTitleCase(title)}
+          <h1
+            className={cn(
+              'font-display font-extrabold tracking-tight text-white',
+              title.includes('\n')
+                ? 'max-w-none text-[1.65rem] leading-tight sm:text-5xl lg:text-6xl'
+                : 'max-w-3xl text-4xl sm:text-5xl lg:text-6xl',
+            )}
+          >
+            {title.includes('\n') ? (
+              title.split('\n').map((line) => (
+                <span key={line} className="block whitespace-nowrap">
+                  {toTitleCase(line)}
+                </span>
+              ))
+            ) : (
+              toTitleCase(title)
+            )}
           </h1>
           {description && (
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/75">{description}</p>
