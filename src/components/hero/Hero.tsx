@@ -49,15 +49,6 @@ export function Hero() {
 
       <div className="container-page relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-5 pb-24 pt-28 text-center">
         <div className="mx-auto flex w-full max-w-5xl flex-col items-center">
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-5 text-base font-semibold tracking-[0.2em] text-amber-400 uppercase sm:text-lg"
-          >
-            Rwoga Family Association
-          </motion.p>
-
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
@@ -79,11 +70,21 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-7 max-w-3xl text-lg leading-relaxed text-white/78 sm:text-xl md:text-2xl"
+            className="mt-7 max-w-3xl text-base leading-relaxed text-white/78 sm:text-lg md:text-xl"
           >
-            Rwoga Family Association is a refugee-led association founded by Congolese students at
-            African Leadership University who believe that those closest to a community’s challenges
-            are also closest to its solutions.
+            <span className="font-semibold text-white underline decoration-amber-100 decoration-2 underline-offset-4">
+              Rwoga Family Association
+            </span>{' '}
+            is a refugee-led association founded by Congolese students at African Leadership
+            University{' '}
+            <span className="font-semibold text-white underline decoration-amber-100 decoration-2 underline-offset-4">
+              who believe
+            </span>{' '}
+            that those closest to a community’s challenges are also closest to its{' '}
+            <span className="font-semibold text-white underline decoration-amber-100 decoration-2 underline-offset-4">
+              solutions
+            </span>
+            .
           </motion.p>
 
           <motion.div

@@ -3,7 +3,6 @@ import { ArrowLeft, ArrowRight, Check, Handshake, HeartHandshake } from 'lucide-
 import { PageHero } from '@/components/hero/PageHero'
 import { SEO } from '@/components/ui/SEO'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { CTA } from '@/components/cta/CTA'
 import { Reveal } from '@/components/motion/Reveal'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { CloudinaryImage } from '@/components/media/CloudinaryImage'
@@ -23,6 +22,17 @@ export function ProgramDetailPage() {
   const previous = programs[(currentIndex - 1 + programs.length) % programs.length]
   const next = programs[(currentIndex + 1) % programs.length]
 
+  const featuredLayouts: Record<string, { focusImage: string; deliverImage: string }> = {
+    'education-support': { focusImage: '/p01.jpeg', deliverImage: '/p11.jpeg' },
+    'student-leadership': { focusImage: '/p02.jpeg', deliverImage: '/p21.jpg' },
+    'women-empowerment': { focusImage: '/p03.jpg', deliverImage: '/p31.jpg' },
+    'community-outreach': { focusImage: '/p04.jpg', deliverImage: '/p41.jpg' },
+    'career-development': { focusImage: '/p05.jpg', deliverImage: '/p51.jpg' },
+    mentorship: { focusImage: '/p06.jpg', deliverImage: '/p61.jpeg' },
+    'digital-literacy': { focusImage: '/p07.jpg', deliverImage: '/p71.jpg' },
+  }
+  const featured = featuredLayouts[program.id]
+
   return (
     <>
       <SEO
@@ -32,7 +42,7 @@ export function ProgramDetailPage() {
       />
       <PageHero eyebrow="Program" title={program.title} description={program.summary} />
 
-      <section className="py-20 sm:py-28">
+      <section className="bg-white py-20 sm:py-28">
         <div className="container-page">
           <div className="mb-8">
             <Link
@@ -87,46 +97,110 @@ export function ProgramDetailPage() {
             description="Clear priorities keep our work focused on lasting opportunity for refugee communities."
             className="mb-10"
           />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {program.focusAreas.map((area, index) => (
-              <Reveal key={area} delay={index * 0.04}>
-                <div className="h-full rounded-2xl border border-navy-900/8 bg-white px-5 py-6 shadow-soft">
-                  <span className="font-display text-2xl font-bold text-amber-500">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="mt-4 font-display text-lg font-bold text-navy-900">{area}</h3>
+          {featured ? (
+            <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:gap-10">
+              <div className="grid grid-cols-2 gap-4">
+                {program.focusAreas.map((area, index) => (
+                  <Reveal key={area} delay={index * 0.04}>
+                    <div className="h-full rounded-2xl border border-navy-900/8 bg-white px-5 py-6 shadow-soft">
+                      <span className="font-display text-2xl font-bold text-amber-500">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <h3 className="mt-4 font-display text-lg font-bold text-navy-900">{area}</h3>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+              <Reveal delay={0.08}>
+                <div className="h-full overflow-hidden rounded-[2rem] shadow-lift">
+                  <CloudinaryImage
+                    src={featured.focusImage}
+                    alt={`${program.title} focus areas`}
+                    width={900}
+                    height={900}
+                    className="h-full min-h-[20rem] w-full object-cover"
+                  />
                 </div>
               </Reveal>
-            ))}
-          </div>
+            </div>
+          ) : (
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {program.focusAreas.map((area, index) => (
+                <Reveal key={area} delay={index * 0.04}>
+                  <div className="h-full rounded-2xl border border-navy-900/8 bg-white px-5 py-6 shadow-soft">
+                    <span className="font-display text-2xl font-bold text-amber-500">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className="mt-4 font-display text-lg font-bold text-navy-900">{area}</h3>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
-        <div className="container-page grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
-          <Reveal>
-            <SectionHeader
-              eyebrow="How we deliver"
-              title="Activities that create change"
-              description="Each activity is grounded in real needs we have seen across camps, campuses, and member life."
-            />
-          </Reveal>
-          <Reveal delay={0.06}>
-            <ul className="space-y-4">
-              {program.activities.map((item) => (
-                <li
-                  key={item}
-                  className="flex gap-3 rounded-2xl border border-navy-900/8 bg-white px-5 py-4 shadow-soft"
-                >
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage-100 text-sage-600">
-                    <Check className="h-3.5 w-3.5" aria-hidden />
-                  </span>
-                  <span className="text-base leading-relaxed text-navy-800/80">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
+      <section className="bg-white py-20 sm:py-28">
+        {featured ? (
+          <div className="container-page grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+            <Reveal>
+              <div className="overflow-hidden rounded-[2rem] shadow-lift">
+                <CloudinaryImage
+                  src={featured.deliverImage}
+                  alt={`${program.title} activities`}
+                  width={900}
+                  height={700}
+                  className="aspect-[5/4] w-full object-cover"
+                />
+              </div>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <SectionHeader
+                eyebrow="How we deliver"
+                title="Activities that create change"
+                className="mb-8"
+              />
+              <ul className="space-y-4">
+                {program.activities.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 rounded-2xl border border-navy-900/8 bg-cream-50 px-5 py-4 shadow-soft"
+                  >
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage-100 text-sage-600">
+                      <Check className="h-3.5 w-3.5" aria-hidden />
+                    </span>
+                    <span className="text-base leading-relaxed text-navy-800/80">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+        ) : (
+          <div className="container-page grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+            <Reveal>
+              <SectionHeader
+                eyebrow="How we deliver"
+                title="Activities that create change"
+                description="Each activity is grounded in real needs we have seen across camps, campuses, and member life."
+              />
+            </Reveal>
+            <Reveal delay={0.06}>
+              <ul className="space-y-4">
+                {program.activities.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 rounded-2xl border border-navy-900/8 bg-cream-50 px-5 py-4 shadow-soft"
+                  >
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage-100 text-sage-600">
+                      <Check className="h-3.5 w-3.5" aria-hidden />
+                    </span>
+                    <span className="text-base leading-relaxed text-navy-800/80">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+        )}
       </section>
 
       <section className="bg-cream-100 py-20 sm:py-28">
@@ -164,7 +238,7 @@ export function ProgramDetailPage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="bg-white py-20 sm:py-28">
         <div className="container-page">
           <SectionHeader
             eyebrow="Support this program"
@@ -201,7 +275,7 @@ export function ProgramDetailPage() {
         </div>
       </section>
 
-      <section className="border-y border-navy-900/8 py-16">
+      <section className="bg-cream-100 py-16">
         <div className="container-page flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <ButtonLink to={`/programs/${previous.id}`} variant="secondary">
             <ArrowLeft className="h-4 w-4" aria-hidden />
@@ -211,21 +285,6 @@ export function ProgramDetailPage() {
             {next.title}
             <ArrowRight className="h-4 w-4" aria-hidden />
           </ButtonLink>
-        </div>
-      </section>
-
-      <section className="py-20 sm:py-28">
-        <div className="container-page">
-          <CTA
-            eyebrow="Grow with us"
-            title={`Help ${program.title} reach more people`}
-            description="Sponsor this program, partner with Rwoga, or contribute resources so more refugee communities can benefit."
-            primaryLabel="Sponsor a program"
-            primaryTo="/contact"
-            secondaryLabel="Partner with us"
-            secondaryTo="/contact"
-            variant="amber"
-          />
         </div>
       </section>
     </>

@@ -3,7 +3,6 @@ import { PageHero } from '@/components/hero/PageHero'
 import { SEO } from '@/components/ui/SEO'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { ProgramCard } from '@/components/cards/ProgramCard'
-import { CTA } from '@/components/cta/CTA'
 import { Reveal } from '@/components/motion/Reveal'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { programs } from '@/data/content'
@@ -37,7 +36,7 @@ export function ProgramsPage() {
         description="From education and leadership to livelihoods and digital access, our programs turn compassion into practical opportunity across Rwanda."
       />
 
-      <section className="py-16 sm:py-20">
+      <section className="bg-white py-16 sm:py-20">
         <div className="container-page">
           <div className="grid gap-5 md:grid-cols-3">
             {programPillars.map((pillar, index) => (
@@ -59,7 +58,7 @@ export function ProgramsPage() {
         <div className="container-page">
           <SectionHeader
             eyebrow="Our programs"
-            title="Seven pathways for lasting opportunity"
+            title={"7 Pathways for\nLasting Opportunity"}
             description="Each program is designed by refugee youth for refugee communities—grounded in real needs, delivered with care, and open to partners who want to grow impact with us."
             className="mb-12"
           />
@@ -73,7 +72,7 @@ export function ProgramsPage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="bg-white py-20 sm:py-28">
         <div className="container-page grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <SectionHeader
@@ -107,28 +106,13 @@ export function ProgramsPage() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-2xl border border-navy-900/8 bg-white px-5 py-4 text-navy-900 shadow-soft"
+                  className="rounded-2xl border border-navy-900/8 bg-cream-50 px-5 py-4 text-navy-900 shadow-soft"
                 >
                   {item}
                 </div>
               ))}
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      <section className="bg-cream-100 py-20 sm:py-28">
-        <div className="container-page">
-          <CTA
-            eyebrow="Impact"
-            title="See how programs create change"
-            description="Explore our impact stories, then sponsor a program or partner with us to help refugee communities build brighter futures."
-            primaryLabel="View impact"
-            primaryTo="/impact"
-            secondaryLabel="Sponsor a program"
-            secondaryTo="/contact"
-            variant="amber"
-          />
         </div>
       </section>
     </>

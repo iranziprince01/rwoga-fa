@@ -41,7 +41,15 @@ export function SectionHeader({
           light ? 'text-white' : 'text-navy-900',
         )}
       >
-        {toTitleCase(title)}
+        {title.includes('\n') ? (
+          title.split('\n').map((line) => (
+            <span key={line} className="block">
+              {toTitleCase(line)}
+            </span>
+          ))
+        ) : (
+          toTitleCase(title)
+        )}
       </h2>
       {description && (
         <p
