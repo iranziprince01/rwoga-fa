@@ -120,7 +120,7 @@ export function DonatePage() {
                       required
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="h-11 w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 text-sm focus:border-blue-500 focus:outline-none"
+                      className="h-11 w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 text-base focus:border-blue-500 focus:outline-none"
                     />
                   </div>
                   <div>
@@ -133,7 +133,7 @@ export function DonatePage() {
                       required
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="h-11 w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 text-sm focus:border-blue-500 focus:outline-none"
+                      className="h-11 w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 text-base focus:border-blue-500 focus:outline-none"
                     />
                   </div>
                   <div>
@@ -144,7 +144,7 @@ export function DonatePage() {
                       id="donor-type"
                       value={form.type}
                       onChange={(e) => setForm({ ...form, type: e.target.value })}
-                      className="h-11 w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 text-sm focus:border-blue-500 focus:outline-none"
+                      className="h-11 w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 text-base focus:border-blue-500 focus:outline-none"
                     >
                       {contributions.map((c) => (
                         <option key={c.id}>{c.title}</option>
@@ -160,7 +160,7 @@ export function DonatePage() {
                       rows={4}
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 py-3 text-sm focus:border-blue-500 focus:outline-none"
+                      className="w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 py-3 text-base focus:border-blue-500 focus:outline-none"
                       placeholder="Tell us briefly how you’d like to help."
                     />
                   </div>

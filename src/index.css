@@ -60,6 +60,13 @@
     @apply outline-2 outline-offset-2 outline-blue-500;
   }
 
+  /* Prevent iOS Safari zoom-on-focus (requires >= 16px) */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
   img,
   video,
   svg {

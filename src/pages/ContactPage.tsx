@@ -146,7 +146,7 @@ export function ContactPage() {
                         required
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="h-11 w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 text-sm focus:border-blue-500 focus:outline-none"
+                        className="h-11 w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 text-base focus:border-blue-500 focus:outline-none"
                       />
                     </div>
                     <div>
@@ -159,7 +159,7 @@ export function ContactPage() {
                         required
                         value={form.email}
                         onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        className="h-11 w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 text-sm focus:border-blue-500 focus:outline-none"
+                        className="h-11 w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 text-base focus:border-blue-500 focus:outline-none"
                       />
                     </div>
                   </div>
@@ -171,7 +171,7 @@ export function ContactPage() {
                       id="contact-subject"
                       value={form.subject}
                       onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                      className="h-11 w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 text-sm focus:border-blue-500 focus:outline-none"
+                      className="h-11 w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 text-base focus:border-blue-500 focus:outline-none"
                     >
                       <option>General Inquiries</option>
                       <option>Partnerships</option>
@@ -191,7 +191,7 @@ export function ContactPage() {
                       rows={5}
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      className="w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 py-3 text-sm focus:border-blue-500 focus:outline-none"
+                      className="w-full rounded-xl border border-navy-900/15 bg-cream-50 px-4 py-3 text-base focus:border-blue-500 focus:outline-none"
                     />
                   </div>
                   {error ? (
