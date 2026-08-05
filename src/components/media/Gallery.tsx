@@ -91,7 +91,10 @@ export function Gallery({ images, className }: Props) {
                   alt=""
                   width={900}
                   height={900}
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className={cn(
+                    'h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105',
+                    image.imagePosition,
+                  )}
                 />
                 <span className="pointer-events-none absolute inset-0 bg-navy-950/0 transition-colors duration-300 group-hover:bg-navy-950/15" />
               </button>

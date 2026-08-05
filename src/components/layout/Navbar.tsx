@@ -15,11 +15,23 @@ export function Navbar() {
   const isHome = location.pathname === '/'
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
+    const onScroll = () => {
+      if (!isHome) {
+        setScrolled(true)
+        return
+      }
+      // Switch to white once the dark hero is mostly left behind
+      const heroExit = Math.min(window.innerHeight * 0.45, 320)
+      setScrolled(window.scrollY > heroExit)
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    window.addEventListener('resize', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [isHome])
 
   useEffect(() => {
     setOpen(false)
@@ -47,13 +59,26 @@ export function Navbar() {
     return () => media.removeEventListener('change', onChange)
   }, [])
 
-  const solid = scrolled || !isHome || open
+  const solid = !isHome || scrolled || open
+
+  const isSectionActive = (link: (typeof NAV_LINKS)[number]) => {
+    if (link.children?.length) {
+      return link.children.some(
+        (child) =>
+          location.pathname === child.href || location.pathname.startsWith(`${child.href}/`),
+      )
+    }
+    if (link.href === '/') return location.pathname === '/'
+    return location.pathname === link.href || location.pathname.startsWith(`${link.href}/`)
+  }
 
   return (
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-300',
-        solid ? 'border-b border-navy-900/8 bg-cream-50/90 shadow-soft backdrop-blur-xl' : 'bg-transparent',
+        solid
+          ? 'border-b border-navy-900/8 bg-white/95 shadow-soft backdrop-blur-xl'
+          : 'border-b border-transparent bg-transparent',
       )}
     >
       <nav className="container-page flex h-[3.35rem] items-center justify-between gap-4 sm:h-14 lg:h-16" aria-label="Primary">
@@ -63,89 +88,92 @@ export function Navbar() {
           imgClassName="h-8 sm:h-9 lg:h-10"
         />
 
-        <ul className="hidden items-center gap-1 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href} className="relative">
-              {link.children ? (
-                <div
-                  className="group/dropdown relative"
-                  onMouseEnter={() => setExpanded(link.label)}
-                  onMouseLeave={() => setExpanded(null)}
-                >
-                  <button
-                    type="button"
-                    className={cn(
-                      'inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-semibold transition-colors',
-                      solid
-                        ? 'text-navy-800 hover:bg-navy-900/5 hover:text-navy-900'
-                        : 'text-white/85 hover:bg-white/10 hover:text-white',
-                    )}
-                    aria-expanded={expanded === link.label}
-                    aria-haspopup="true"
-                  >
-                    {link.label}
-                    <ChevronDown className="h-3.5 w-3.5" aria-hidden />
-                  </button>
+        <div className="hidden items-center gap-2 lg:flex">
+          <ul className="flex items-center gap-1">
+            {NAV_LINKS.map((link) => {
+              const sectionActive = isSectionActive(link)
+              return (
+              <li key={link.href} className="relative">
+                {link.children ? (
                   <div
-                    className={cn(
-                      'invisible absolute top-full left-0 z-50 min-w-[260px] translate-y-2 pt-2 opacity-0 transition-all group-hover/dropdown:visible group-hover/dropdown:translate-y-0 group-hover/dropdown:opacity-100',
-                      expanded === link.label && 'visible translate-y-0 opacity-100',
-                    )}
+                    className="group/dropdown relative"
+                    onMouseEnter={() => setExpanded(link.label)}
+                    onMouseLeave={() => setExpanded(null)}
                   >
-                    <div className="rounded-2xl border border-navy-900/8 bg-white p-2 shadow-lift">
-                      {link.children.map((child) => (
-                        <NavLink
-                          key={child.href}
-                          to={child.href}
-                          className={({ isActive }) =>
-                            cn(
-                              'block rounded-xl px-3 py-2.5 transition-colors hover:bg-cream-100',
-                              isActive && 'bg-cream-100',
-                            )
-                          }
-                        >
-                          <span className="block text-sm font-semibold text-navy-900">
+                    <button
+                      type="button"
+                      className={cn(
+                        'relative inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-semibold transition-colors',
+                        solid
+                          ? sectionActive
+                            ? 'bg-amber-100 text-navy-900'
+                            : 'text-navy-800 hover:bg-navy-900/5 hover:text-navy-900'
+                          : sectionActive
+                            ? 'bg-white/20 text-white'
+                            : 'text-white/85 hover:bg-white/10 hover:text-white',
+                        sectionActive &&
+                          'after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:rounded-full after:bg-amber-500',
+                      )}
+                      aria-expanded={expanded === link.label}
+                      aria-haspopup="true"
+                      aria-current={sectionActive ? 'page' : undefined}
+                    >
+                      {link.label}
+                      <ChevronDown className="h-3.5 w-3.5" aria-hidden />
+                    </button>
+                    <div
+                      className={cn(
+                        'invisible absolute top-full left-1/2 z-50 min-w-[180px] -translate-x-1/2 translate-y-2 pt-2 opacity-0 transition-all group-hover/dropdown:visible group-hover/dropdown:translate-y-0 group-hover/dropdown:opacity-100',
+                        expanded === link.label && 'visible -translate-x-1/2 translate-y-0 opacity-100',
+                      )}
+                    >
+                      <div className="rounded-2xl border border-navy-900/8 bg-white p-2 shadow-lift">
+                        {link.children.map((child) => (
+                          <NavLink
+                            key={child.href}
+                            to={child.href}
+                            className={({ isActive }) =>
+                              cn(
+                                'block rounded-xl px-3 py-2.5 text-center text-sm font-semibold transition-colors hover:bg-cream-100',
+                                isActive
+                                  ? 'bg-amber-100 text-navy-900'
+                                  : 'text-navy-900',
+                              )
+                            }
+                          >
                             {child.label}
-                          </span>
-                          {child.description && (
-                            <span className="mt-0.5 block text-xs text-slate-soft">
-                              {child.description}
-                            </span>
-                          )}
-                        </NavLink>
-                      ))}
+                          </NavLink>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ) : (
-                <NavLink
-                  to={link.href}
-                  end={link.href === '/'}
-                  className={({ isActive }) =>
-                    cn(
-                      'rounded-lg px-3 py-2 text-sm font-semibold transition-colors',
-                      solid
-                        ? isActive
-                          ? 'bg-navy-900/5 text-navy-900'
-                          : 'text-navy-800 hover:bg-navy-900/5 hover:text-navy-900'
-                        : isActive
-                          ? 'bg-white/15 text-white'
-                          : 'text-white/85 hover:bg-white/10 hover:text-white',
-                    )
-                  }
-                >
-                  {link.label}
-                </NavLink>
-              )}
-            </li>
-          ))}
-        </ul>
-
-        <div className="hidden items-center gap-2 lg:flex">
-          <ButtonLink to="/get-involved" variant={solid ? 'secondary' : 'outline'} size="sm">
-            Get involved
-          </ButtonLink>
-          <ButtonLink to="/donate" variant="amber" size="sm">
+                ) : (
+                  <NavLink
+                    to={link.href}
+                    end={link.href === '/'}
+                    className={({ isActive }) =>
+                      cn(
+                        'relative rounded-lg px-3 py-2 text-sm font-semibold transition-colors',
+                        solid
+                          ? isActive
+                            ? 'bg-amber-100 text-navy-900'
+                            : 'text-navy-800 hover:bg-navy-900/5 hover:text-navy-900'
+                          : isActive
+                            ? 'bg-white/20 text-white'
+                            : 'text-white/85 hover:bg-white/10 hover:text-white',
+                        isActive &&
+                          'after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:rounded-full after:bg-amber-500',
+                      )
+                    }
+                  >
+                    {link.label}
+                  </NavLink>
+                )}
+              </li>
+              )
+            })}
+          </ul>
+          <ButtonLink to="/donate" variant="amber" size="sm" className="ml-1">
             Donate
           </ButtonLink>
         </div>
@@ -173,13 +201,18 @@ export function Navbar() {
             className="border-t border-navy-900/8 bg-cream-50 lg:hidden"
           >
             <div className="container-page max-h-[calc(100svh-4rem)] space-y-1 overflow-y-auto py-4">
-              {NAV_LINKS.map((link) => (
+              {NAV_LINKS.map((link) => {
+                const sectionActive = isSectionActive(link)
+                return (
                 <div key={link.href}>
                   {link.children ? (
                     <>
                       <button
                         type="button"
-                        className="flex w-full items-center justify-between rounded-xl px-3 py-3 text-left font-bold text-navy-900"
+                        className={cn(
+                          'flex w-full items-center justify-between rounded-xl px-3 py-3 text-left font-bold',
+                          sectionActive ? 'bg-amber-100 text-navy-900' : 'text-navy-900',
+                        )}
                         onClick={() =>
                           setExpanded((current) => (current === link.label ? null : link.label))
                         }
@@ -199,7 +232,14 @@ export function Navbar() {
                             <NavLink
                               key={child.href}
                               to={child.href}
-                              className="block rounded-lg px-3 py-3 text-sm text-navy-800 hover:bg-cream-200"
+                              className={({ isActive }) =>
+                                cn(
+                                  'block rounded-lg px-3 py-3 text-sm font-semibold',
+                                  isActive
+                                    ? 'bg-amber-100 text-navy-900'
+                                    : 'text-navy-800 hover:bg-cream-200',
+                                )
+                              }
                             >
                               {child.label}
                             </NavLink>
@@ -211,18 +251,23 @@ export function Navbar() {
                     <NavLink
                       to={link.href}
                       end={link.href === '/'}
-                      className="block rounded-xl px-3 py-3 font-bold text-navy-900 hover:bg-cream-200"
+                      className={({ isActive }) =>
+                        cn(
+                          'block rounded-xl px-3 py-3 font-bold',
+                          isActive
+                            ? 'bg-amber-100 text-navy-900'
+                            : 'text-navy-900 hover:bg-cream-200',
+                        )
+                      }
                     >
                       {link.label}
                     </NavLink>
                   )}
                 </div>
-              ))}
-              <div className="flex flex-col gap-2 pt-3">
-                <ButtonLink to="/get-involved" variant="secondary">
-                  Get involved
-                </ButtonLink>
-                <ButtonLink to="/donate" variant="amber">
+                )
+              })}
+              <div className="pt-3">
+                <ButtonLink to="/donate" variant="amber" className="w-full">
                   Donate
                 </ButtonLink>
               </div>

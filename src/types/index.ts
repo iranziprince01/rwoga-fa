@@ -125,6 +125,8 @@ export type GalleryImage = {
   alt?: string
   caption?: string
   category?: string
+  /** Tailwind object-position class to control crop focus */
+  imagePosition?: string
 }
 
 export type ValueItem = {
