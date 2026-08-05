@@ -634,7 +634,7 @@ export const stories: Story[] = [
     excerpt:
       'We provided food support to vulnerable families as they moved from Nkamira Transit Centre to Nyabiheke Refugee Camp — meeting an urgent need with care at a moment of transition.',
     body: 'We provided food support to vulnerable families as they moved from Nkamira Transit Centre to Nyabiheke Refugee Camp — meeting an urgent need with care at a moment of transition.',
-    image: '/02.jpg',
+    image: '/03.jpg',
   },
   {
     id: 'recognizing-excellence',
@@ -642,7 +642,7 @@ export const stories: Story[] = [
     excerpt:
       'In Kigeme Refugee Camp, we awarded academic prizes that celebrated every top-performing student and encouraged continued excellence — affirming that achievement deserves to be seen.',
     body: 'In Kigeme Refugee Camp, we awarded academic prizes that celebrated every top-performing student and encouraged continued excellence — affirming that achievement deserves to be seen.',
-    image: '/03.jpg',
+    image: '/02.jpg',
   },
 ]
 
