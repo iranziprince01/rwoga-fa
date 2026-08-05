@@ -900,30 +900,35 @@ export const getInvolvedPaths = [
     description: 'Work with Rwoga as an institution, organization, or community ally.',
     to: '/contact',
     label: 'Explore partnerships',
+    external: false,
   },
   {
     title: 'Sponsor a Program',
     description: 'Support a specific community initiative with clear goals and shared accountability.',
     to: '/contact',
     label: 'Sponsor a program',
+    external: false,
   },
   {
     title: 'Donate Resources',
     description: 'Contribute learning materials, devices, books, equipment, or other practical tools.',
     to: '/donate',
     label: 'Donate resources',
+    external: false,
   },
   {
     title: 'Mentor Students',
     description: 'Walk with refugee students through education, careers, and leadership growth.',
     to: '/contact',
     label: 'Become a mentor',
+    external: false,
   },
   {
     title: 'Share Opportunities',
     description: 'Open doors through internships, scholarships, training, and professional networks.',
     to: '/contact',
     label: 'Share an opportunity',
+    external: false,
   },
 ] as const
 
