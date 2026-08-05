@@ -35,12 +35,12 @@ export function ProgramCard({ program, className }: Props) {
           <Icon className="h-5 w-5" aria-hidden />
         </div>
       </div>
-      <div className="flex flex-1 flex-col p-6">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         <h3 className="font-display text-xl font-bold text-navy-900">{program.title}</h3>
         <p className="mt-2 flex-1 text-sm leading-relaxed text-navy-800/70">{program.summary}</p>
         <Link
           to={`/programs/${program.id}`}
-          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-500 transition-colors hover:text-navy-900"
+          className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-blue-500 transition-colors hover:text-navy-900"
         >
           Explore program
           <ArrowUpRight className="h-4 w-4" aria-hidden />

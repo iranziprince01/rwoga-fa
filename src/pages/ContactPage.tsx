@@ -75,7 +75,7 @@ export function ContactPage() {
         title="We’d love to hear from you"
       />
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
             <SectionHeader
@@ -105,12 +105,12 @@ export function ContactPage() {
                 <MessageSquare className="mt-0.5 h-5 w-5 text-amber-500" aria-hidden />
                 <div>
                   <p className="font-semibold text-navy-900">Social</p>
-                  <div className="mt-1 flex flex-wrap gap-3 text-sm">
+                  <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-sm">
                     <a
                       href={SITE.social.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-500 hover:underline"
+                      className="inline-flex min-h-11 items-center text-blue-500 hover:underline"
                     >
                       LinkedIn
                     </a>
@@ -118,7 +118,7 @@ export function ContactPage() {
                       href={SITE.social.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-500 hover:underline"
+                      className="inline-flex min-h-11 items-center text-blue-500 hover:underline"
                     >
                       Instagram
                     </a>
@@ -126,7 +126,7 @@ export function ContactPage() {
                       href={SITE.social.facebook}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-500 hover:underline"
+                      className="inline-flex min-h-11 items-center text-blue-500 hover:underline"
                     >
                       Facebook
                     </a>
@@ -222,7 +222,7 @@ export function ContactPage() {
         </div>
       </section>
 
-      <section id="faq" className="scroll-mt-28 bg-cream-100 py-20 sm:py-28">
+      <section id="faq" className="scroll-mt-28 bg-cream-100 section-pad">
         <div className="container-page max-w-3xl">
           <SectionHeader eyebrow="FAQ" title="Common questions" className="mb-8" />
           <FAQ items={faqs} />

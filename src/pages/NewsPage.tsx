@@ -19,7 +19,7 @@ export function NewsPage() {
         title="Latest news and community activities"
       />
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <SectionHeader
             eyebrow="Updates"
@@ -53,7 +53,7 @@ export function NewsPage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <CTA
             eyebrow="Stay close"

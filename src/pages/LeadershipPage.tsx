@@ -28,10 +28,10 @@ function LeaderGrid({ people }: { people: Leader[] }) {
             />
           </div>
           <div className="p-5">
-            <p className="text-xs font-semibold tracking-[0.1em] text-blue-500 uppercase sm:text-sm">
+            <p className="text-xs font-semibold leading-snug tracking-wide text-blue-500 uppercase sm:text-sm">
               {leader.role}
             </p>
-            <h3 className="mt-1 font-display text-xl font-bold text-navy-900">
+            <h3 className="mt-1 font-display text-lg font-bold break-words text-navy-900 sm:text-xl">
               {leader.name}
             </h3>
           </div>
@@ -54,7 +54,7 @@ export function LeadershipPage() {
         title="People stewarding Rwoga"
       />
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <SectionHeader
             title="Board Members"
@@ -64,7 +64,7 @@ export function LeadershipPage() {
         </div>
       </section>
 
-      <section className="bg-cream-100 py-20 sm:py-28">
+      <section className="bg-cream-100 section-pad">
         <div className="container-page">
           <SectionHeader
             title="Current Leadership Committee"
@@ -74,7 +74,7 @@ export function LeadershipPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-navy-950 py-20 sm:py-28">
+      <section className="relative overflow-hidden bg-navy-950 section-pad">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-90"
@@ -138,7 +138,7 @@ export function LeadershipPage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <CTA
             eyebrow="Serve with us"

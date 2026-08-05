@@ -18,7 +18,7 @@ export function GalleryPage() {
         title="Community, education, and leadership"
       />
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <SectionHeader
             eyebrow="Visual stories"
@@ -29,7 +29,7 @@ export function GalleryPage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <CTA
             eyebrow="Share"

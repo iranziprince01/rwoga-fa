@@ -20,7 +20,7 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        'max-w-3xl',
+        'max-w-3xl min-w-0',
         align === 'center' && 'mx-auto text-center',
         className,
       )}
@@ -28,7 +28,7 @@ export function SectionHeader({
       {eyebrow && (
         <p
           className={cn(
-            'mb-3 text-sm font-semibold tracking-[0.14em] uppercase',
+            'mb-3 text-xs font-semibold tracking-[0.14em] uppercase sm:text-sm',
             light ? 'text-amber-400' : 'text-blue-500',
           )}
         >
@@ -37,7 +37,7 @@ export function SectionHeader({
       )}
       <h2
         className={cn(
-          'font-display text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-5xl',
+          'font-display text-2xl font-bold tracking-tight text-balance break-words sm:text-4xl lg:text-5xl',
           light ? 'text-white' : 'text-navy-900',
         )}
       >
@@ -54,7 +54,7 @@ export function SectionHeader({
       {description && (
         <p
           className={cn(
-            'mt-4 text-base leading-relaxed sm:text-lg',
+            'mt-4 text-base leading-relaxed break-words sm:text-lg',
             light ? 'text-white/75' : 'text-navy-800/70',
           )}
         >

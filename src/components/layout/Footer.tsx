@@ -61,7 +61,7 @@ export function Footer() {
                   <li key={`${title}-${link.label}`}>
                     <Link
                       to={link.href}
-                      className="text-sm text-white/65 transition-colors hover:text-white"
+                      className="inline-flex min-h-10 items-center py-1.5 text-sm text-white/65 transition-colors hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -87,13 +87,13 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-white/70 transition-colors hover:border-white/25 hover:bg-white/5 hover:text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 text-white/70 transition-colors hover:border-white/25 hover:bg-white/5 hover:text-white"
               >
                 <SocialIcon name={name} />
               </a>
             ))}
           </div>
-          <p className="text-sm text-white/45">
+          <p className="text-sm text-white/45 sm:text-right">
             © {new Date().getFullYear()} {SITE.name}. All Rights Reserved.
           </p>
         </div>

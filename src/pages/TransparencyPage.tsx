@@ -25,7 +25,7 @@ export function TransparencyPage() {
         title="Reports that build trust"
       />
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <SectionHeader
             eyebrow="Our commitment"
@@ -46,7 +46,7 @@ export function TransparencyPage() {
         </div>
       </section>
 
-      <section className="bg-cream-100 py-20 sm:py-28">
+      <section className="bg-cream-100 section-pad">
         <div className="container-page">
           <SectionHeader
             eyebrow="Documents"
@@ -92,7 +92,7 @@ export function TransparencyPage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <CTA
             eyebrow="Questions"

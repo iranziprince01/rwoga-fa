@@ -22,13 +22,13 @@ export function GetInvolvedPage() {
         title="There are many ways to walk with us"
       />
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {paths.map((path, index) => (
               <Reveal key={path.title} delay={index * 0.05}>
-                <article className="flex h-full flex-col rounded-3xl border border-navy-900/8 bg-white p-8 shadow-soft">
-                  <h2 className="font-display text-2xl font-bold text-navy-900">{path.title}</h2>
+                <article className="flex h-full flex-col rounded-3xl border border-navy-900/8 bg-white p-5 shadow-soft sm:p-8">
+                  <h2 className="font-display text-xl font-bold text-navy-900 sm:text-2xl">{path.title}</h2>
                   <p className="mt-3 flex-1 text-navy-800/70 leading-relaxed">{path.description}</p>
                   <div className="mt-6">
                     <ButtonLink
@@ -48,7 +48,7 @@ export function GetInvolvedPage() {
         </div>
       </section>
 
-      <section className="bg-cream-100 py-20 sm:py-28">
+      <section className="bg-cream-100 section-pad">
         <div className="container-page">
           <SectionHeader
             title="Give what you have: skills, tools, or presence"
@@ -73,7 +73,7 @@ export function GetInvolvedPage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <CTA
             eyebrow="Ready?"

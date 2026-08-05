@@ -18,7 +18,7 @@ export function AboutPage() {
       />
       <PageHero eyebrow="About Rwoga" title="Who We Are" />
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <SectionHeader
@@ -49,7 +49,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-cream-100 py-20 sm:py-28">
+      <section className="bg-cream-100 section-pad">
         <div className="container-page grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <div className="overflow-hidden rounded-[2rem] shadow-lift">
@@ -92,7 +92,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <Reveal>
@@ -137,7 +137,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden py-20 sm:py-28">
+      <section className="relative overflow-hidden section-pad">
         <img
           src={mediaUrl('/RwogaValues.jpg')}
           alt=""
@@ -205,7 +205,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-x-20">
             <div>
@@ -223,7 +223,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-navy-950 py-20 sm:py-28">
+      <section className="bg-navy-950 section-pad">
         <div className="container-page">
           <SectionHeader
             eyebrow="Our Focus"
@@ -247,7 +247,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <CTA
             eyebrow="Leadership"

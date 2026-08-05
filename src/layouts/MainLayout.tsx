@@ -15,7 +15,7 @@ export function MainLayout() {
   }, [location.pathname, location.hash])
 
   return (
-    <div className="flex min-h-svh flex-col">
+    <div className="flex min-h-svh min-w-0 flex-col overflow-x-clip">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2 focus:text-navy-900 focus:shadow-lift"
@@ -23,7 +23,7 @@ export function MainLayout() {
         Skip to main content
       </a>
       <Navbar />
-      <main id="main-content" className="flex-1">
+      <main id="main-content" className="min-w-0 flex-1">
         <Outlet />
       </main>
       <Footer />

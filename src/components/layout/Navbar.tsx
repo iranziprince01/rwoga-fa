@@ -33,6 +33,20 @@ export function Navbar() {
     }
   }, [open])
 
+  useEffect(() => {
+    const media = window.matchMedia('(min-width: 1024px)')
+    const onChange = () => {
+      if (media.matches) {
+        setOpen(false)
+        setExpanded(null)
+        document.body.style.overflow = ''
+      }
+    }
+    onChange()
+    media.addEventListener('change', onChange)
+    return () => media.removeEventListener('change', onChange)
+  }, [])
+
   const solid = scrolled || !isHome || open
 
   return (
@@ -139,7 +153,7 @@ export function Navbar() {
         <button
           type="button"
           className={cn(
-            'inline-flex h-10 w-10 items-center justify-center rounded-xl lg:hidden',
+            'inline-flex h-11 w-11 items-center justify-center rounded-xl lg:hidden',
             solid ? 'text-navy-900 hover:bg-navy-900/5' : 'text-white hover:bg-white/10',
           )}
           aria-label={open ? 'Close menu' : 'Open menu'}
@@ -185,7 +199,7 @@ export function Navbar() {
                             <NavLink
                               key={child.href}
                               to={child.href}
-                              className="block rounded-lg px-3 py-2 text-sm text-navy-800 hover:bg-cream-200"
+                              className="block rounded-lg px-3 py-3 text-sm text-navy-800 hover:bg-cream-200"
                             >
                               {child.label}
                             </NavLink>

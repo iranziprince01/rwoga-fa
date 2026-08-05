@@ -24,11 +24,11 @@ export function StoryCard({ story, className }: Props) {
           className="h-full w-full transition-transform duration-700 group-hover:scale-105"
         />
       </div>
-      <div className="p-6">
-        <h3 className="font-display text-xl font-bold text-navy-900 text-balance">
+      <div className="p-5 sm:p-6">
+        <h3 className="font-display text-lg font-bold text-navy-900 text-balance sm:text-xl">
           {story.title}
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-navy-800/75 sm:text-base">
+        <p className="mt-3 text-sm leading-relaxed break-words text-navy-800/75 sm:text-base">
           {story.excerpt}
         </p>
         {story.author ? (

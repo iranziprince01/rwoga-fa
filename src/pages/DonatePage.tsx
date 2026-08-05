@@ -76,7 +76,7 @@ export function DonatePage() {
         title={"Support refugee communities\nby contributing"}
       />
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page grid gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <Reveal>
             <SectionHeader
@@ -182,7 +182,7 @@ export function DonatePage() {
         </div>
       </section>
 
-      <section className="bg-cream-100 py-20 sm:py-28">
+      <section className="bg-cream-100 section-pad">
         <div className="container-page">
           <SectionHeader
             eyebrow="Ways to contribute"
@@ -209,7 +209,7 @@ export function DonatePage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <CTA
             eyebrow="Trust"

@@ -36,38 +36,39 @@ export function CTA({
     <Reveal>
       <section
         className={cn(
-          'relative overflow-hidden rounded-3xl px-6 py-12 sm:px-10 sm:py-16 lg:px-14',
+          'relative overflow-hidden rounded-2xl px-5 py-10 sm:rounded-3xl sm:px-10 sm:py-16 lg:px-14',
           styles[variant],
           className,
         )}
       >
-        <div className="relative z-10 max-w-2xl">
+        <div className="relative z-10 max-w-2xl min-w-0">
           {eyebrow && (
             <p
               className={cn(
-                'mb-3 text-sm font-semibold tracking-[0.14em] uppercase',
+                'mb-3 text-xs font-semibold tracking-[0.14em] uppercase sm:text-sm',
                 variant === 'dark' ? 'text-amber-400' : 'text-blue-500',
               )}
             >
               {eyebrow}
             </p>
           )}
-          <h2 className="font-display text-3xl font-bold tracking-tight text-balance sm:text-4xl">
+          <h2 className="font-display text-2xl font-bold tracking-tight text-balance break-words sm:text-4xl">
             {toTitleCase(title)}
           </h2>
           <p
             className={cn(
-              'mt-4 text-base leading-relaxed sm:text-lg',
+              'mt-4 text-base leading-relaxed break-words sm:text-lg',
               variant === 'dark' ? 'text-white/75' : 'text-navy-800/70',
             )}
           >
             {description}
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <ButtonLink
               to={primaryTo}
               variant={variant === 'dark' ? 'amber' : 'primary'}
               size="lg"
+              className="w-full sm:w-auto"
             >
               {primaryLabel}
               <ArrowRight className="h-4 w-4" aria-hidden />
@@ -77,11 +78,12 @@ export function CTA({
                 to={secondaryTo}
                 variant={variant === 'dark' ? 'outline' : 'secondary'}
                 size="lg"
-                className={
+                className={cn(
+                  'w-full sm:w-auto',
                   variant === 'dark'
                     ? 'border-2 border-white bg-white/10 font-semibold text-white hover:bg-white/20'
-                    : 'border-2 border-navy-900/25 font-semibold'
-                }
+                    : 'border-2 border-navy-900/25 font-semibold',
+                )}
               >
                 {secondaryLabel}
                 <ArrowRight className="h-4 w-4" aria-hidden />

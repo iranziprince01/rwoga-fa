@@ -38,7 +38,7 @@ export function ProgramsPage() {
 
       <section className="bg-white py-16 sm:py-20">
         <div className="container-page">
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3">
             {programPillars.map((pillar, index) => (
               <Reveal key={pillar.title} delay={index * 0.05}>
                 <div className="h-full rounded-2xl border border-navy-900/8 bg-cream-50 px-6 py-7">
@@ -54,7 +54,7 @@ export function ProgramsPage() {
         </div>
       </section>
 
-      <section className="bg-cream-100 py-20 sm:py-28">
+      <section className="bg-cream-100 section-pad">
         <div className="container-page">
           <SectionHeader
             eyebrow="Our programs"
@@ -72,7 +72,7 @@ export function ProgramsPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white section-pad">
         <div className="container-page grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <SectionHeader
@@ -80,8 +80,8 @@ export function ProgramsPage() {
               title="Sponsor a program or become a partner"
               description="Organizations, institutions, and individuals can fund specific program needs—or partner with Rwoga to design lasting pathways for refugee youth."
             />
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink to="/contact" variant="amber" size="lg">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <ButtonLink to="/contact" variant="amber" size="lg" className="w-full sm:w-auto">
                 Sponsor a program
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </ButtonLink>
@@ -89,7 +89,7 @@ export function ProgramsPage() {
                 to="/contact"
                 variant="secondary"
                 size="lg"
-                className="border-2 border-navy-900/25 font-semibold"
+                className="w-full border-2 border-navy-900/25 font-semibold sm:w-auto"
               >
                 Partner with us
                 <ArrowRight className="h-4 w-4" aria-hidden />
@@ -106,7 +106,7 @@ export function ProgramsPage() {
               ].map((item) => (
                 <div
                   key={item}
-                  className="rounded-2xl border border-navy-900/8 bg-cream-50 px-5 py-4 text-navy-900 shadow-soft"
+                  className="rounded-2xl border border-navy-900/8 bg-cream-50 px-4 py-3.5 text-sm text-navy-900 shadow-soft sm:px-5 sm:py-4 sm:text-base"
                 >
                   {item}
                 </div>

@@ -53,7 +53,7 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-5xl font-extrabold tracking-tight text-white text-balance sm:text-6xl md:text-7xl lg:text-[5rem] lg:leading-[1.08]"
+            className="font-display text-4xl font-extrabold tracking-tight text-white text-balance sm:text-6xl md:text-7xl lg:text-[5rem] lg:leading-[1.08]"
           >
             {toTitleCase('Lighting the Way for Refugee Communities')}
           </motion.h1>
@@ -91,13 +91,13 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 flex flex-wrap items-center justify-center gap-3"
+            className="mt-10 flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center"
           >
-            <ButtonLink to="/impact" variant="amber" size="lg">
+            <ButtonLink to="/impact" variant="amber" size="lg" className="w-full sm:w-auto">
               Explore Our Impact
               <ArrowRight className="h-4 w-4" aria-hidden />
             </ButtonLink>
-            <ButtonLink to="/contact" variant="outline" size="lg">
+            <ButtonLink to="/contact" variant="outline" size="lg" className="w-full sm:w-auto">
               Partner With Us
             </ButtonLink>
           </motion.div>
@@ -106,7 +106,7 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 text-base font-semibold tracking-[0.2em] text-amber-400 uppercase sm:text-lg"
+            className="mt-10 max-w-full px-2 text-sm font-semibold tracking-[0.12em] text-amber-400 uppercase sm:text-base sm:tracking-[0.2em] md:text-lg"
           >
             From Challenges to Champions
           </motion.p>

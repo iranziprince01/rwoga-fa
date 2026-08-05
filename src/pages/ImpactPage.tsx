@@ -20,7 +20,7 @@ export function ImpactPage() {
       />
       <PageHero eyebrow="Impact" title="Progress that creates opportunity" />
 
-      <section className="bg-amber-100 py-20 sm:py-28">
+      <section className="bg-amber-100 section-pad">
         <div className="container-page">
           <SectionHeader
             eyebrow="At a glance"
@@ -31,7 +31,7 @@ export function ImpactPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white section-pad">
         <div className="container-page">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-x-20">
             <div>
@@ -49,7 +49,7 @@ export function ImpactPage() {
         </div>
       </section>
 
-      <section className="bg-cream-100 py-20 sm:py-28">
+      <section className="bg-cream-100 section-pad">
         <div className="container-page">
           <SectionHeader
             eyebrow="Stories"
@@ -66,7 +66,7 @@ export function ImpactPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white section-pad">
         <div className="container-page">
           <CTA
             eyebrow="Support the mission"

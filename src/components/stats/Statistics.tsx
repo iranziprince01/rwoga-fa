@@ -19,7 +19,7 @@ export function ImpactCard({
   return (
     <div
       className={cn(
-        'rounded-2xl p-6 text-center',
+        'rounded-2xl p-4 text-center sm:p-6',
         light
           ? 'border border-white/10 bg-white/5 backdrop-blur'
           : 'border border-navy-900/8 bg-white shadow-soft',
@@ -27,7 +27,7 @@ export function ImpactCard({
     >
       <p
         className={cn(
-          'font-display text-4xl font-bold tracking-tight sm:text-5xl',
+          'font-display text-3xl font-bold tracking-tight sm:text-5xl',
           light ? 'text-amber-400' : 'text-navy-900',
         )}
       >

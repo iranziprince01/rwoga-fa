@@ -42,7 +42,7 @@ export function ProgramDetailPage() {
       />
       <PageHero eyebrow="Program" title={program.title} description={program.summary} />
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white section-pad">
         <div className="container-page">
           <div className="mb-8">
             <Link
@@ -89,7 +89,7 @@ export function ProgramDetailPage() {
         </div>
       </section>
 
-      <section className="bg-cream-100 py-20 sm:py-28">
+      <section className="bg-cream-100 section-pad">
         <div className="container-page">
           <SectionHeader
             eyebrow="Focus areas"
@@ -99,14 +99,16 @@ export function ProgramDetailPage() {
           />
           {featured ? (
             <div className="grid items-stretch gap-6 lg:grid-cols-2 lg:gap-10">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {program.focusAreas.map((area, index) => (
                   <Reveal key={area} delay={index * 0.04}>
-                    <div className="h-full rounded-2xl border border-navy-900/8 bg-white px-5 py-6 shadow-soft">
+                    <div className="h-full rounded-2xl border border-navy-900/8 bg-white px-4 py-5 shadow-soft sm:px-5 sm:py-6">
                       <span className="font-display text-2xl font-bold text-amber-500">
                         {String(index + 1).padStart(2, '0')}
                       </span>
-                      <h3 className="mt-4 font-display text-lg font-bold text-navy-900">{area}</h3>
+                      <h3 className="mt-3 font-display text-base font-bold break-words text-navy-900 sm:mt-4 sm:text-lg">
+                        {area}
+                      </h3>
                     </div>
                   </Reveal>
                 ))}
@@ -140,7 +142,7 @@ export function ProgramDetailPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white section-pad">
         {featured ? (
           <div className="container-page grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
             <Reveal>
@@ -203,7 +205,7 @@ export function ProgramDetailPage() {
         )}
       </section>
 
-      <section className="bg-cream-100 py-20 sm:py-28">
+      <section className="bg-cream-100 section-pad">
         <div className="container-page grid gap-8 md:grid-cols-2">
           <Reveal>
             <div className="h-full rounded-3xl border border-navy-900/8 bg-white p-8 shadow-soft">
@@ -238,7 +240,7 @@ export function ProgramDetailPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white section-pad">
         <div className="container-page">
           <SectionHeader
             eyebrow="Support this program"
@@ -262,12 +264,12 @@ export function ProgramDetailPage() {
               </Reveal>
             ))}
           </div>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <ButtonLink to="/contact" variant="amber" size="lg">
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <ButtonLink to="/contact" variant="amber" size="lg" className="w-full sm:w-auto">
               Sponsor this program
               <ArrowRight className="h-4 w-4" aria-hidden />
             </ButtonLink>
-            <ButtonLink to="/contact" variant="secondary" size="lg" className="border-2 border-navy-900/25 font-semibold">
+            <ButtonLink to="/contact" variant="secondary" size="lg" className="w-full border-2 border-navy-900/25 font-semibold sm:w-auto">
               Become a partner
               <ArrowRight className="h-4 w-4" aria-hidden />
             </ButtonLink>
@@ -275,15 +277,23 @@ export function ProgramDetailPage() {
         </div>
       </section>
 
-      <section className="bg-cream-100 py-16">
-        <div className="container-page flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <ButtonLink to={`/programs/${previous.id}`} variant="secondary">
-            <ArrowLeft className="h-4 w-4" aria-hidden />
-            {previous.title}
+      <section className="bg-cream-100 py-12 sm:py-16">
+        <div className="container-page flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+          <ButtonLink
+            to={`/programs/${previous.id}`}
+            variant="secondary"
+            className="w-full justify-start text-left sm:w-auto sm:max-w-[45%]"
+          >
+            <ArrowLeft className="h-4 w-4 shrink-0" aria-hidden />
+            <span className="truncate">{previous.title}</span>
           </ButtonLink>
-          <ButtonLink to={`/programs/${next.id}`} variant="secondary">
-            {next.title}
-            <ArrowRight className="h-4 w-4" aria-hidden />
+          <ButtonLink
+            to={`/programs/${next.id}`}
+            variant="secondary"
+            className="w-full justify-end text-right sm:w-auto sm:max-w-[45%]"
+          >
+            <span className="truncate">{next.title}</span>
+            <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
           </ButtonLink>
         </div>
       </section>

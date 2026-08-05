@@ -30,13 +30,13 @@ export function Accordion({ items, className }: Props) {
                 type="button"
                 aria-expanded={isOpen}
                 aria-controls={panelId}
-                className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                className="flex w-full items-start justify-between gap-4 py-5 text-left"
                 onClick={() => setOpenIndex(isOpen ? null : index)}
               >
-                <span className="font-display text-lg font-semibold text-navy-900">
+                <span className="min-w-0 font-display text-base font-semibold break-words text-navy-900 sm:text-lg">
                   {item.question}
                 </span>
-                <Icon className="h-5 w-5 shrink-0 text-navy-700" aria-hidden />
+                <Icon className="mt-0.5 h-5 w-5 shrink-0 text-navy-700" aria-hidden />
               </button>
             </h3>
             <AnimatePresence initial={false}>

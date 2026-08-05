@@ -30,7 +30,7 @@ export function Gallery({ images, className, showFilters = true }: Props) {
               aria-selected={active === category}
               onClick={() => setActive(category)}
               className={cn(
-                'rounded-full px-4 py-2 text-sm font-medium transition-colors',
+                'inline-flex min-h-11 items-center rounded-full px-4 py-2.5 text-sm font-medium transition-colors',
                 active === category
                   ? 'bg-navy-900 text-white'
                   : 'bg-white text-navy-800 hover:bg-cream-200 border border-navy-900/10',
@@ -56,11 +56,11 @@ export function Gallery({ images, className, showFilters = true }: Props) {
                 />
               </div>
               {(image.caption || image.category) && (
-                <figcaption className="flex items-center justify-between gap-3 px-4 py-3">
-                  <span className="text-sm font-medium text-navy-900">
+                <figcaption className="flex items-start justify-between gap-3 px-4 py-3">
+                  <span className="min-w-0 flex-1 text-sm font-medium break-words text-navy-900">
                     {image.caption ?? image.alt}
                   </span>
-                  <span className="text-xs tracking-wide text-slate-soft uppercase">
+                  <span className="shrink-0 text-xs tracking-wide text-slate-soft uppercase">
                     {image.category}
                   </span>
                 </figcaption>

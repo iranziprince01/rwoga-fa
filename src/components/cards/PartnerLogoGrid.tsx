@@ -26,7 +26,7 @@ export function PartnerLogoGrid({ className, tone = 'light' }: Props) {
               alt={partner.name}
               loading="lazy"
               decoding="async"
-              className="max-h-16 w-full max-w-[200px] scale-110 object-contain sm:max-h-20 sm:scale-125"
+              className="max-h-14 w-full max-w-[180px] object-contain sm:max-h-20 sm:max-w-[200px]"
             />
           </div>
         </Reveal>

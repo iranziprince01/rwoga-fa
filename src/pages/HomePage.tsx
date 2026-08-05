@@ -40,7 +40,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="gradient-cream py-20 sm:py-28">
+      <section className="gradient-cream section-pad">
         <div className="container-page grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <div className="overflow-hidden rounded-[2rem] shadow-lift">
@@ -75,7 +75,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <SectionHeader
             eyebrow="Our Focus Areas"
@@ -101,7 +101,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="bg-cream-100 py-20 sm:py-28">
+      <section className="bg-cream-100 section-pad">
         <div className="container-page grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <div className="overflow-hidden rounded-[2rem] shadow-lift">
@@ -127,7 +127,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="bg-navy-950 py-20 sm:py-28">
+      <section className="bg-navy-950 section-pad">
         <div className="container-page">
           <SectionHeader
             eyebrow="Community"
@@ -139,7 +139,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <SectionHeader
             eyebrow="Partners & Supporters"
@@ -157,7 +157,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="section-pad">
         <div className="container-page">
           <CTA
             eyebrow="Get Involved"
