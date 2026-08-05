@@ -32,9 +32,6 @@ const TransparencyPage = lazy(() =>
 const GalleryPage = lazy(() =>
   import('@/pages/GalleryPage').then((m) => ({ default: m.GalleryPage })),
 )
-const NewsPage = lazy(() =>
-  import('@/pages/NewsPage').then((m) => ({ default: m.NewsPage })),
-)
 const ContactPage = lazy(() =>
   import('@/pages/ContactPage').then((m) => ({ default: m.ContactPage })),
 )
@@ -66,7 +63,6 @@ export function AppRoutes() {
           <Route path="donate" element={<DonatePage />} />
           <Route path="transparency" element={<TransparencyPage />} />
           <Route path="gallery" element={<GalleryPage />} />
-          <Route path="news" element={<NewsPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

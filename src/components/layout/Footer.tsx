@@ -4,18 +4,16 @@ import { FOOTER_LINKS } from '@/constants/navigation'
 import { SITE } from '@/constants/site'
 import { Logo } from '@/components/ui/Logo'
 
-function SocialIcon({ name }: { name: 'linkedin' | 'instagram' | 'facebook' }) {
+function SocialIcon({ name }: { name: 'linkedin' | 'instagram' }) {
   const paths = {
     linkedin:
       'M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V23h-4V8.5zm7.5 0h3.8v2h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-7.5c0-1.79-.03-4.09-2.5-4.09-2.5 0-2.88 1.95-2.88 3.96V23h-4V8.5z',
     instagram:
       'M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zm0 1.8c-3.15 0-3.52.01-4.76.07-2.25.1-3.3 1.16-3.4 3.4-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.1 2.24 1.15 3.3 3.4 3.4 1.24.06 1.61.07 4.76.07s3.52-.01 4.76.07c2.24-.1 3.3-1.16 3.4-3.4.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.1-2.24-1.16-3.3-3.4-3.4-1.24-.06-1.61-.07-4.76-.07zm0 3.06a5.18 5.18 0 1 1 0 10.36 5.18 5.18 0 0 1 0-10.36zm0 1.8a3.38 3.38 0 1 0 0 6.76 3.38 3.38 0 0 0 0-6.76zm5.34-3.5a1.21 1.21 0 1 1 0 2.42 1.21 1.21 0 0 1 0-2.42z',
-    facebook:
-      'M14 8.5h2.5V5.2c0-1.1.1-2.7 2.7-2.7H19.5V.2C19.1.1 17.6 0 15.9 0 12.4 0 10 2.1 10 6v2.5H7.5V12H10v12h4V12h2.7l.3-3.5z',
   }
 
   return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
+    <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden>
       <path d={paths[name]} />
     </svg>
   )
@@ -28,10 +26,10 @@ export function Footer() {
         <div className="grid items-start gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-12">
           <div className="min-w-0">
             <Logo variant="white" imgClassName="h-11 sm:h-12" />
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/65">
+            <p className="mt-3 max-w-sm text-base leading-relaxed text-white/65">
               {SITE.tagline}
             </p>
-            <div className="mt-5 space-y-2.5 text-sm text-white/65">
+            <div className="mt-5 space-y-2.5 text-base text-white/65">
               <p className="flex items-center gap-2">
                 <Mail className="h-4 w-4 shrink-0 text-amber-400" aria-hidden />
                 <a href={`mailto:${SITE.email}`} className="hover:text-white">
@@ -53,15 +51,15 @@ export function Footer() {
             ] as const
           ).map(([title, links]) => (
             <div key={title}>
-              <p className="text-sm font-semibold tracking-[0.12em] text-amber-400 uppercase">
+              <p className="text-base font-semibold tracking-[0.12em] text-amber-400 uppercase">
                 {title}
               </p>
-              <ul className="mt-4 space-y-2.5">
+              <ul className="mt-3 space-y-1">
                 {links.map((link) => (
                   <li key={`${title}-${link.label}`}>
                     <Link
                       to={link.href}
-                      className="inline-flex min-h-10 items-center py-1.5 text-sm text-white/65 transition-colors hover:text-white"
+                      className="inline-flex min-h-8 items-center py-0.5 text-base text-white/65 transition-colors hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -78,7 +76,6 @@ export function Footer() {
               [
                 { href: SITE.social.linkedin, name: 'linkedin' as const, label: 'LinkedIn' },
                 { href: SITE.social.instagram, name: 'instagram' as const, label: 'Instagram' },
-                { href: SITE.social.facebook, name: 'facebook' as const, label: 'Facebook' },
               ]
             ).map(({ href, name, label }) => (
               <a
@@ -87,13 +84,13 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 text-white/70 transition-colors hover:border-white/25 hover:bg-white/5 hover:text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/10 text-white transition-colors hover:border-amber-400/60 hover:bg-white/15 hover:text-amber-400"
               >
                 <SocialIcon name={name} />
               </a>
             ))}
           </div>
-          <p className="text-sm text-white/45 sm:text-right">
+          <p className="text-base text-white/45 sm:text-right">
             © {new Date().getFullYear()} {SITE.name}. All Rights Reserved.
           </p>
         </div>

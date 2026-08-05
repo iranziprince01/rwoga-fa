@@ -105,15 +105,6 @@ export type DocumentItem = {
   status: 'available' | 'coming-soon'
 }
 
-export type NewsItem = {
-  id: string
-  title: string
-  excerpt: string
-  date: string
-  category: string
-  image: string
-}
-
 export type FaqItem = {
   question: string
   answer: string
@@ -131,9 +122,9 @@ export type StatItem = {
 export type GalleryImage = {
   id: string
   src: string
-  alt: string
+  alt?: string
   caption?: string
-  category: string
+  category?: string
 }
 
 export type ValueItem = {

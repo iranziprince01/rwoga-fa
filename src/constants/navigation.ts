@@ -35,7 +35,6 @@ export const FOOTER_LINKS = {
     { label: 'Get Involved', href: '/get-involved' },
     { label: 'Donate', href: '/donate' },
     { label: 'Gallery', href: '/gallery' },
-    { label: 'News', href: '/news' },
     { label: 'Contact', href: '/contact' },
   ],
   trust: [

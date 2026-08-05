@@ -122,14 +122,6 @@ export function ContactPage() {
                     >
                       Instagram
                     </a>
-                    <a
-                      href={SITE.social.facebook}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex min-h-11 items-center text-blue-500 hover:underline"
-                    >
-                      Facebook
-                    </a>
                   </div>
                 </div>
               </div>

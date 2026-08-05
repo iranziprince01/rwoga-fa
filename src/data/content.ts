@@ -5,7 +5,6 @@ import type {
   FaqItem,
   GalleryImage,
   Leader,
-  NewsItem,
   PartnerCategory,
   Pillar,
   Program,
@@ -952,54 +951,42 @@ export const documents: DocumentItem[] = [
 ]
 
 export const galleryImages: GalleryImage[] = [
-  { id: 'g1', src: IMAGES.community, alt: 'Community outreach with refugee families', category: 'Community Outreach', caption: 'Community outreach' },
-  { id: 'g2', src: IMAGES.learning, alt: 'Students learning together', category: 'Education', caption: 'Education in action' },
-  { id: 'g3', src: IMAGES.workshop, alt: 'Women empowerment vocational activity', category: 'Women Empowerment', caption: 'Women empowerment' },
-  { id: 'g4', src: IMAGES.leadership, alt: 'Leadership discussion among youth', category: 'Leadership', caption: 'Leadership' },
-  { id: 'g5', src: IMAGES.gathering, alt: 'Association event gathering', category: 'Events', caption: 'Events' },
-  { id: 'g6', src: IMAGES.mentorship, alt: 'Mentorship conversation', category: 'Leadership', caption: 'Mentorship' },
-  { id: 'g7', src: IMAGES.youth, alt: 'Youth engaged in conversation', category: 'Community Outreach', caption: 'Youth engagement' },
-  { id: 'g8', src: IMAGES.books, alt: 'Educational books and learning materials', category: 'Education', caption: 'Learning materials' },
-  { id: 'g9', src: IMAGES.campus, alt: 'Campus pathway representing higher education', category: 'Events', caption: 'Higher education pathways' },
-]
-
-export const newsItems: NewsItem[] = [
-  {
-    id: 'n1',
-    title: 'Women empowerment continues through sewing machine support',
-    excerpt:
-      'Rwoga’s women empowerment work includes sewing machine donations that help refugee women earn an income with dignity.',
-    date: '2025',
-    category: 'Success Stories',
-    image: IMAGES.workshop,
-  },
-  {
-    id: 'n2',
-    title: 'Academic awards celebrate excellence in Kigeme',
-    excerpt:
-      'Top-performing students in Kigeme Refugee Camp were recognized for academic excellence.',
-    date: '2025',
-    category: 'Community Activities',
-    image: IMAGES.campus,
-  },
-  {
-    id: 'n3',
-    title: 'Food support for families moving into Nyabiheke',
-    excerpt:
-      'Community outreach supported vulnerable families moving from Nkamira Transit Centre into Nyabiheke Refugee Camp.',
-    date: '2024',
-    category: 'Announcements',
-    image: IMAGES.community,
-  },
-  {
-    id: 'n4',
-    title: 'Rwoga launches its official online presence',
-    excerpt:
-      'Our website marks a new chapter in open reporting, storytelling, and partnership-building for the association.',
-    date: '2026',
-    category: 'Latest News',
-    image: IMAGES.leadership,
-  },
+  { id: 'hero', src: '/hero.jpg' },
+  { id: 'we-are', src: '/WeAre.jpg' },
+  { id: 'about01', src: '/about01.jpg' },
+  { id: 'misvis', src: '/misvis.jpg' },
+  { id: 'values', src: '/RwogaValues.jpg' },
+  { id: 'star', src: '/star.jpg' },
+  { id: 'education-support', src: '/Education Support.jpeg' },
+  { id: 'ed-support', src: '/EdSupport.jpg' },
+  { id: 'student-leadership', src: '/Student leadership.jpeg' },
+  { id: 'empowerment', src: '/Empowerment.jpg' },
+  { id: 'women-empowerment', src: '/Women Empowerment.jpg' },
+  { id: 'community-outreach', src: '/Community Outreach.jpg' },
+  { id: 'career-development', src: '/Career development.jpg' },
+  { id: 'mentorship', src: '/Mentorship.jpeg' },
+  { id: 'digital-literacy', src: '/Digital literacy.jpg' },
+  { id: 'sewing', src: '/sewing2.jpg' },
+  { id: 'story-01', src: '/01.jpeg' },
+  { id: 'story-02', src: '/02.jpg' },
+  { id: 'story-03', src: '/03.jpg' },
+  { id: 'p01', src: '/p01.jpeg' },
+  { id: 'p02', src: '/p02.jpeg' },
+  { id: 'p03', src: '/p03.jpg' },
+  { id: 'p04', src: '/p04.jpg' },
+  { id: 'p05', src: '/p05.jpg' },
+  { id: 'p06', src: '/p06.jpg' },
+  { id: 'p07', src: '/p07.jpg' },
+  { id: 'p11', src: '/p11.jpeg' },
+  { id: 'p21', src: '/p21.jpg' },
+  { id: 'p31', src: '/p31.jpg' },
+  { id: 'p41', src: '/p41.jpg' },
+  { id: 'p51', src: '/p51.jpg' },
+  { id: 'p61', src: '/p61.jpeg' },
+  { id: 'p71', src: '/p71.jpg' },
+  { id: 'gal01', src: '/gal01.jpg' },
+  { id: 'gal02', src: '/gal02.jpg' },
+  { id: 'gal03', src: '/gal03.jpg' },
 ]
 
 export const faqs: FaqItem[] = [

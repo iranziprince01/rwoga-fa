@@ -104,9 +104,6 @@ export function DonatePage() {
           <Reveal delay={0.08}>
             <div className="rounded-3xl border border-navy-900/8 bg-white p-6 shadow-lift sm:p-8">
               <h2 className="font-display text-2xl font-bold text-navy-900">Express interest to give</h2>
-              <p className="mt-2 text-sm text-navy-800/70">
-                Online payments will be connected soon. For now, share how you’d like to contribute and we’ll follow up personally.
-              </p>
 
               {submitted ? (
                 <p className="mt-8 rounded-2xl bg-sage-100 px-4 py-5 text-sage-600" role="status">

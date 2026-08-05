@@ -78,7 +78,6 @@ Content and messaging live primarily in `src/data/content.ts` and `src/constants
 | `/donate` | Contribution types & interest form |
 | `/transparency` | Resources & governance documents |
 | `/gallery` | Visual gallery |
-| `/news` | News & events |
 | `/contact` | Contact form & FAQ |
 
 ---
