@@ -17,7 +17,7 @@ import type {
   ValueItem,
 } from '@/types'
 
-/** High-quality Unsplash placeholders, Cloudinary-ready via getImageUrl */
+/** Site photos — local paths resolve to Vercel Blob CDN via mediaUrl/getImageUrl */
 export const IMAGES = {
   hero: '/hero.jpg',
   whoWeAre: '/WeAre.jpg',

@@ -11,8 +11,8 @@ type Props = {
 }
 
 /**
- * Cloudinary-ready image component.
- * Pass a Cloudinary public ID or a full URL / local path.
+ * Image component that resolves local photos to Vercel Blob CDN URLs.
+ * Pass a local public path, full URL, or Cloudinary public ID.
  */
 export function CloudinaryImage({
   src,

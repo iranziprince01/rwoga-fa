@@ -1,4 +1,5 @@
 import { CLOUDINARY } from '@/constants/site'
+import { mediaUrl } from './media'
 
 type CloudinaryOptions = {
   width?: number
@@ -9,15 +10,15 @@ type CloudinaryOptions = {
 }
 
 /**
- * Cloudinary-ready image helper.
- * Falls back to Unsplash/local placeholders when using full URLs or relative paths.
+ * Resolve image sources for the app.
+ * Local photo paths map to Vercel Blob CDN URLs; Cloudinary public IDs still work.
  */
 export function getImageUrl(
   source: string,
   options: CloudinaryOptions = {},
 ): string {
   if (source.startsWith('http') || source.startsWith('/')) {
-    return source
+    return mediaUrl(source)
   }
 
   const {

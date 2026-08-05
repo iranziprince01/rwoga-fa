@@ -1,5 +1,5 @@
 import { partnerLogos } from '@/data/content'
-import { cn } from '@/utils'
+import { cn, mediaUrl } from '@/utils'
 import { Reveal } from '@/components/motion/Reveal'
 
 type Props = {
@@ -22,7 +22,7 @@ export function PartnerLogoGrid({ className, tone = 'light' }: Props) {
             )}
           >
             <img
-              src={partner.src}
+              src={mediaUrl(partner.src)}
               alt={partner.name}
               loading="lazy"
               decoding="async"

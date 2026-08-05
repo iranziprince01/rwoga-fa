@@ -6,7 +6,7 @@ import { CTA } from '@/components/cta/CTA'
 import { Reveal } from '@/components/motion/Reveal'
 import { CloudinaryImage } from '@/components/media/CloudinaryImage'
 import { aboutContent, pillars, timeline, values } from '@/data/content'
-import { getIcon } from '@/utils'
+import { getIcon, mediaUrl } from '@/utils'
 
 export function AboutPage() {
   return (
@@ -36,7 +36,7 @@ export function AboutPage() {
           <Reveal delay={0.1}>
             <div className="overflow-hidden rounded-[2rem] shadow-lift">
               <img
-                src="/about01.jpg"
+                src={mediaUrl('/about01.jpg')}
                 alt="Members of Rwoga Family Association"
                 width={1000}
                 height={800}
@@ -124,7 +124,7 @@ export function AboutPage() {
           <Reveal delay={0.1}>
             <div className="overflow-hidden rounded-[2rem] shadow-lift">
               <img
-                src="/misvis.jpg"
+                src={mediaUrl('/misvis.jpg')}
                 alt="Members of Rwoga Family Association working toward a shared mission and vision"
                 width={1174}
                 height={1440}
@@ -139,7 +139,7 @@ export function AboutPage() {
 
       <section className="relative overflow-hidden py-20 sm:py-28">
         <img
-          src="/RwogaValues.jpg"
+          src={mediaUrl('/RwogaValues.jpg')}
           alt=""
           aria-hidden
           width={1800}

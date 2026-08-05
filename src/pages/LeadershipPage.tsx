@@ -5,6 +5,7 @@ import { CTA } from '@/components/cta/CTA'
 import { Reveal } from '@/components/motion/Reveal'
 import { boardMembers, currentLeadership } from '@/data/content'
 import type { Leader } from '@/types'
+import { mediaUrl } from '@/utils'
 import { HandHeart, HeartHandshake, Leaf, Waypoints } from 'lucide-react'
 
 function LeaderGrid({ people }: { people: Leader[] }) {
@@ -17,7 +18,7 @@ function LeaderGrid({ people }: { people: Leader[] }) {
         >
           <div className="aspect-[2/3] overflow-hidden bg-navy-950">
             <img
-              src={leader.image}
+              src={mediaUrl(leader.image)}
               alt={`Portrait of ${leader.name}`}
               width={800}
               height={1200}
