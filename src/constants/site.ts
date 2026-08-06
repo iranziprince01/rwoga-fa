@@ -14,7 +14,7 @@ export const SITE = {
     favicon: '/favicon.svg',
   },
   social: {
-    linkedin: 'https://linkedin.com',
+    linkedin: 'https://www.linkedin.com/company/rwoga-family-association/about/?viewAsMember=true',
     instagram: 'https://www.instagram.com/rwo.ga/',
   },
 } as const
