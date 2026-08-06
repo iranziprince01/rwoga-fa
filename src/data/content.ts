@@ -143,8 +143,7 @@ export const stats: StatItem[] = [
   },
   {
     id: 'communities',
-    value: 7,
-    suffix: '+',
+    value: 5,
     label: 'Refugee Communities Reached',
   },
   {
@@ -155,7 +154,7 @@ export const stats: StatItem[] = [
   },
   {
     id: 'lives',
-    value: 500,
+    value: 100,
     suffix: '+',
     label: 'Lives Positively Impacted',
   },
