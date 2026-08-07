@@ -46,7 +46,7 @@ export function LeadershipPage() {
     <>
       <SEO
         title="Leadership"
-        description="Meet Rwoga’s board members and current leadership team."
+        description="Meet Rwoga’s advisors and current leadership team."
         path="/leadership"
       />
       <PageHero
@@ -57,7 +57,7 @@ export function LeadershipPage() {
       <section className="section-pad">
         <div className="container-page">
           <SectionHeader
-            title="Board Members"
+            title="Advisors"
             className="mb-10"
           />
           <LeaderGrid people={boardMembers} />
@@ -123,12 +123,12 @@ export function LeadershipPage() {
                   (family, index) => (
                     <li
                       key={family}
-                      className="flex items-center gap-3 rounded-2xl border border-white/10 bg-navy-900/40 px-4 py-3"
+                      className="flex items-center gap-3 rounded-2xl border border-navy-900/10 bg-white px-4 py-3 shadow-soft"
                     >
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy-900 font-display text-sm font-bold text-amber-400 ring-1 ring-white/10">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy-950 font-display text-sm font-bold text-amber-400">
                         {index + 1}
                       </span>
-                      <span className="font-medium text-white">{family}</span>
+                      <span className="font-medium text-navy-900">{family}</span>
                     </li>
                   ),
                 )}
