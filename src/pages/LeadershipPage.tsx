@@ -101,11 +101,11 @@ export function LeadershipPage() {
               { title: 'A living bridge', Icon: Waypoints },
             ].map((point, index) => (
               <Reveal key={point.title} delay={index * 0.05}>
-                <div className="flex h-full flex-col gap-5 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+                <div className="flex h-full flex-col gap-5 rounded-2xl border border-navy-900/8 bg-white p-6 shadow-soft">
                   <span className="flex h-11 w-11 items-center justify-center rounded-full bg-amber-500 text-navy-950">
                     <point.Icon className="h-5 w-5" aria-hidden />
                   </span>
-                  <h3 className="font-display text-lg font-bold text-white sm:text-xl">
+                  <h3 className="font-display text-lg font-bold text-navy-900 sm:text-xl">
                     {point.title}
                   </h3>
                 </div>
@@ -114,8 +114,8 @@ export function LeadershipPage() {
           </div>
 
           <Reveal delay={0.15}>
-            <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
-              <h3 className="font-display text-xl font-bold text-white sm:text-2xl">
+            <div className="mt-8 rounded-3xl border border-navy-900/8 bg-white p-6 shadow-soft sm:p-8">
+              <h3 className="font-display text-xl font-bold text-navy-900 sm:text-2xl">
                 We have 4 Sub-Families
               </h3>
               <ol className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -123,7 +123,7 @@ export function LeadershipPage() {
                   (family, index) => (
                     <li
                       key={family}
-                      className="flex items-center gap-3 rounded-2xl border border-navy-900/10 bg-white px-4 py-3 shadow-soft"
+                      className="flex items-center gap-3 rounded-2xl border border-navy-900/10 bg-cream-50 px-4 py-3"
                     >
                       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy-950 font-display text-sm font-bold text-amber-400">
                         {index + 1}

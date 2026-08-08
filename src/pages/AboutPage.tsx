@@ -234,12 +234,12 @@ export function AboutPage() {
           <div className="grid gap-5 md:grid-cols-2">
             {pillars.map((pillar, index) => (
               <Reveal key={pillar.title} delay={index * 0.05}>
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-                  <p className="font-display text-sm font-bold text-amber-400">
+                <div className="rounded-2xl border border-navy-900/8 bg-white p-6 shadow-soft">
+                  <p className="font-display text-sm font-bold text-amber-500">
                     0{index + 1}
                   </p>
-                  <h3 className="mt-2 font-display text-xl font-bold text-white">{pillar.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/70">{pillar.description}</p>
+                  <h3 className="mt-2 font-display text-xl font-bold text-navy-900">{pillar.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-navy-800/70">{pillar.description}</p>
                 </div>
               </Reveal>
             ))}

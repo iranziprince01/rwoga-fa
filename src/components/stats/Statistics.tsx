@@ -20,24 +20,22 @@ export function ImpactCard({
     <div
       className={cn(
         'rounded-2xl p-4 text-center sm:p-6',
-        light
-          ? 'border border-white/10 bg-white/5 backdrop-blur'
-          : 'border border-navy-900/8 bg-white shadow-soft',
+        'border border-navy-900/8 bg-white shadow-soft',
       )}
     >
       <p
         className={cn(
           'font-display text-3xl font-bold tracking-tight sm:text-5xl',
-          light ? 'text-amber-400' : 'text-navy-900',
+          light ? 'text-amber-500' : 'text-navy-900',
         )}
       >
         <AnimatedCounter value={value} suffix={suffix} prefix={prefix} />
       </p>
-      <p className={cn('mt-2 font-semibold', light ? 'text-white' : 'text-navy-900')}>
+      <p className="mt-2 font-semibold text-navy-900">
         {label}
       </p>
       {note && (
-        <p className={cn('mt-1 text-sm', light ? 'text-white/60' : 'text-slate-soft')}>
+        <p className="mt-1 text-sm text-slate-soft">
           {note}
         </p>
       )}
