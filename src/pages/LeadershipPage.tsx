@@ -67,7 +67,7 @@ export function LeadershipPage() {
       <section className="bg-cream-100 section-pad">
         <div className="container-page">
           <SectionHeader
-            title="Current Leadership Committee"
+            title="Our Leadership Committee"
             className="mb-10"
           />
           <LeaderGrid people={currentLeadership} />
