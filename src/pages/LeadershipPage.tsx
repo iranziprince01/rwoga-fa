@@ -8,7 +8,13 @@ import type { Leader } from '@/types'
 import { mediaUrl } from '@/utils'
 import { HandHeart, HeartHandshake, Leaf, Waypoints } from 'lucide-react'
 
-function LeaderGrid({ people }: { people: Leader[] }) {
+function LeaderGrid({
+  people,
+  showRole = true,
+}: {
+  people: Leader[]
+  showRole?: boolean
+}) {
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {people.map((leader) => (
@@ -28,10 +34,18 @@ function LeaderGrid({ people }: { people: Leader[] }) {
             />
           </div>
           <div className="p-5">
-            <p className="text-xs font-semibold leading-snug tracking-wide text-blue-500 uppercase sm:text-sm">
-              {leader.role}
-            </p>
-            <h3 className="mt-1 font-display text-lg font-bold break-words text-navy-900 sm:text-xl">
+            {showRole && (
+              <p className="text-xs font-semibold leading-snug tracking-wide text-blue-500 uppercase sm:text-sm">
+                {leader.role}
+              </p>
+            )}
+            <h3
+              className={
+                showRole
+                  ? 'mt-1 font-display text-lg font-bold break-words text-navy-900 sm:text-xl'
+                  : 'font-display text-lg font-bold break-words text-navy-900 sm:text-xl'
+              }
+            >
               {leader.name}
             </h3>
           </div>
@@ -60,7 +74,7 @@ export function LeadershipPage() {
             title="Our Advisors"
             className="mb-10"
           />
-          <LeaderGrid people={boardMembers} />
+          <LeaderGrid people={boardMembers} showRole={false} />
         </div>
       </section>
 
