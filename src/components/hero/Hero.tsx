@@ -1,5 +1,6 @@
-import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { useRef } from 'react'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { CloudinaryImage } from '@/components/media/CloudinaryImage'
 import { IMAGES } from '@/data/content'
@@ -7,15 +8,59 @@ import { toTitleCase } from '@/utils'
 
 export function Hero() {
   const reduce = useReducedMotion()
+  const containerRef = useRef<HTMLDivElement>(null)
+  
+  // Parallax effects on scroll
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  })
+  
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"])
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
+
+  const titleText = toTitleCase('Lighting the Way for Refugee Communities')
+  const words = titleText.split(" ")
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      filter: 'blur(0px)',
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+    }
+  }
+
+  const wordVariants = {
+    hidden: { opacity: 0, y: 20, rotateX: -40 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      rotateX: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+    }
+  }
 
   return (
-    <section className="relative min-h-[100svh] overflow-hidden">
-      <div className="absolute inset-0">
+    <section ref={containerRef} className="relative min-h-[100svh] overflow-hidden bg-navy-950">
+      <motion.div style={{ y, opacity }} className="absolute inset-0">
         <motion.div
           className="h-full w-full"
-          initial={reduce ? false : { scale: 1.08 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 8, ease: [0.22, 1, 0.36, 1] }}
+          initial={reduce ? false : { scale: 1.15, filter: 'blur(4px)' }}
+          animate={{ scale: 1, filter: 'blur(0px)' }}
+          transition={{ duration: 10, ease: 'easeOut' }}
         >
           <CloudinaryImage
             src={IMAGES.hero}
@@ -23,95 +68,135 @@ export function Hero() {
             width={2000}
             height={1200}
             loading="eager"
-            className="h-full w-full"
+            className="h-full w-full object-cover object-center"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950/65 via-navy-900/68 to-navy-950/82" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_50%_45%,rgb(11_46_31_/0.25)_0%,rgb(6_26_18_/0.62)_100%)]" />
-      </div>
+        {/* Advanced Gradients for premium feel */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950/40 via-navy-900/60 to-navy-950/95 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(217,119,6,0.15),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(16,185,129,0.15),transparent_50%)]" />
+      </motion.div>
 
       {!reduce && (
         <>
           <motion.div
             aria-hidden
-            className="absolute top-[18%] right-[10%] h-36 w-36 rounded-full bg-amber-500/15 blur-3xl"
-            animate={{ y: [0, 18, 0], opacity: [0.35, 0.55, 0.35] }}
-            transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute top-[15%] right-[15%] h-[400px] w-[400px] rounded-full bg-amber-500/20 blur-[120px]"
+            animate={{ 
+              scale: [1, 1.2, 1],
+              x: [0, 50, 0],
+              y: [0, 30, 0]
+            }}
+            transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
           />
           <motion.div
             aria-hidden
-            className="absolute bottom-[22%] left-[8%] h-44 w-44 rounded-full bg-blue-500/15 blur-3xl"
-            animate={{ y: [0, -16, 0], opacity: [0.25, 0.45, 0.25] }}
-            transition={{ duration: 13, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute bottom-[10%] left-[5%] h-[500px] w-[500px] rounded-full bg-emerald-500/20 blur-[130px]"
+            animate={{ 
+              scale: [1, 1.1, 1],
+              x: [0, -40, 0],
+              y: [0, -20, 0]
+            }}
+            transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
           />
         </>
       )}
 
-      <div className="container-page relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-5 pb-24 pt-28 text-center">
-        <div className="mx-auto flex w-full max-w-5xl flex-col items-center">
-          <motion.h1
-            initial={reduce ? false : { opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-4xl font-extrabold tracking-tight text-white text-balance sm:text-6xl md:text-7xl lg:text-[5rem] lg:leading-[1.08]"
+      <div className="container-page relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-5 pb-24 pt-32 text-center">
+        <motion.div 
+          className="mx-auto flex w-full max-w-5xl flex-col items-center"
+          variants={containerVariants}
+          initial={reduce ? "visible" : "hidden"}
+          animate="visible"
+        >
+          {/* Top subtle badge */}
+          <motion.div 
+            variants={itemVariants}
+            className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md"
           >
-            {toTitleCase('Lighting the Way for Refugee Communities')}
-          </motion.h1>
+            <span className="flex h-2 w-2 rounded-full bg-amber-400"></span>
+            <span className="text-xs font-medium tracking-widest text-white/90 uppercase">From Challenges to Champions</span>
+          </motion.div>
+
+          <h1 
+            className="font-display text-4xl font-extrabold tracking-tight text-white text-balance sm:text-6xl md:text-7xl lg:text-[5.5rem] lg:leading-[1.1] [perspective:1000px]"
+            aria-label={titleText}
+          >
+            {words.map((word, i) => (
+              <span key={i} className="inline-block whitespace-nowrap mr-[0.25em]" aria-hidden="true">
+                {word.split('').map((char, j) => (
+                  <motion.span 
+                    key={j} 
+                    className="inline-block"
+                    variants={wordVariants}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </span>
+            ))}
+          </h1>
 
           <motion.div
-            aria-hidden
-            initial={reduce ? false : { scaleX: 0, opacity: 0 }}
-            animate={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-7 h-px w-16 origin-center bg-amber-500/80"
+            variants={itemVariants}
+            className="mt-10 h-[2px] w-24 rounded-full bg-gradient-to-r from-transparent via-amber-500 to-transparent"
           />
 
           <motion.p
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-7 max-w-3xl text-base leading-relaxed text-white/78 sm:text-lg md:text-xl"
+            variants={itemVariants}
+            className="mt-10 max-w-3xl text-lg leading-relaxed text-white/80 sm:text-xl md:text-2xl font-light"
           >
-            <span className="font-semibold text-white underline decoration-amber-100 decoration-2 underline-offset-4">
-              Rwoga Family Association
-            </span>{' '}
-            is a refugee-led association founded by Congolese students at African Leadership
-            University{' '}
-            <span className="font-semibold text-white underline decoration-amber-100 decoration-2 underline-offset-4">
-              who believe
-            </span>{' '}
-            that those closest to a community’s challenges are also closest to its{' '}
-            <span className="font-semibold text-white underline decoration-amber-100 decoration-2 underline-offset-4">
-              solutions
-            </span>
-            .
+            <span className="font-medium text-white">Rwoga Family Association</span> is a refugee-led 
+            association founded by Congolese students at African Leadership University who believe that 
+            those closest to a community's challenges are also closest to its solutions.
           </motion.p>
 
           <motion.div
-            initial={reduce ? false : { opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center"
+            variants={itemVariants}
+            className="mt-12 flex w-full max-w-md flex-col items-stretch justify-center gap-4 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center"
           >
-            <ButtonLink to="/impact" variant="amber" size="lg" className="w-full sm:w-auto">
-              Explore Our Impact
-              <ArrowRight className="h-4 w-4" aria-hidden />
+            <ButtonLink 
+              to="/impact" 
+              variant="amber" 
+              size="lg" 
+              className="group w-full sm:w-auto relative overflow-hidden"
+            >
+              <span className="relative z-10 flex items-center">
+                Explore Our Impact
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden />
+              </span>
+              <div className="absolute inset-0 bg-white/20 translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
             </ButtonLink>
-            <ButtonLink to="/contact" variant="outline" size="lg" className="w-full sm:w-auto">
+            
+            <ButtonLink 
+              to="/contact" 
+              variant="outline" 
+              size="lg" 
+              className="group w-full sm:w-auto hover:bg-white/10 hover:text-white transition-all duration-300 border-white/20"
+            >
               Partner With Us
             </ButtonLink>
           </motion.div>
-
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 max-w-full px-2 text-sm font-semibold tracking-[0.12em] text-amber-400 uppercase sm:text-base sm:tracking-[0.2em] md:text-lg"
-          >
-            From Challenges to Champions
-          </motion.p>
-        </div>
+        </motion.div>
       </div>
+
+      {/* Scroll down indicator */}
+      {!reduce && (
+        <motion.div 
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.5, duration: 1 }}
+        >
+          <span className="text-xs font-medium tracking-widest text-white/50 uppercase">Scroll to explore</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <ChevronDown className="h-5 w-5 text-white/50" />
+          </motion.div>
+        </motion.div>
+      )}
     </section>
   )
 }
