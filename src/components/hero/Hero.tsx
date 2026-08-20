@@ -1,4 +1,4 @@
-import { motion, useReducedMotion, type Variants } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { CloudinaryImage } from '@/components/media/CloudinaryImage'
@@ -6,42 +6,28 @@ import { IMAGES } from '@/data/content'
 import { toTitleCase } from '@/utils'
 
 const easeOut = [0.22, 1, 0.36, 1] as const
+const LETTER_STAGGER = 0.055
+const LETTER_DURATION = 0.75
+const TITLE_START_DELAY = 0.4
 
 export function Hero() {
   const reduce = useReducedMotion()
   const titleText = toTitleCase('Lighting the Way for Refugee Communities')
   const words = titleText.split(' ')
+  const letterCount = words.reduce((sum, word) => sum + word.length, 0)
 
-  const titleContainer: Variants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.16,
-        delayChildren: 0.28,
-      },
-    },
-  }
-
-  const wordVariant: Variants = {
-    hidden: { opacity: 0, y: 28 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.9, ease: easeOut },
-    },
-  }
-
-  // Headline has 6 words; stagger finishes ~1.08s after delayChildren, plus duration.
-  const afterTitleDelay = reduce ? 0.1 : 1.55
+  const afterTitleDelay = reduce
+    ? 0.1
+    : TITLE_START_DELAY + Math.max(letterCount - 1, 0) * LETTER_STAGGER + LETTER_DURATION
 
   return (
     <section className="relative min-h-[100svh] overflow-hidden">
       <div className="absolute inset-0">
         <motion.div
           className="h-full w-full"
-          initial={reduce ? false : { scale: 1.08 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 8, ease: easeOut }}
+          initial={reduce ? false : { scale: 1.14, opacity: 0.72 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 10, ease: easeOut }}
         >
           <CloudinaryImage
             src={IMAGES.hero}
@@ -78,43 +64,59 @@ export function Hero() {
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.05, ease: easeOut }}
+            transition={{ duration: 0.9, delay: 0.12, ease: easeOut }}
             className="mb-6 max-w-full px-2 text-sm font-semibold tracking-[0.12em] text-amber-400 uppercase sm:mb-8 sm:text-base sm:tracking-[0.2em] md:text-lg"
           >
             From Challenges to Champions
           </motion.p>
 
-          <motion.h1
+          <h1
             className="font-display text-4xl font-extrabold tracking-tight text-white text-balance sm:text-6xl md:text-7xl lg:text-[5rem] lg:leading-[1.08]"
             aria-label={titleText}
-            variants={titleContainer}
-            initial={reduce ? false : 'hidden'}
-            animate="visible"
           >
-            {words.map((word, index) => (
-              <motion.span
-                key={`${word}-${index}`}
-                className="mr-[0.28em] inline-block last:mr-0"
-                variants={wordVariant}
-                aria-hidden="true"
-              >
-                {word}
-              </motion.span>
-            ))}
-          </motion.h1>
+            {words.map((word, wordIndex) => {
+              const baseIndex = words
+                .slice(0, wordIndex)
+                .reduce((sum, current) => sum + current.length, 0)
+
+              return (
+                <span
+                  key={`${word}-${wordIndex}`}
+                  className="mr-[0.28em] inline-block whitespace-nowrap last:mr-0"
+                  aria-hidden="true"
+                >
+                  {word.split('').map((letter, charIndex) => (
+                    <motion.span
+                      key={`${wordIndex}-${charIndex}`}
+                      className="inline-block"
+                      initial={reduce ? false : { opacity: 0, y: 32 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: LETTER_DURATION,
+                        delay: TITLE_START_DELAY + (baseIndex + charIndex) * LETTER_STAGGER,
+                        ease: easeOut,
+                      }}
+                    >
+                      {letter}
+                    </motion.span>
+                  ))}
+                </span>
+              )
+            })}
+          </h1>
 
           <motion.div
             aria-hidden
             initial={reduce ? false : { scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 0.7, delay: afterTitleDelay, ease: easeOut }}
+            transition={{ duration: 0.8, delay: afterTitleDelay, ease: easeOut }}
             className="mt-7 h-px w-16 origin-center bg-amber-500/80"
           />
 
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: afterTitleDelay + 0.08, ease: easeOut }}
+            transition={{ duration: 0.9, delay: afterTitleDelay + 0.12, ease: easeOut }}
             className="mt-7 max-w-3xl text-base leading-relaxed text-white/78 sm:text-lg md:text-xl"
           >
             <span className="font-semibold text-white underline decoration-amber-100 decoration-2 underline-offset-4">
@@ -135,7 +137,7 @@ export function Hero() {
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: afterTitleDelay + 0.2, ease: easeOut }}
+            transition={{ duration: 0.85, delay: afterTitleDelay + 0.28, ease: easeOut }}
             className="mt-10 flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center"
           >
             <ButtonLink to="/impact" variant="amber" size="lg" className="w-full sm:w-auto">
