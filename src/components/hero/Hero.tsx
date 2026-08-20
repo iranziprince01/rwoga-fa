@@ -1,12 +1,38 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { CloudinaryImage } from '@/components/media/CloudinaryImage'
 import { IMAGES } from '@/data/content'
 import { toTitleCase } from '@/utils'
 
+const easeOut = [0.22, 1, 0.36, 1] as const
+
 export function Hero() {
   const reduce = useReducedMotion()
+  const titleText = toTitleCase('Lighting the Way for Refugee Communities')
+  const words = titleText.split(' ')
+
+  const titleContainer: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.16,
+        delayChildren: 0.28,
+      },
+    },
+  }
+
+  const wordVariant: Variants = {
+    hidden: { opacity: 0, y: 28 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.9, ease: easeOut },
+    },
+  }
+
+  // Headline has 6 words; stagger finishes ~1.08s after delayChildren, plus duration.
+  const afterTitleDelay = reduce ? 0.1 : 1.55
 
   return (
     <section className="relative min-h-[100svh] overflow-hidden">
@@ -15,7 +41,7 @@ export function Hero() {
           className="h-full w-full"
           initial={reduce ? false : { scale: 1.08 }}
           animate={{ scale: 1 }}
-          transition={{ duration: 8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 8, ease: easeOut }}
         >
           <CloudinaryImage
             src={IMAGES.hero}
@@ -49,27 +75,46 @@ export function Hero() {
 
       <div className="container-page relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-5 pb-24 pt-28 text-center">
         <div className="mx-auto flex w-full max-w-5xl flex-col items-center">
-          <motion.h1
-            initial={reduce ? false : { opacity: 0, y: 22 }}
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-4xl font-extrabold tracking-tight text-white text-balance sm:text-6xl md:text-7xl lg:text-[5rem] lg:leading-[1.08]"
+            transition={{ duration: 0.75, delay: 0.05, ease: easeOut }}
+            className="mb-6 max-w-full px-2 text-sm font-semibold tracking-[0.12em] text-amber-400 uppercase sm:mb-8 sm:text-base sm:tracking-[0.2em] md:text-lg"
           >
-            {toTitleCase('Lighting the Way for Refugee Communities')}
+            From Challenges to Champions
+          </motion.p>
+
+          <motion.h1
+            className="font-display text-4xl font-extrabold tracking-tight text-white text-balance sm:text-6xl md:text-7xl lg:text-[5rem] lg:leading-[1.08]"
+            aria-label={titleText}
+            variants={titleContainer}
+            initial={reduce ? false : 'hidden'}
+            animate="visible"
+          >
+            {words.map((word, index) => (
+              <motion.span
+                key={`${word}-${index}`}
+                className="mr-[0.28em] inline-block last:mr-0"
+                variants={wordVariant}
+                aria-hidden="true"
+              >
+                {word}
+              </motion.span>
+            ))}
           </motion.h1>
 
           <motion.div
             aria-hidden
             initial={reduce ? false : { scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, delay: afterTitleDelay, ease: easeOut }}
             className="mt-7 h-px w-16 origin-center bg-amber-500/80"
           />
 
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.8, delay: afterTitleDelay + 0.08, ease: easeOut }}
             className="mt-7 max-w-3xl text-base leading-relaxed text-white/78 sm:text-lg md:text-xl"
           >
             <span className="font-semibold text-white underline decoration-amber-100 decoration-2 underline-offset-4">
@@ -90,7 +135,7 @@ export function Hero() {
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.75, delay: afterTitleDelay + 0.2, ease: easeOut }}
             className="mt-10 flex w-full max-w-md flex-col items-stretch justify-center gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center"
           >
             <ButtonLink to="/impact" variant="amber" size="lg" className="w-full sm:w-auto">
@@ -101,15 +146,6 @@ export function Hero() {
               Partner With Us
             </ButtonLink>
           </motion.div>
-
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 max-w-full px-2 text-sm font-semibold tracking-[0.12em] text-amber-400 uppercase sm:text-base sm:tracking-[0.2em] md:text-lg"
-          >
-            From Challenges to Champions
-          </motion.p>
         </div>
       </div>
     </section>
