@@ -43,6 +43,20 @@ export function Hero() {
     }
   }
 
+  const badgeVariants = {
+    hidden: { opacity: 0, filter: 'blur(10px)' },
+    visible: { 
+      opacity: 1, 
+      filter: 'blur(0px)',
+      x: ['-15vw', '15vw', '-15vw'],
+      transition: { 
+        opacity: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+        filter: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+        x: { duration: 10, repeat: Infinity, ease: 'easeInOut' }
+      } 
+    }
+  }
+
   const wordVariants = {
     hidden: { opacity: 0, y: 20, rotateX: -40 },
     visible: { 
@@ -111,11 +125,18 @@ export function Hero() {
         >
           {/* Top subtle badge */}
           <motion.div 
-            variants={itemVariants}
-            className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md"
+            variants={badgeVariants}
+            className="relative mb-10 inline-flex items-center gap-3 overflow-hidden rounded-full border border-white/20 bg-white/5 px-5 py-2 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.05)]"
           >
-            <span className="flex h-2 w-2 rounded-full bg-amber-400"></span>
-            <span className="text-xs font-medium tracking-widest text-white/90 uppercase">From Challenges to Champions</span>
+            {/* Shimmer reflection passing over the badge */}
+            <motion.div 
+              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"
+              animate={{ x: ['-200%', '300%'] }}
+              transition={{ duration: 3, repeat: Infinity, repeatDelay: 1.5, ease: "easeInOut" }}
+            />
+            <span className="relative text-xs font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/70 uppercase">
+              From Challenges to Champions
+            </span>
           </motion.div>
 
           <h1 
@@ -144,9 +165,9 @@ export function Hero() {
 
           <motion.p
             variants={itemVariants}
-            className="mt-10 max-w-3xl text-lg leading-relaxed text-white/80 sm:text-xl md:text-2xl font-light"
+            className="mt-10 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl md:text-2xl font-light tracking-wide"
           >
-            <span className="font-medium text-white">Rwoga Family Association</span> is a refugee-led 
+            <span className="font-semibold text-white drop-shadow-md">Rwoga Family Association</span> is a refugee-led 
             association founded by Congolese students at African Leadership University who believe that 
             those closest to a community's challenges are also closest to its solutions.
           </motion.p>
@@ -180,23 +201,7 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll down indicator */}
-      {!reduce && (
-        <motion.div 
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.5, duration: 1 }}
-        >
-          <span className="text-xs font-medium tracking-widest text-white/50 uppercase">Scroll to explore</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <ChevronDown className="h-5 w-5 text-white/50" />
-          </motion.div>
-        </motion.div>
-      )}
+
     </section>
   )
 }
