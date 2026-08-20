@@ -15,10 +15,42 @@ export function Hero() {
   const titleText = toTitleCase('Lighting the Way for Refugee Communities')
   const words = titleText.split(' ')
   const letterCount = words.reduce((sum, word) => sum + word.length, 0)
+  const afterTitleDelay = TITLE_START_DELAY + (letterCount * LETTER_STAGGER)
 
-  const afterTitleDelay = reduce
-    ? 0.1
-    : TITLE_START_DELAY + Math.max(letterCount - 1, 0) * LETTER_STAGGER + LETTER_DURATION
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      filter: 'blur(0px)',
+      transition: { duration: 0.8, ease: easeOut } 
+    }
+  }
+
+  const badgeVariants = {
+    hidden: { opacity: 0, filter: 'blur(10px)' },
+    visible: { 
+      opacity: 1, 
+      filter: 'blur(0px)',
+      x: ['-15vw', '15vw', '-15vw'],
+      transition: { 
+        opacity: { duration: 0.8, ease: easeOut },
+        filter: { duration: 0.8, ease: easeOut },
+        x: { duration: 10, repeat: Infinity, ease: 'easeInOut' as const }
+      } 
+    }
+  }
 
   return (
     <section className="relative min-h-[100svh] overflow-hidden">
@@ -59,16 +91,28 @@ export function Hero() {
         </>
       )}
 
-      <div className="container-page relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-5 pb-24 pt-28 text-center">
-        <div className="mx-auto flex w-full max-w-5xl flex-col items-center">
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.12, ease: easeOut }}
-            className="mb-6 max-w-full px-2 text-sm font-semibold tracking-[0.12em] text-amber-400 uppercase sm:mb-8 sm:text-base sm:tracking-[0.2em] md:text-lg"
+      <div className="container-page relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-5 pb-24 pt-32 text-center">
+        <motion.div 
+          className="mx-auto flex w-full max-w-5xl flex-col items-center"
+          variants={containerVariants}
+          initial={reduce ? "visible" : "hidden"}
+          animate="visible"
+        >
+          {/* Top subtle badge */}
+          <motion.div 
+            variants={badgeVariants}
+            className="relative mb-10 inline-flex items-center gap-3 overflow-hidden rounded-full border border-white/20 bg-white/5 px-5 py-2 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.05)]"
           >
-            From Challenges to Champions
-          </motion.p>
+            {/* Shimmer reflection passing over the badge */}
+            <motion.div 
+              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"
+              animate={{ x: ['-200%', '300%'] }}
+              transition={{ duration: 3, repeat: Infinity, repeatDelay: 1.5, ease: "easeInOut" }}
+            />
+            <span className="relative text-xs font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/70 uppercase">
+              From Challenges to Champions
+            </span>
+          </motion.div>
 
           <h1
             className="font-display text-4xl font-extrabold tracking-tight text-white text-balance sm:text-6xl md:text-7xl lg:text-[5rem] lg:leading-[1.08]"
@@ -114,24 +158,12 @@ export function Hero() {
           />
 
           <motion.p
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: afterTitleDelay + 0.12, ease: easeOut }}
-            className="mt-7 max-w-3xl text-base leading-relaxed text-white/78 sm:text-lg md:text-xl"
+            variants={itemVariants}
+            className="mt-10 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl md:text-2xl font-light tracking-wide"
           >
-            <span className="font-semibold text-white underline decoration-amber-100 decoration-2 underline-offset-4">
-              Rwoga Family Association
-            </span>{' '}
-            is a refugee-led association founded by Congolese students at African Leadership
-            University{' '}
-            <span className="font-semibold text-white underline decoration-amber-100 decoration-2 underline-offset-4">
-              who believe
-            </span>{' '}
-            that those closest to a community’s challenges are also closest to its{' '}
-            <span className="font-semibold text-white underline decoration-amber-100 decoration-2 underline-offset-4">
-              solutions
-            </span>
-            .
+            <span className="font-semibold text-white drop-shadow-md">Rwoga Family Association</span> is a refugee-led 
+            association founded by Congolese students at African Leadership University who believe that 
+            those closest to a community's challenges are also closest to its solutions.
           </motion.p>
 
           <motion.div
@@ -148,8 +180,10 @@ export function Hero() {
               Partner With Us
             </ButtonLink>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
+
+
     </section>
   )
 }
