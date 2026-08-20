@@ -1,5 +1,11 @@
 import { useRef } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+  type Variants,
+} from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { CloudinaryImage } from '@/components/media/CloudinaryImage'
@@ -22,35 +28,37 @@ export function Hero() {
   const titleText = toTitleCase('Lighting the Way for Refugee Communities')
   const words = titleText.split(" ")
 
-  const containerVariants = {
+  const easeOutExpo = [0.16, 1, 0.3, 1] as const
+
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
+        delayChildren: 0.2,
+      },
+    },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       filter: 'blur(0px)',
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
-    }
+      transition: { duration: 0.8, ease: easeOutExpo },
+    },
   }
 
-  const wordVariants = {
+  const wordVariants: Variants = {
     hidden: { opacity: 0, y: 20, rotateX: -40 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
+    visible: {
+      opacity: 1,
+      y: 0,
       rotateX: 0,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
-    }
+      transition: { duration: 0.8, ease: easeOutExpo },
+    },
   }
 
   return (
