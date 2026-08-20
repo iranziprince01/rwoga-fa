@@ -15,6 +15,18 @@ export function Hero() {
   const titleText = toTitleCase('Lighting the Way for Refugee Communities')
   const words = titleText.split(' ')
   const letterCount = words.reduce((sum, word) => sum + word.length, 0)
+  const afterTitleDelay = TITLE_START_DELAY + (letterCount * LETTER_STAGGER)
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  }
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
@@ -22,7 +34,7 @@ export function Hero() {
       opacity: 1, 
       y: 0, 
       filter: 'blur(0px)',
-      transition: { duration: 0.8, ease: "easeOut" } 
+      transition: { duration: 0.8, ease: easeOut } 
     }
   }
 
@@ -33,20 +45,10 @@ export function Hero() {
       filter: 'blur(0px)',
       x: ['-15vw', '15vw', '-15vw'],
       transition: { 
-        opacity: { duration: 0.8, ease: "easeOut" },
-        filter: { duration: 0.8, ease: "easeOut" },
-        x: { duration: 10, repeat: Infinity, ease: 'easeInOut' }
+        opacity: { duration: 0.8, ease: easeOut },
+        filter: { duration: 0.8, ease: easeOut },
+        x: { duration: 10, repeat: Infinity, ease: 'easeInOut' as const }
       } 
-    }
-  }
-
-  const wordVariants = {
-    hidden: { opacity: 0, y: 20, rotateX: -40 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      rotateX: 0,
-      transition: { duration: 0.8, ease: "easeOut" } 
     }
   }
 
@@ -178,7 +180,7 @@ export function Hero() {
               Partner With Us
             </ButtonLink>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
 
 
