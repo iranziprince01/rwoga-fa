@@ -40,16 +40,24 @@ export function Hero() {
 
   const badgeVariants = {
     hidden: { opacity: 0, filter: 'blur(10px)' },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       filter: 'blur(0px)',
-      x: ['-15vw', '15vw', '-15vw'],
-      transition: { 
+      ...(reduce
+        ? {}
+        : {
+            x: ['-12vw', '12vw', '-12vw'],
+          }),
+      transition: {
         opacity: { duration: 0.8, ease: easeOut },
         filter: { duration: 0.8, ease: easeOut },
-        x: { duration: 10, repeat: Infinity, ease: 'easeInOut' as const }
-      } 
-    }
+        ...(reduce
+          ? {}
+          : {
+              x: { duration: 48, repeat: Infinity, ease: 'easeInOut' as const },
+            }),
+      },
+    },
   }
 
   return (
@@ -104,12 +112,12 @@ export function Hero() {
             className="relative mb-10 inline-flex items-center gap-3 overflow-hidden rounded-full border border-white/20 bg-white/5 px-5 py-2 backdrop-blur-md shadow-[0_0_15px_rgba(255,255,255,0.05)]"
           >
             {/* Shimmer reflection passing over the badge */}
-            <motion.div 
+            <motion.div
               className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"
               animate={{ x: ['-200%', '300%'] }}
-              transition={{ duration: 3, repeat: Infinity, repeatDelay: 1.5, ease: "easeInOut" }}
+              transition={{ duration: 8, repeat: Infinity, repeatDelay: 4, ease: 'easeInOut' }}
             />
-            <span className="relative text-xs font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/70 uppercase">
+            <span className="relative text-xs font-bold tracking-[0.25em] text-amber-400 uppercase sm:text-sm">
               From Challenges to Champions
             </span>
           </motion.div>
@@ -159,11 +167,21 @@ export function Hero() {
 
           <motion.p
             variants={itemVariants}
-            className="mt-10 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl md:text-2xl font-light tracking-wide"
+            className="mt-10 max-w-3xl text-base leading-relaxed text-white/78 sm:text-lg md:text-xl"
           >
-            <span className="font-semibold text-white drop-shadow-md">Rwoga Family Association</span> is a refugee-led 
-            association founded by Congolese students at African Leadership University who believe that 
-            those closest to a community's challenges are also closest to its solutions.
+            <span className="font-semibold text-white underline decoration-amber-100 decoration-2 underline-offset-4">
+              Rwoga Family Association
+            </span>{' '}
+            is a refugee-led association founded by Congolese students at African Leadership
+            University{' '}
+            <span className="font-semibold text-white underline decoration-amber-100 decoration-2 underline-offset-4">
+              who believe
+            </span>{' '}
+            that those closest to a community’s challenges are also closest to its{' '}
+            <span className="font-semibold text-white underline decoration-amber-100 decoration-2 underline-offset-4">
+              solutions
+            </span>
+            .
           </motion.p>
 
           <motion.div
