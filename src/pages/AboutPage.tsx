@@ -7,14 +7,18 @@ import { Reveal } from '@/components/motion/Reveal'
 import { CloudinaryImage } from '@/components/media/CloudinaryImage'
 import { aboutContent, pillars, timeline, values } from '@/data/content'
 import { getIcon, mediaUrl } from '@/utils'
+import { pageSeoProps } from '@/utils/seo'
 
 export function AboutPage() {
   return (
     <>
       <SEO
-        title="About"
-        description="Learn who Rwoga Family Association is: a refugee-led youth association founded by Congolese students at African Leadership University."
-        path="/about"
+        {...pageSeoProps({
+          title: 'About',
+          description:
+            'Learn who Rwoga Family Association is: a refugee-led youth association founded by Congolese students at African Leadership University.',
+          path: '/about',
+        })}
       />
       <PageHero eyebrow="About Rwoga" title="Who We Are" />
 

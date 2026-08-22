@@ -6,6 +6,7 @@ import { Reveal } from '@/components/motion/Reveal'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { contributions, getInvolvedPaths } from '@/data/content'
 import { getIcon } from '@/utils'
+import { pageSeoProps } from '@/utils/seo'
 
 const paths = getInvolvedPaths
 
@@ -13,9 +14,12 @@ export function GetInvolvedPage() {
   return (
     <>
       <SEO
-        title="Get Involved"
-        description="Become a member, mentor, partner, or donate. Join Rwoga Family Association in supporting refugee youth leadership."
-        path="/get-involved"
+        {...pageSeoProps({
+          title: 'Get Involved',
+          description:
+            'Become a member, mentor, partner, or donate. Join Rwoga Family Association in supporting refugee youth leadership.',
+          path: '/get-involved',
+        })}
       />
       <PageHero
         eyebrow="Get involved"

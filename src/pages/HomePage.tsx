@@ -18,13 +18,14 @@ import {
 import { PartnerLogoGrid } from '@/components/cards/PartnerLogoGrid'
 import { Testimonials } from '@/components/testimonials/Testimonials'
 import { getIcon } from '@/utils'
+import { organizationSchema, websiteSchema } from '@/utils/seo'
 
 export function HomePage() {
   const featured = projects.find((p) => p.id === 'sewing-hope') ?? projects[0]
 
   return (
     <>
-      <SEO path="/" />
+      <SEO path="/" jsonLd={[organizationSchema(), websiteSchema()]} />
       <Hero />
 
       <section className="relative -mt-10 pb-20">

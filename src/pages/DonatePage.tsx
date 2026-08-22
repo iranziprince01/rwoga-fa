@@ -8,6 +8,7 @@ import { CTA } from '@/components/cta/CTA'
 import { Reveal } from '@/components/motion/Reveal'
 import { contributions } from '@/data/content'
 import { getIcon } from '@/utils'
+import { pageSeoProps } from '@/utils/seo'
 
 export function DonatePage() {
   const [submitted, setSubmitted] = useState(false)
@@ -67,9 +68,12 @@ export function DonatePage() {
   return (
     <>
       <SEO
-        title="Donate"
-        description="Support Rwoga through money, books, laptops, training, mentorship, equipment, or volunteer time, warmly and without pressure."
-        path="/donate"
+        {...pageSeoProps({
+          title: 'Donate',
+          description:
+            'Support Rwoga through money, books, laptops, training, mentorship, equipment, or volunteer time, warmly and without pressure.',
+          path: '/donate',
+        })}
       />
       <PageHero
         eyebrow="Donate"

@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/motion/Reveal'
 import { faqs } from '@/data/content'
 import { SITE } from '@/constants/site'
+import { pageSeoProps } from '@/utils/seo'
 
 export function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
@@ -66,9 +67,12 @@ export function ContactPage() {
   return (
     <>
       <SEO
-        title="Contact"
-        description="Contact Rwoga Family Association for partnerships, volunteering, donations, media, or general questions."
-        path="/contact"
+        {...pageSeoProps({
+          title: 'Contact',
+          description:
+            'Contact Rwoga Family Association for partnerships, volunteering, donations, media, or general questions.',
+          path: '/contact',
+        })}
       />
       <PageHero
         eyebrow="Contact"

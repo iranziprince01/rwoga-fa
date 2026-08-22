@@ -4,7 +4,11 @@ import { ButtonLink } from '@/components/ui/ButtonLink'
 export function NotFoundPage() {
   return (
     <>
-      <SEO title="Page not found" description="The page you are looking for could not be found." path="/404" />
+      <SEO
+        title="Page not found"
+        description="The page you are looking for could not be found."
+        noindex
+      />
       <section className="gradient-mesh flex min-h-[80svh] items-center pt-28 pb-20">
         <div className="container-page text-center">
           <p className="font-display text-8xl font-extrabold text-amber-400">404</p>

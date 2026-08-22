@@ -6,6 +6,7 @@ import { CTA } from '@/components/cta/CTA'
 import { Reveal } from '@/components/motion/Reveal'
 import { documents } from '@/data/content'
 import { cn } from '@/utils'
+import { pageSeoProps } from '@/utils/seo'
 
 const categories = [
   'Annual Reports',
@@ -16,9 +17,11 @@ export function TransparencyPage() {
   return (
     <>
       <SEO
-        title="Resources"
-        description="Rwoga’s resource hub for annual reports and impact reports."
-        path="/transparency"
+        {...pageSeoProps({
+          title: 'Resources',
+          description: 'Rwoga’s resource hub for annual reports and impact reports.',
+          path: '/transparency',
+        })}
       />
       <PageHero
         eyebrow="Resources"

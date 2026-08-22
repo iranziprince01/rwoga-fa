@@ -8,6 +8,7 @@ import { ButtonLink } from '@/components/ui/ButtonLink'
 import { CloudinaryImage } from '@/components/media/CloudinaryImage'
 import { programs } from '@/data/content'
 import { getIcon } from '@/utils'
+import { webPageSchema } from '@/utils/seo'
 
 export function ProgramDetailPage() {
   const { programId } = useParams<{ programId: string }>()
@@ -39,6 +40,18 @@ export function ProgramDetailPage() {
         title={program.title}
         description={program.summary}
         path={`/programs/${program.id}`}
+        image={program.image}
+        type="article"
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Programs', path: '/programs' },
+          { name: program.title, path: `/programs/${program.id}` },
+        ]}
+        jsonLd={webPageSchema({
+          title: program.title,
+          description: program.summary,
+          path: `/programs/${program.id}`,
+        })}
       />
       <PageHero eyebrow="Program" title={program.title} description={program.summary} />
 

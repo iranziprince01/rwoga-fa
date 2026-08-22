@@ -6,6 +6,7 @@ import { ProgramCard } from '@/components/cards/ProgramCard'
 import { Reveal } from '@/components/motion/Reveal'
 import { ButtonLink } from '@/components/ui/ButtonLink'
 import { programs } from '@/data/content'
+import { pageSeoProps } from '@/utils/seo'
 
 const programPillars = [
   {
@@ -26,9 +27,12 @@ export function ProgramsPage() {
   return (
     <>
       <SEO
-        title="Programs"
-        description="Explore Rwoga’s programs in student leadership, educational support, women empowerment, community outreach, mentorship, and more."
-        path="/programs"
+        {...pageSeoProps({
+          title: 'Programs',
+          description:
+            'Explore Rwoga’s programs in student leadership, educational support, women empowerment, community outreach, mentorship, and more.',
+          path: '/programs',
+        })}
       />
       <PageHero
         eyebrow="Programs"

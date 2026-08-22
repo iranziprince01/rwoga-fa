@@ -7,7 +7,7 @@
     "dev": "concurrently -k -n api,web -c green,cyan \"npm:dev:api\" \"npm:dev:web\"",
     "dev:web": "vite",
     "dev:api": "node server/dev-api.mjs",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/generate-sitemap.mjs && tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
     "blob:upload": "node scripts/upload-blob-assets.mjs"

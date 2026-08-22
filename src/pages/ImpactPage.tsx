@@ -7,6 +7,7 @@ import { StoryCard } from '@/components/cards/StoryCard'
 import { CTA } from '@/components/cta/CTA'
 import { Reveal } from '@/components/motion/Reveal'
 import { stats, stories, timeline } from '@/data/content'
+import { pageSeoProps } from '@/utils/seo'
 
 const impactStats = stats.filter((s) => s.id !== 'founded')
 
@@ -14,9 +15,12 @@ export function ImpactPage() {
   return (
     <>
       <SEO
-        title="Impact"
-        description="Explore Rwoga’s impact across members, communities, projects, and lives reached through education, leadership, and collective action."
-        path="/impact"
+        {...pageSeoProps({
+          title: 'Impact',
+          description:
+            'Explore Rwoga’s impact across members, communities, projects, and lives reached through education, leadership, and collective action.',
+          path: '/impact',
+        })}
       />
       <PageHero eyebrow="Impact" title="Progress that creates opportunity" />
 

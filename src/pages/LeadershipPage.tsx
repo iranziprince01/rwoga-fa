@@ -6,6 +6,7 @@ import { Reveal } from '@/components/motion/Reveal'
 import { boardMembers, currentLeadership } from '@/data/content'
 import type { Leader } from '@/types'
 import { mediaUrl } from '@/utils'
+import { pageSeoProps } from '@/utils/seo'
 import { HandHeart, HeartHandshake, Leaf, Waypoints } from 'lucide-react'
 
 function LeaderGrid({
@@ -59,9 +60,11 @@ export function LeadershipPage() {
   return (
     <>
       <SEO
-        title="Leadership"
-        description="Meet Rwoga’s advisors and current leadership team."
-        path="/leadership"
+        {...pageSeoProps({
+          title: 'Leadership',
+          description: 'Meet Rwoga’s advisors and current leadership team.',
+          path: '/leadership',
+        })}
       />
       <PageHero
         eyebrow="Leadership"
