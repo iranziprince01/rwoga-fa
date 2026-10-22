@@ -74,20 +74,20 @@ export function LeadershipPage() {
       <section className="section-pad">
         <div className="container-page">
           <SectionHeader
-            title="Our Advisors"
+            title="Our Leadership Committee"
             className="mb-10"
           />
-          <LeaderGrid people={boardMembers} showRole={false} />
+          <LeaderGrid people={currentLeadership} />
         </div>
       </section>
 
       <section className="bg-cream-100 section-pad">
         <div className="container-page">
           <SectionHeader
-            title="Our Leadership Committee"
+            title="Our Advisors"
             className="mb-10"
           />
-          <LeaderGrid people={currentLeadership} />
+          <LeaderGrid people={boardMembers} showRole={false} />
         </div>
       </section>
 

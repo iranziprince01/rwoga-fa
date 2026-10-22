@@ -104,7 +104,32 @@
   }
 
   .container-page {
-    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    margin-inline: auto;
+    width: 100%;
+    max-width: 80rem;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 40rem) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* 13-inch laptops sit around 1280–1512px, where the 80rem column is
+     flush with the window and 2rem is the entire side margin. Widen the
+     gutter there only. From 96rem up, the centered column already has
+     room, and padding returns to 2rem so large monitors stay unchanged. */
+  @media (min-width: 64rem) and (max-width: 95.999rem) {
+    .container-page {
+      padding-inline: clamp(4rem, 6.25vw, 5.5rem);
+    }
   }
 
   .section-pad {
