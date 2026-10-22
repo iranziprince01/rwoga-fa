@@ -11,6 +11,7 @@ export const blobAssets = {
   "/Digital literacy.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Digital%20literacy.jpg",
   "/EdSupport.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/EdSupport.jpg",
   "/Education Support.jpeg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Education%20Support.jpeg",
+  "/Elie.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Elie.jpg",
   "/Empowerment.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Empowerment.jpg",
   "/Eric1.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Eric1.jpg",
   "/Eric2.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Eric2.jpg",
@@ -21,7 +22,9 @@ export const blobAssets = {
   "/gal03.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/gal03.jpg",
   "/hero.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/hero.jpg",
   "/humanity.png": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/humanity.png",
+  "/James.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/James.jpg",
   "/Kevine.png": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Kevine.png",
+  "/Media.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Media.jpg",
   "/Mentorship.jpeg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Mentorship.jpeg",
   "/misvis.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/misvis.jpg",
   "/p01.jpeg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/p01.jpeg",
@@ -50,6 +53,7 @@ export const blobAssets = {
   "/WeAre.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/WeAre.jpg",
   "/Women Empowerment.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Women%20Empowerment.jpg",
   "/worldvision.png": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/worldvision.png",
+  "/Yvonne.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Yvonne.jpg",
 } as const
 
 export type BlobAssetPath = keyof typeof blobAssets
