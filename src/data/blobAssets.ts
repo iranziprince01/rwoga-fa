@@ -6,7 +6,7 @@ export const blobAssets = {
   "/about01.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/about01.jpg",
   "/Bosco.png": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Bosco.png",
   "/Career development.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Career%20development.jpg",
-  "/Claudine.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Claudine.jpg",
+  "/Claudine.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Claudine-2.jpg",
   "/Community Outreach.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Community%20Outreach.jpg",
   "/Digital literacy.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Digital%20literacy.jpg",
   "/EdSupport.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/EdSupport.jpg",
