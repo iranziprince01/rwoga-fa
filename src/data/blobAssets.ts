@@ -42,7 +42,7 @@ export const blobAssets = {
   "/p61.jpeg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/p61.jpeg",
   "/p71.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/p71.jpg",
   "/Pacifique.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Pacifique.jpg",
-  "/Patrick.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Patrick.jpg",
+  "/Patrick.png": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Patrick.png",
   "/Prince.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Prince.jpg",
   "/Providence.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/Providence.jpg",
   "/RwogaValues.jpg": "https://ko9lopuqp1q6fex2.public.blob.vercel-storage.com/media/RwogaValues.jpg",

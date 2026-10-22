@@ -696,7 +696,7 @@ export const leaders: Leader[] = [
     role: 'Advisor',
     department: 'Advisors',
     bio: '',
-    image: '/Patrick.jpg',
+    image: '/Patrick.png',
     group: 'board',
   },
   {
