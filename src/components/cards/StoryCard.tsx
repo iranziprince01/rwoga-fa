@@ -21,7 +21,10 @@ export function StoryCard({ story, className }: Props) {
           alt=""
           width={800}
           height={500}
-          className="h-full w-full transition-transform duration-700 group-hover:scale-105"
+          className={cn(
+            'h-full w-full transition-transform duration-700 group-hover:scale-105',
+            story.imagePosition,
+          )}
         />
       </div>
       <div className="p-5 sm:p-6">

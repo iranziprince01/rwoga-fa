@@ -177,7 +177,7 @@ export const timeline: TimelineEvent[] = [
     year: '2021',
     title: 'First community outreach',
     description:
-      'Rwoga held its first community outreach at Gakoni High School, encouraging refugee secondary school students to pursue academic excellence and higher education.',
+      'Rwoga held its first community outreach at Gakoni Adventist College, encouraging refugee secondary school students to pursue academic excellence and higher education. Since then, many of those students have earned excellent grades and secured fully funded scholarships in Rwanda and worldwide — more than in previous years.',
   },
   {
     year: '2022',
@@ -198,10 +198,10 @@ export const timeline: TimelineEvent[] = [
       'Rwoga promoted women’s empowerment by donating five sewing machines in Mugombwa and Kiziba Refugee Camps and recognized top-performing students in Kigeme Refugee Camp with academic awards.',
   },
   {
-    year: 'Today',
-    title: 'Growing with purpose',
+    year: '2026',
+    title: 'Paying high school fees',
     description:
-      'Rwoga continues to grow as a trusted refugee-led association, empowering communities through education, mentorship, and community-led initiatives.',
+      'From 2026 and moving forward, Rwoga’s goal is to pay school fees for high school refugee students so they can stay in school and continue their education.',
   },
 ]
 
@@ -211,7 +211,7 @@ export const programs: Program[] = [
     title: 'Education Support',
     summary: 'Mentorship, learning resources, scholarships, and academic encouragement for refugee learners.',
     description:
-      'We support refugee learners with guidance, learning materials, and encouragement so they can pursue excellence in school and higher education.',
+      'We support refugee learners with guidance, learning materials, and encouragement so they can pursue excellence in school and higher education. From 2026 and moving forward, our goal is to pay school fees for high school refugee students.',
     approach: [
       'Education is one of the surest paths out of vulnerability. Many refugee learners have the talent and drive to excel, yet lack books, tutoring, recognition, and someone who believes in their potential.',
       'Our Education Support program bridges that gap through academic awards, learning materials, peer guidance, and encouragement that keeps students focused on excellence from secondary school through university.',
@@ -237,12 +237,14 @@ export const programs: Program[] = [
       'Clearer pathways from secondary school to higher education',
     ],
     futureGoals: [
+      'Pay school fees for high school refugee students from 2026 and moving forward',
       'Grow scholarship and award pathways across more camps',
       'Build a shared learning resource library for members and camp learners',
       'Expand tutoring across camps and university campuses',
       'Publish education outcomes in our annual and impact reports',
     ],
     supportNeeds: [
+      'Fund school fees for high school refugee students',
       'Sponsor academic awards and learning kits for camp schools',
       'Donate textbooks, stationery, and exam preparation materials',
       'Fund scholarship application support and tutoring stipends',
@@ -349,7 +351,7 @@ export const programs: Program[] = [
     description:
       'From school visits to food support for families in transition, our outreach responds to real needs across refugee communities in Rwanda.',
     approach: [
-      'Outreach is how we stay close to the communities we serve. Since our first visit to Gakoni High School in 2021, Rwoga members have returned to camps and transit centres with encouragement, food support, and practical care.',
+      'Outreach is how we stay close to the communities we serve. Since our first visit to Gakoni Adventist College in 2021, Rwoga members have returned to camps and transit centres with encouragement, food support, and practical care.',
       'We listen first, then respond—whether that means inspiring secondary students toward higher education or supporting families moving between Nkamira and Nyabiheke with dignity.',
     ],
     whoItServes:
@@ -593,19 +595,21 @@ export const projects: Project[] = [
   },
   {
     id: 'gakoni-outreach',
-    title: 'Gakoni High School Outreach',
-    summary: 'Encouraging refugee secondary school students to pursue academic excellence and higher education.',
+    title: 'Gakoni Adventist College Outreach',
+    summary:
+      'Encouraging refugee secondary school students to pursue academic excellence and higher education. Many have since earned excellent grades and fully funded scholarships in Rwanda and worldwide.',
     description:
-      'In 2021, Rwoga held its first community outreach at Gakoni High School, encouraging refugee secondary school students to pursue academic excellence and higher education.',
+      'In 2021, Rwoga held its first community outreach at Gakoni Adventist College, encouraging refugee secondary school students to pursue academic excellence and higher education. Since then, many of those students have earned excellent grades and secured fully funded scholarships in Rwanda and worldwide — more than in previous years.',
     status: 'completed',
     category: 'Community Outreach',
     impactHighlights: [
       'First community outreach delivered',
-      'Secondary students encouraged toward higher education',
-      'Foundation for ongoing school engagement',
+      'Many students earned excellent grades',
+      'Fully funded scholarships in Rwanda and worldwide',
+      'Stronger results than in previous years',
     ],
-    image: IMAGES.youth,
-    gallery: [IMAGES.youth, IMAGES.leadership, IMAGES.mentorship],
+    image: '/Gak05.jpeg',
+    gallery: ['/Gak05.jpeg'],
   },
 ]
 
@@ -641,6 +645,15 @@ export const stories: Story[] = [
       'In Kigeme Refugee Camp, we awarded academic prizes that celebrated every top-performing student and encouraged continued excellence — affirming that achievement deserves to be seen.',
     body: 'In Kigeme Refugee Camp, we awarded academic prizes that celebrated every top-performing student and encouraged continued excellence — affirming that achievement deserves to be seen.',
     image: '/02.jpg',
+  },
+  {
+    id: 'gakoni-outreach',
+    title: 'Gakoni Adventist College Outreach',
+    excerpt:
+      'In 2021, we held our first community outreach at Gakoni Adventist College, encouraging refugee secondary school students to pursue academic excellence and higher education. Since then, many of those students have earned excellent grades and secured fully funded scholarships in Rwanda and worldwide — more than in previous years.',
+    body: 'In 2021, we held our first community outreach at Gakoni Adventist College, encouraging refugee secondary school students to pursue academic excellence and higher education. Since then, many of those students have earned excellent grades and secured fully funded scholarships in Rwanda and worldwide — more than in previous years.',
+    image: '/Gak05.jpeg',
+    imagePosition: 'object-top',
   },
 ]
 
@@ -986,6 +999,13 @@ export const documents: DocumentItem[] = [
 ]
 
 export const galleryImages: GalleryImage[] = [
+  { id: 'gak01', src: '/Gak01.jpeg', imagePosition: 'object-[center_40%]' },
+  { id: 'gak02', src: '/Gak02.jpeg', imagePosition: 'object-[center_35%]' },
+  { id: 'gak03', src: '/Gak03.jpeg' },
+  { id: 'gak04', src: '/Gak04.jpeg' },
+  { id: 'gak05', src: '/Gak05.jpeg', imagePosition: 'object-[center_28%]' },
+  { id: 'gak06', src: '/Gak06.jpeg', imagePosition: 'object-[center_30%]' },
+  { id: 'gak07', src: '/Gak07.jpeg', imagePosition: 'object-[center_38%]' },
   { id: 'hero', src: '/hero.jpg' },
   { id: 'we-are', src: '/WeAre.jpg' },
   { id: 'about01', src: '/about01.jpg' },

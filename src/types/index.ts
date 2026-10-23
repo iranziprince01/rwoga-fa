@@ -69,6 +69,8 @@ export type Story = {
   author?: string
   role?: string
   image: string
+  /** Tailwind object-position class when the photo needs a specific crop */
+  imagePosition?: string
   challenge?: string
   action?: string
   impact?: string
